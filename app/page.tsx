@@ -477,6 +477,9 @@ function removeLastRuPhoneDigit(value: string) {
 
 export default function Home() {
   const [activeCategory, setActiveCategory] = useState("Все");
+  const [mobileProduct, setMobileProduct] = useState<Product | null>(null);
+  const [mobileQuery, setMobileQuery] = useState("");
+  const [mobileView, setMobileView] = useState<"cart" | "catalog" | "home" | "profile" | "support">("home");
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [productSelections, setProductSelections] = useState<Record<number, ProductSelection>>({
     ...Object.fromEntries(
@@ -596,8 +599,21 @@ export default function Home() {
     });
   }, [activeCategory]);
 
+  const mobileProducts = useMemo(() => {
+    const query = mobileQuery.trim().toLowerCase();
+
+    return products.filter((product) => {
+      const categoryMatches = activeCategory === "Все" || product.category === activeCategory;
+      const searchMatches = !query || [product.name, product.color, product.storage, product.sim, product.category].filter(Boolean).join(" ").toLowerCase().includes(query);
+
+      return categoryMatches && searchMatches;
+    });
+  }, [activeCategory, mobileQuery]);
+
   const cartCount = cart.reduce((sum, item) => sum + item.qty, 0);
   const cartTotal = cart.reduce((sum, item) => sum + parsePrice(item.product.price) * item.qty, 0);
+  const mobileHits = products.slice(0, 4);
+  const mobileCategories = ["iPhone", "AirPods", "iPad", "Apple Watch"];
 
   function getConfiguredProduct(product: Product) {
     const selection = productSelections[product.id];
@@ -696,6 +712,7 @@ export default function Home() {
 
   function selectCategory(category: string) {
     setActiveCategory(category);
+    setMobileView("catalog");
     document.getElementById("catalog")?.scrollIntoView({
       behavior: "smooth",
       block: "start",
@@ -830,6 +847,273 @@ export default function Home() {
 
   return (
     <main>
+      <section className="miniApp" aria-label="appsale store Mini App">
+        <header className="miniHeader">
+          <button type="button">Закрыть</button>
+          <div>
+            <strong>appsale store</strong>
+            <span>мини-приложение</span>
+          </div>
+          <button type="button" aria-label="Меню">
+            ...
+          </button>
+        </header>
+
+        <div className="miniSearch">
+          <span aria-hidden="true">⌕</span>
+          <input onChange={(event) => setMobileQuery(event.target.value)} placeholder="Искать в appsale" value={mobileQuery} />
+          <button type="button" aria-label="Избранное">
+            ♡
+          </button>
+        </div>
+
+        <div className="miniContent">
+          {mobileProduct ? (
+            <section className="miniProductView">
+              <button className="miniBack" onClick={() => setMobileProduct(null)} type="button">
+                Назад
+              </button>
+              <div className="miniProductHero">
+                <DeviceVisual
+                  accent={mobileProduct.accent}
+                  category={mobileProduct.category}
+                  imageAlt={mobileProduct.name}
+                  imageFit={getProductImageFit(mobileProduct)}
+                  imageSrc={getProductImage(mobileProduct)}
+                />
+                <span>{(productImageIndexes[mobileProduct.id] ?? 0) + 1} / {getProductImages(mobileProduct).length}</span>
+              </div>
+              {getProductImages(mobileProduct).length > 1 ? (
+                <div className="miniDots" aria-label={`Фото ${mobileProduct.name}`}>
+                  {getProductImages(mobileProduct).map((image, index) => (
+                    <button
+                      className={(productImageIndexes[mobileProduct.id] ?? 0) === index ? "active" : ""}
+                      key={image}
+                      onClick={() =>
+                        setProductImageIndexes((current) => ({
+                          ...current,
+                          [mobileProduct.id]: index,
+                        }))
+                      }
+                      type="button"
+                    />
+                  ))}
+                </div>
+              ) : null}
+              <h2>{mobileProduct.name}</h2>
+              <strong className="miniPrice">{mobileProduct.price}</strong>
+              {mobileProduct.variantOptions ? (
+                <div className="miniOptionPanel">
+                  <span>Цвет</span>
+                  <div className="miniColorGrid">
+                    {mobileProduct.variantOptions.colors.map((color) => (
+                      <button
+                        className={productSelections[mobileProduct.id]?.color === color ? "active" : ""}
+                        data-color={color}
+                        key={color}
+                        onClick={() => updateProductSelection(mobileProduct.id, "color", color)}
+                        type="button"
+                      >
+                        <i aria-hidden="true" />
+                        {color}
+                      </button>
+                    ))}
+                  </div>
+                  <span>Память</span>
+                  <div className="miniSegmentGrid">
+                    {mobileProduct.variantOptions.storages.map((storage) => (
+                      <button
+                        className={productSelections[mobileProduct.id]?.storage === storage ? "active" : ""}
+                        key={storage}
+                        onClick={() => updateProductSelection(mobileProduct.id, "storage", storage)}
+                        type="button"
+                      >
+                        {storage}
+                      </button>
+                    ))}
+                  </div>
+                  <span>SIM-карта</span>
+                  <div className="miniSegmentGrid">
+                    {mobileProduct.variantOptions.sims.map((sim) => (
+                      <button
+                        className={productSelections[mobileProduct.id]?.sim === sim ? "active" : ""}
+                        key={sim}
+                        onClick={() => updateProductSelection(mobileProduct.id, "sim", sim)}
+                        type="button"
+                      >
+                        {sim}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              ) : null}
+            </section>
+          ) : null}
+
+          {!mobileProduct && mobileView === "home" ? (
+            <section className="miniHome">
+              <div className="miniBanner">
+                <div>
+                  <span>appsale store</span>
+                  <strong>Техника Apple без лишней витрины</strong>
+                  <p>Подберем устройство, уточним наличие и оформим заказ в Telegram.</p>
+                </div>
+                <img src="/appsale-hero.png" alt="" />
+              </div>
+              <div className="miniSectionTitle">
+                <h2>Хиты продаж</h2>
+                <button onClick={() => setMobileView("catalog")} type="button">
+                  Смотреть все
+                </button>
+              </div>
+              <div className="miniProductRail">
+                {mobileHits.map((product) => (
+                  <article className="miniProductCard" key={product.id}>
+                    <button className="miniFavorite" type="button" aria-label="В избранное">
+                      ♡
+                    </button>
+                    <button className="miniCardImage" onClick={() => setMobileProduct(product)} type="button">
+                      <img src={getProductImage(product)} alt="" />
+                    </button>
+                    <button className="miniCardTitle" onClick={() => setMobileProduct(product)} type="button">
+                      {product.name}
+                    </button>
+                    <strong>{product.price}</strong>
+                    <button className="miniAddButton" onClick={() => addToCart(product)} type="button">
+                      В корзину
+                    </button>
+                  </article>
+                ))}
+              </div>
+            </section>
+          ) : null}
+
+          {!mobileProduct && mobileView === "catalog" ? (
+            <section className="miniCatalog">
+              <div className="miniBrandGrid">
+                {mobileCategories.map((category) => (
+                  <button
+                    className={activeCategory === category ? "active" : ""}
+                    key={category}
+                    onClick={() => setActiveCategory(category)}
+                    type="button"
+                  >
+                    {category}
+                  </button>
+                ))}
+              </div>
+              <div className="miniCatalogGrid">
+                {mobileProducts.map((product) => (
+                  <article className="miniProductCard" key={product.id}>
+                    <button className="miniFavorite" type="button" aria-label="В избранное">
+                      ♡
+                    </button>
+                    <button className="miniCardImage" onClick={() => setMobileProduct(product)} type="button">
+                      <img src={getProductImage(product)} alt="" />
+                    </button>
+                    <button className="miniCardTitle" onClick={() => setMobileProduct(product)} type="button">
+                      {product.name}
+                    </button>
+                    <strong>{product.price}</strong>
+                    <button className="miniAddButton" onClick={() => addToCart(product)} type="button">
+                      В корзину
+                    </button>
+                  </article>
+                ))}
+              </div>
+            </section>
+          ) : null}
+
+          {!mobileProduct && mobileView === "cart" ? (
+            <section className="miniCartView">
+              <h2>Корзина</h2>
+              {cart.length ? (
+                cart.map((item) => (
+                  <article className="miniCartItem" key={item.key}>
+                    <img src={getProductImage(item.product)} alt="" />
+                    <div>
+                      <strong>{item.product.name}</strong>
+                      <span>{getProductSpecs(item.product)}</span>
+                      <div>
+                        <button onClick={() => updateCartQty(item.key, -1)} type="button">-</button>
+                        <span>{item.qty}</span>
+                        <button onClick={() => updateCartQty(item.key, 1)} type="button">+</button>
+                      </div>
+                    </div>
+                    <b>{item.product.price}</b>
+                  </article>
+                ))
+              ) : (
+                <p className="miniEmpty">Корзина пока пустая.</p>
+              )}
+              <div className="miniCheckoutBar">
+                <div>
+                  <span>Итого</span>
+                  <strong>{cartTotal.toLocaleString("ru-RU")} ₽</strong>
+                </div>
+                <button disabled={!cart.length} onClick={() => setIsCartOpen(true)} type="button">
+                  Оформить заказ
+                </button>
+              </div>
+            </section>
+          ) : null}
+
+          {!mobileProduct && mobileView === "support" ? (
+            <section className="miniSupport">
+              <h2>Поддержка</h2>
+              <div>
+                <span>?</span>
+                <strong>Нужна помощь?</strong>
+                <p>Напишите нам, поможем подобрать устройство и уточним наличие.</p>
+                <a href="https://t.me/appsale_store" rel="noreferrer" target="_blank">Написать в поддержку</a>
+              </div>
+            </section>
+          ) : null}
+
+          {!mobileProduct && mobileView === "profile" ? (
+            <section className="miniProfile">
+              <h2>Профиль</h2>
+              <div className="miniProfileCard">
+                <img src="/appsale-logo.png" alt="" />
+                <div>
+                  <strong>{checkoutForm.name || "Гость appsale"}</strong>
+                  <span>{checkoutForm.telegram || "Telegram подставится автоматически"}</span>
+                </div>
+              </div>
+              <button type="button">Мои заказы</button>
+              <button type="button">Избранное</button>
+              <button type="button">Наши контакты</button>
+            </section>
+          ) : null}
+        </div>
+
+        {mobileProduct ? (
+          <div className="miniStickyAction">
+            <button type="button" aria-label="В избранное">♡</button>
+            <button onClick={() => addToCart(mobileProduct)} type="button">
+              В корзину
+            </button>
+            <button onClick={() => setMobileProduct(null)} type="button" aria-label="Закрыть">□</button>
+          </div>
+        ) : (
+          <nav className="miniTabbar" aria-label="Навигация Mini App">
+            {[
+              ["home", "⌂", "Главная"],
+              ["catalog", "▦", "Каталог"],
+              ["cart", "🛒", "Корзина"],
+              ["support", "?", "Поддержка"],
+              ["profile", "♙", "Профиль"],
+            ].map(([view, icon, label]) => (
+              <button className={mobileView === view ? "active" : ""} key={view} onClick={() => setMobileView(view as typeof mobileView)} type="button">
+                <span>{icon}</span>
+                {label}
+                {view === "cart" && cartCount ? <b>{cartCount}</b> : null}
+              </button>
+            ))}
+          </nav>
+        )}
+      </section>
+
       <header className="topbar">
         <a className="brand" href="#top" aria-label="appsale store">
           <img className="brandLogo" src="/appsale-logo.png" alt="" />
