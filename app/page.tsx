@@ -477,6 +477,7 @@ function removeLastRuPhoneDigit(value: string) {
 
 export default function Home() {
   const detailTouchStartX = useRef(0);
+  const recentlyAddedTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [activeCategory, setActiveCategory] = useState("Все");
   const [catalogQuery, setCatalogQuery] = useState("");
   const [detailProduct, setDetailProduct] = useState<Product | null>(null);
@@ -499,6 +500,7 @@ export default function Home() {
   const [isSending, setIsSending] = useState(false);
   const [orderStatus, setOrderStatus] = useState("");
   const [accountStatus, setAccountStatus] = useState("");
+  const [recentlyAddedKey, setRecentlyAddedKey] = useState("");
   const [checkoutForm, setCheckoutForm] = useState({
     cityAddress: "",
     comment: "",
@@ -590,6 +592,14 @@ export default function Home() {
       ),
     );
   }, [cart]);
+
+  useEffect(() => {
+    return () => {
+      if (recentlyAddedTimer.current) {
+        clearTimeout(recentlyAddedTimer.current);
+      }
+    };
+  }, []);
 
   const visibleProducts = useMemo(() => {
     const query = catalogQuery.trim().toLowerCase();
@@ -705,6 +715,16 @@ export default function Home() {
   function addToCart(product: Product) {
     const configuredProduct = getConfiguredProduct(product);
     const key = getCartKey(configuredProduct);
+
+    setRecentlyAddedKey(key);
+
+    if (recentlyAddedTimer.current) {
+      clearTimeout(recentlyAddedTimer.current);
+    }
+
+    recentlyAddedTimer.current = setTimeout(() => {
+      setRecentlyAddedKey("");
+    }, 1300);
 
     setCart((current) => {
       const found = current.find((item) => item.key === key);
@@ -1116,16 +1136,20 @@ export default function Home() {
 
       <nav className="mobileTabbar" aria-label="Навигация appsale store">
         <button onClick={() => selectCategory("Все")} type="button">
+          <i className="tabIcon tabIconCatalog" aria-hidden="true" />
           <span>Каталог</span>
         </button>
         <button className="mobileCartTab" onClick={() => setIsCartOpen(true)} type="button">
+          <i className="tabIcon tabIconCart" aria-hidden="true" />
           <span>Корзина</span>
           {cartCount ? <b>{cartCount}</b> : null}
         </button>
         <a href="https://t.me/appsale_store" rel="noreferrer" target="_blank">
-          Поддержка
+          <i className="tabIcon tabIconHelp" aria-hidden="true" />
+          <span>Поддержка</span>
         </a>
         <button onClick={() => setIsProfileOpen(true)} type="button">
+          <i className="tabIcon tabIconProfile" aria-hidden="true" />
           <span>Профиль</span>
         </button>
       </nav>
@@ -1134,6 +1158,7 @@ export default function Home() {
         ? (() => {
             const product = getConfiguredProduct(detailProduct);
             const productImages = getProductImages(product);
+            const isDetailProductAdded = recentlyAddedKey === getCartKey(product);
 
             return (
               <div className="orderOverlay" role="dialog" aria-modal="true" aria-label={`Карточка ${product.name}`}>
@@ -1228,8 +1253,8 @@ export default function Home() {
                     </div>
                   ) : null}
                   <div className="detailAddBar">
-                    <button className="detailAddButton" onClick={() => addToCart(product)} type="button">
-                      В корзину
+                    <button className={isDetailProductAdded ? "detailAddButton added" : "detailAddButton"} onClick={() => addToCart(product)} type="button">
+                      {isDetailProductAdded ? "Добавлено" : "В корзину"}
                     </button>
                   </div>
                 </section>
@@ -1432,11 +1457,8 @@ export default function Home() {
             </label>
             {accountStatus ? <p className="orderStatus">{accountStatus}</p> : null}
             <div className="cartButtons">
-              <button type="button" onClick={clearCart}>
-                Очистить
-              </button>
               <button disabled={isSending || !cart.length} type="submit">
-                {isSending ? "Отправляем" : "Отправить корзину"}
+                {isSending ? "Отправляем" : "Оформить заказ"}
               </button>
             </div>
           </form>

@@ -675,7 +675,7 @@ main {
   text-align: center;
 }
 
-.productTitleButton {
+.productInfo .productTitleButton {
   width: 100%;
   border: 0;
   padding: 0;
@@ -686,6 +686,12 @@ main {
   font-weight: 760;
   line-height: 1.02;
   text-align: center;
+}
+
+.productInfo .productTitleButton:hover {
+  background: transparent;
+  color: var(--black);
+  transform: none;
 }
 
 .variantPanel {
@@ -1098,6 +1104,18 @@ main {
   font-size: 18px;
   font-weight: 680;
   letter-spacing: 0;
+  transition: background 180ms ease, color 180ms ease, transform 180ms ease, box-shadow 180ms ease;
+}
+
+.detailAddButton:active {
+  transform: scale(0.98);
+}
+
+.detailAddButton.added {
+  border-color: rgba(17, 17, 17, 0.12);
+  background: rgba(232, 232, 232, 0.92);
+  box-shadow: inset 0 0 0 1px rgba(17, 17, 17, 0.06);
+  color: var(--black);
 }
 
 .cardActions button.secondary {
@@ -1377,12 +1395,6 @@ main {
 .cartButtons {
   display: flex;
   gap: 10px;
-}
-
-.cartButtons button:first-child {
-  border-color: var(--line);
-  background: transparent;
-  color: var(--black);
 }
 
 .emptyCart {
@@ -1703,11 +1715,10 @@ main {
   }
 
   .productThumbs {
-    gap: 5px;
-    overflow-x: auto;
-    justify-content: flex-start;
-    padding: 8px 10px 0;
-    scrollbar-width: none;
+    gap: 4px;
+    overflow: hidden;
+    justify-content: center;
+    padding: 8px 8px 0;
   }
 
   .productThumbs::-webkit-scrollbar {
@@ -1715,15 +1726,15 @@ main {
   }
 
   .productThumbs button {
-    flex: 0 0 32px;
-    width: 32px;
-    height: 32px;
-    border-radius: 11px;
+    flex: 0 0 29px;
+    width: 29px;
+    height: 29px;
+    border-radius: 10px;
   }
 
   .productThumbs img {
-    width: 25px;
-    height: 25px;
+    width: 22px;
+    height: 22px;
   }
 
   .productInfo {
@@ -1736,7 +1747,7 @@ main {
     font-size: 26px;
   }
 
-  .productTitleButton {
+  .productInfo .productTitleButton {
     font-size: 18px;
     line-height: 1.08;
   }
@@ -1854,6 +1865,18 @@ main {
     font-size: 14px;
   }
 
+  .detailOptions .colorOptions button {
+    min-width: 40px;
+    min-height: 40px;
+    padding: 0;
+    border-radius: 999px;
+  }
+
+  .detailOptions .colorOptions button i {
+    width: 32px;
+    height: 32px;
+  }
+
   .detailPrice {
     font-size: 34px;
   }
@@ -1926,6 +1949,7 @@ main {
   .mobileTabbar button {
     position: relative;
     display: grid;
+    gap: 4px;
     place-items: center;
     min-height: 46px;
     border: 0;
@@ -1936,6 +1960,102 @@ main {
     font-size: 12px;
     font-weight: 680;
     text-align: center;
+  }
+
+  .tabIcon {
+    position: relative;
+    display: block;
+    width: 22px;
+    height: 22px;
+    color: currentColor;
+  }
+
+  .tabIconCatalog {
+    display: grid;
+    grid-template-columns: repeat(2, 7px);
+    grid-template-rows: repeat(2, 7px);
+    gap: 3px;
+    place-content: center;
+  }
+
+  .tabIconCatalog::before,
+  .tabIconCatalog::after {
+    display: none;
+  }
+
+  .tabIconCatalog {
+    background:
+      linear-gradient(currentColor 0 0) 3px 3px / 7px 7px no-repeat,
+      linear-gradient(currentColor 0 0) 12px 3px / 7px 7px no-repeat,
+      linear-gradient(currentColor 0 0) 3px 12px / 7px 7px no-repeat,
+      linear-gradient(currentColor 0 0) 12px 12px / 7px 7px no-repeat;
+    border-radius: 5px;
+  }
+
+  .tabIconCart::before {
+    position: absolute;
+    left: 4px;
+    top: 6px;
+    width: 13px;
+    height: 10px;
+    border: 1.8px solid currentColor;
+    border-top: 0;
+    border-radius: 2px 2px 5px 5px;
+    content: "";
+  }
+
+  .tabIconCart::after {
+    position: absolute;
+    left: 6px;
+    top: 18px;
+    width: 12px;
+    height: 3px;
+    background:
+      radial-gradient(circle, currentColor 0 2px, transparent 2.2px) left center / 5px 3px no-repeat,
+      radial-gradient(circle, currentColor 0 2px, transparent 2.2px) right center / 5px 3px no-repeat;
+    content: "";
+  }
+
+  .tabIconHelp {
+    border: 1.8px solid currentColor;
+    border-radius: 50%;
+  }
+
+  .tabIconHelp::before {
+    position: absolute;
+    left: 7px;
+    top: 2px;
+    content: "?";
+    font-size: 15px;
+    font-weight: 780;
+    line-height: 1;
+  }
+
+  .tabIconProfile {
+    border: 1.8px solid currentColor;
+    border-radius: 50%;
+  }
+
+  .tabIconProfile::before {
+    position: absolute;
+    left: 7px;
+    top: 5px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: currentColor;
+    content: "";
+  }
+
+  .tabIconProfile::after {
+    position: absolute;
+    left: 5px;
+    bottom: 4px;
+    width: 10px;
+    height: 5px;
+    border-radius: 9px 9px 0 0;
+    background: currentColor;
+    content: "";
   }
 
   .mobileTabbar a:hover,
