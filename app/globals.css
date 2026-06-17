@@ -1348,18 +1348,17 @@ main {
 
   .topbar {
     top: max(8px, env(safe-area-inset-top));
-    align-items: center;
-    gap: 10px;
+    align-items: stretch;
+    gap: 8px;
     width: calc(100% - 16px);
     margin-top: 0;
-    border-radius: 22px;
+    border-radius: 24px;
     padding: 8px;
   }
 
   .brand {
-    flex: 0 0 auto;
     gap: 8px;
-    font-size: 17px;
+    font-size: 19px;
     letter-spacing: 0;
   }
 
@@ -1369,31 +1368,19 @@ main {
   }
 
   .topbar nav {
-    display: flex;
-    flex: 1 1 auto;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr;
     gap: 8px;
-    min-width: 0;
   }
 
   .headerPrimary,
   .headerSecondary {
     display: flex;
     flex-wrap: nowrap;
-    gap: 5px;
+    gap: 6px;
     overflow-x: auto;
     padding-bottom: 2px;
     scrollbar-width: none;
-  }
-
-  .headerPrimary {
-    flex: 1 1 auto;
-    min-width: 0;
-  }
-
-  .headerSecondary {
-    flex: 0 0 auto;
-    max-width: 45%;
   }
 
   .headerPrimary::-webkit-scrollbar,
@@ -1405,29 +1392,21 @@ main {
   .headerPrimary button,
   .topbarButton {
     flex: 0 0 auto;
-    min-height: 34px;
-    border: 1px solid rgba(17, 17, 17, 0.08);
-    padding: 0 11px;
+    min-height: 36px;
+    padding: 0 12px;
     background: rgba(255, 255, 255, 0.68);
-    font-size: 12px;
-    font-weight: 560;
+    font-size: 13px;
     white-space: nowrap;
   }
 
   .cartButton {
-    min-width: auto;
+    min-width: 92px;
     justify-content: center;
-  }
-
-  .cartButton span {
-    min-width: 18px;
-    height: 18px;
-    font-size: 10px;
   }
 
   .hero {
     width: 100%;
-    padding: 116px 8px 24px;
+    padding: 142px 8px 24px;
   }
 
   .heroCopy {
@@ -1555,9 +1534,9 @@ main {
   }
 
   .variantPanel {
-    gap: 10px;
+    gap: 8px;
     border-radius: 18px;
-    padding: 10px 9px;
+    padding: 10px;
   }
 
   .variantPanel > div {
@@ -1566,79 +1545,33 @@ main {
 
   .variantPanel span {
     font-size: 11px;
-    letter-spacing: 0;
   }
 
   .colorOptions {
-    gap: 8px;
-    align-items: center;
+    gap: 6px;
   }
 
   .colorOptions button {
-    flex: 0 0 28px;
     width: 26px;
     height: 26px;
     min-height: 26px;
-    border-radius: 50%;
-    aspect-ratio: 1 / 1;
   }
 
   .colorOptions button i {
-    flex: 0 0 auto;
     width: 22px;
     height: 22px;
-    border-radius: 50%;
     box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.44);
   }
 
-  .colorOptions button.active {
-    box-shadow: 0 0 0 2px #111111, 0 0 0 5px rgba(255, 255, 255, 0.86);
-  }
-
-  .storageOptions,
-  .simOptions {
-    display: grid;
-    gap: 4px;
-    overflow: visible;
-    border: 0;
-    border-radius: 0;
-    background: transparent;
-  }
-
-  .storageOptions {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .storageOptions button:nth-child(3):last-child,
-  .storageOptions button:nth-child(5):last-child {
-    grid-column: 1 / -1;
-  }
-
-  .simOptions {
-    grid-template-columns: 1fr;
-  }
-
   .variantOptions button {
-    min-height: 32px;
-    border: 1px solid rgba(17, 17, 17, 0.1);
-    border-radius: 999px;
-    padding: 0 8px;
-    background: rgba(255, 255, 255, 0.74);
+    min-height: 30px;
+    padding: 0 7px;
     font-size: 11px;
-    font-weight: 620;
-    line-height: 1;
   }
 
   .simOptions button {
-    min-height: 34px;
-    font-size: 10.5px;
-    white-space: nowrap;
-  }
-
-  .variantOptions button.active {
-    border-color: #111111;
-    background: #111111;
-    color: #ffffff;
+    font-size: 10px;
+    white-space: normal;
   }
 
   .productInfo footer {
@@ -1713,29 +1646,5 @@ main {
 
   .contactChoice label {
     min-height: 40px;
-  }
-}
-
-@media (max-width: 430px) {
-  .topbar {
-    display: grid;
-    grid-template-columns: 1fr;
-  }
-
-  .brand {
-    justify-content: center;
-  }
-
-  .topbar nav {
-    display: grid;
-    grid-template-columns: 1fr;
-  }
-
-  .headerSecondary {
-    max-width: 100%;
-  }
-
-  .hero {
-    padding-top: 154px;
   }
 }
