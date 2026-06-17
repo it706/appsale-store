@@ -1759,11 +1759,14 @@ main {
 
   .productCard {
     min-width: 0;
+    max-width: 100%;
+    overflow: hidden;
     border-radius: 22px;
     min-height: 0;
   }
 
   .deviceVisual {
+    overflow: hidden;
     min-height: 154px;
   }
 
@@ -1777,42 +1780,13 @@ main {
   }
 
   .productThumbs {
-    align-items: center;
-    gap: 4px;
-    overflow: hidden;
-    justify-content: center;
-    width: 100%;
-    max-width: 100%;
-    min-width: 0;
-    padding: 8px 6px 0;
-  }
-
-  .productThumbs::-webkit-scrollbar {
     display: none;
   }
 
-  .productThumbs button {
-    display: grid;
-    place-items: center;
-    flex: 0 0 26px;
-    width: 26px;
-    height: 26px;
-    min-width: 0;
-    overflow: hidden;
-    border-radius: 9px;
-  }
-
-  .productThumbs img {
-    display: block;
-    margin: auto;
-    width: auto;
-    height: auto;
-    max-width: 20px;
-    max-height: 20px;
-    object-position: center center;
-  }
-
   .productInfo {
+    min-width: 0;
+    max-width: 100%;
+    overflow: hidden;
     gap: 12px;
     padding: 12px;
   }
@@ -1823,6 +1797,10 @@ main {
   }
 
   .productInfo .productTitleButton {
+    display: block;
+    min-width: 0;
+    max-width: 100%;
+    overflow-wrap: anywhere;
     font-size: 18px;
     line-height: 1.08;
   }
