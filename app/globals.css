@@ -991,12 +991,34 @@ main {
   width: min(620px, 100%);
 }
 
+.detailPanel h2 {
+  text-align: center;
+}
+
+.detailPanel > p {
+  margin: -8px 0 0;
+  color: var(--gray);
+  text-align: center;
+}
+
+.detailPrice {
+  display: block;
+  color: var(--black);
+  font-size: 32px;
+  font-weight: 780;
+  line-height: 1;
+  text-align: center;
+  letter-spacing: -0.04em;
+}
+
 .detailHero {
   position: relative;
   overflow: hidden;
   border-radius: 24px;
   background: #fff;
   cursor: pointer;
+  touch-action: pan-y;
+  user-select: none;
 }
 
 .detailHero .deviceVisual {
@@ -1055,6 +1077,27 @@ main {
   color: var(--gray);
   font-size: 13px;
   font-weight: 720;
+}
+
+.detailAddBar {
+  position: sticky;
+  bottom: 0;
+  z-index: 4;
+  margin: 8px -2px -2px;
+  padding: 12px 0 0;
+  background: linear-gradient(180deg, rgba(243, 243, 243, 0), rgba(243, 243, 243, 0.96) 36%, rgba(243, 243, 243, 0.96));
+}
+
+.detailAddButton {
+  width: 100%;
+  min-height: 62px;
+  border-color: var(--black);
+  border-radius: 999px;
+  background: var(--black);
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 680;
+  letter-spacing: 0;
 }
 
 .cardActions button.secondary {
@@ -1636,22 +1679,23 @@ main {
   }
 
   .productGrid {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 14px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
   }
 
   .productCard {
     min-width: 0;
-    border-radius: 26px;
+    border-radius: 22px;
+    min-height: 0;
   }
 
   .deviceVisual {
-    min-height: 236px;
+    min-height: 154px;
   }
 
   .deviceVisual img {
-    width: 70%;
-    height: 214px;
+    width: 78%;
+    height: 138px;
   }
 
   .deviceVisual.matchFirstImage img {
@@ -1659,10 +1703,10 @@ main {
   }
 
   .productThumbs {
-    gap: 6px;
+    gap: 5px;
     overflow-x: auto;
     justify-content: flex-start;
-    padding: 10px 14px 0;
+    padding: 8px 10px 0;
     scrollbar-width: none;
   }
 
@@ -1671,20 +1715,20 @@ main {
   }
 
   .productThumbs button {
-    flex: 0 0 42px;
-    width: 42px;
-    height: 42px;
-    border-radius: 14px;
+    flex: 0 0 32px;
+    width: 32px;
+    height: 32px;
+    border-radius: 11px;
   }
 
   .productThumbs img {
-    width: 32px;
-    height: 32px;
+    width: 25px;
+    height: 25px;
   }
 
   .productInfo {
-    gap: 18px;
-    padding: 18px;
+    gap: 12px;
+    padding: 12px;
   }
 
   .productInfo strong {
@@ -1693,7 +1737,8 @@ main {
   }
 
   .productTitleButton {
-    font-size: 26px;
+    font-size: 18px;
+    line-height: 1.08;
   }
 
   .variantPanel {
@@ -1732,29 +1777,67 @@ main {
   }
 
   .productInfo footer {
-    gap: 12px;
+    gap: 10px;
   }
 
   .productInfo b {
-    font-size: 22px;
+    display: none;
   }
 
   .cardActions button,
   .cardQtyControl {
-    min-height: 44px;
+    min-height: 40px;
+  }
+
+  .cardActions {
+    gap: 6px;
+  }
+
+  .cardActions .detailsButton {
+    display: none;
+  }
+
+  .cardActions button {
+    padding: 0 10px;
+    font-size: 13px;
+  }
+
+  .cardQtyControl {
+    grid-template-columns: 34px minmax(34px, 1fr) 34px;
+  }
+
+  .cardQtyControl button {
+    min-height: 40px;
+    font-size: 17px;
+  }
+
+  .cardQtyControl span {
+    font-size: 13px;
   }
 
   .detailPanel {
     max-height: calc(100dvh - 16px);
     overflow: auto;
+    padding-bottom: 8px;
   }
 
   .detailHero .deviceVisual {
-    min-height: 260px;
+    min-height: 300px;
   }
 
   .detailHero .deviceVisual img {
-    height: 238px;
+    height: 272px;
+  }
+
+  .detailPanel .colorOptions button {
+    width: 40px;
+    height: 40px;
+    min-height: 40px;
+  }
+
+  .detailPanel .colorOptions button i {
+    width: 32px;
+    height: 32px;
   }
 
   .detailOptions .variantOptions {
@@ -1764,6 +1847,24 @@ main {
   .detailOptions .storageOptions,
   .detailOptions .simOptions {
     width: 100%;
+  }
+
+  .detailOptions .variantOptions button {
+    min-height: 44px;
+    font-size: 14px;
+  }
+
+  .detailPrice {
+    font-size: 34px;
+  }
+
+  .detailAddBar {
+    margin-top: 12px;
+  }
+
+  .detailAddButton {
+    min-height: 60px;
+    font-size: 18px;
   }
 
   .orderOverlay {

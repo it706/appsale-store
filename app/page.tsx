@@ -1,6 +1,6 @@
 ﻿"use client";
 
-import { type FormEvent, useEffect, useMemo, useState } from "react";
+import { type FormEvent, useEffect, useMemo, useRef, useState } from "react";
 
 type Brand = "Apple" | "Samsung" | "Xiaomi" | "PS" | "Dyson";
 type Product = {
@@ -476,6 +476,7 @@ function removeLastRuPhoneDigit(value: string) {
 }
 
 export default function Home() {
+  const detailTouchStartX = useRef(0);
   const [activeCategory, setActiveCategory] = useState("Все");
   const [catalogQuery, setCatalogQuery] = useState("");
   const [detailProduct, setDetailProduct] = useState<Product | null>(null);
@@ -638,6 +639,29 @@ export default function Home() {
     const imageIndex = productImageIndexes[product.id] ?? 0;
 
     return product.name === "iPhone 17" && (imageIndex === 1 || imageIndex === 2) ? "matchFirst" : "default";
+  }
+
+  function selectProductImage(productId: number, index: number) {
+    setProductImageIndexes((current) => ({
+      ...current,
+      [productId]: index,
+    }));
+  }
+
+  function showProductImage(product: Product, direction: 1 | -1) {
+    const images = getProductImages(product);
+
+    if (images.length < 2) return;
+
+    setProductImageIndexes((current) => {
+      const currentIndex = current[product.id] ?? 0;
+      const nextIndex = (currentIndex + direction + images.length) % images.length;
+
+      return {
+        ...current,
+        [product.id]: nextIndex,
+      };
+    });
   }
 
   function updateProductSelection(productId: number, field: keyof ProductSelection, value: string) {
@@ -949,12 +973,7 @@ export default function Home() {
                     <button
                       className={(productImageIndexes[product.id] ?? 0) === index ? "active" : ""}
                       key={image}
-                      onClick={() =>
-                        setProductImageIndexes((current) => ({
-                          ...current,
-                          [product.id]: index,
-                        }))
-                      }
+                      onClick={() => selectProductImage(product.id, index)}
                       type="button"
                     >
                       <img src={image} alt="" />
@@ -1126,12 +1145,18 @@ export default function Home() {
                   <span>Карточка товара</span>
                   <div
                     className="detailHero"
-                    onClick={() =>
-                      setProductImageIndexes((current) => ({
-                        ...current,
-                        [product.id]: ((current[product.id] ?? 0) + 1) % productImages.length,
-                      }))
-                    }
+                    onClick={() => showProductImage(product, 1)}
+                    onTouchEnd={(event) => {
+                      const endX = event.changedTouches[0]?.clientX ?? detailTouchStartX.current;
+                      const swipeDistance = endX - detailTouchStartX.current;
+
+                      if (Math.abs(swipeDistance) > 44) {
+                        showProductImage(product, swipeDistance < 0 ? 1 : -1);
+                      }
+                    }}
+                    onTouchStart={(event) => {
+                      detailTouchStartX.current = event.touches[0]?.clientX ?? 0;
+                    }}
                     role="button"
                     tabIndex={0}
                   >
@@ -1144,12 +1169,7 @@ export default function Home() {
                         <button
                           className={(productImageIndexes[product.id] ?? 0) === index ? "active" : ""}
                           key={image}
-                          onClick={() =>
-                            setProductImageIndexes((current) => ({
-                              ...current,
-                              [product.id]: index,
-                            }))
-                          }
+                          onClick={() => selectProductImage(product.id, index)}
                           type="button"
                         >
                           <img src={image} alt="" />
@@ -1158,7 +1178,8 @@ export default function Home() {
                     </div>
                   ) : null}
                   <h2>{product.name}</h2>
-                  <p>{getProductSpecs(product)}</p>
+                  <p>{[product.storage, product.color, product.sim].filter(Boolean).join(" · ")}</p>
+                  <strong className="detailPrice">{product.price}</strong>
                   {product.variantOptions ? (
                     <div className="detailOptions">
                       <span>Цвет</span>
@@ -1206,9 +1227,11 @@ export default function Home() {
                       </div>
                     </div>
                   ) : null}
-                  <button onClick={() => addToCart(product)} type="button">
-                    В корзину
-                  </button>
+                  <div className="detailAddBar">
+                    <button className="detailAddButton" onClick={() => addToCart(product)} type="button">
+                      В корзину
+                    </button>
+                  </div>
                 </section>
               </div>
             );
