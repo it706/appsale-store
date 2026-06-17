@@ -492,6 +492,7 @@ export default function Home() {
   });
   const [productImageIndexes, setProductImageIndexes] = useState<Record<number, number>>({});
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const [isProfileOpen, setIsProfileOpen] = useState(false);
   const [isSending, setIsSending] = useState(false);
   const [orderStatus, setOrderStatus] = useState("");
   const [accountStatus, setAccountStatus] = useState("");
@@ -1058,6 +1059,47 @@ export default function Home() {
           </a>
         </div>
       </footer>
+
+      <nav className="mobileTabbar" aria-label="Навигация appsale store">
+        <button onClick={() => selectCategory("Все")} type="button">
+          <span>Каталог</span>
+        </button>
+        <button className="mobileCartTab" onClick={() => setIsCartOpen(true)} type="button">
+          <span>Корзина</span>
+          {cartCount ? <b>{cartCount}</b> : null}
+        </button>
+        <a href="https://t.me/appsale_store" rel="noreferrer" target="_blank">
+          Поддержка
+        </a>
+        <button onClick={() => setIsProfileOpen(true)} type="button">
+          <span>Профиль</span>
+        </button>
+      </nav>
+
+      {isProfileOpen ? (
+        <div className="orderOverlay" role="dialog" aria-modal="true" aria-label="Профиль">
+          <button className="overlayBackdrop" onClick={() => setIsProfileOpen(false)} type="button" aria-label="Закрыть" />
+          <section className="orderPanel profilePanel">
+            <button className="closeButton" onClick={() => setIsProfileOpen(false)} type="button">
+              Закрыть
+            </button>
+            <span>Профиль</span>
+            <h2>{checkoutForm.name || "Клиент appsale store"}</h2>
+            <p>{checkoutForm.telegram || "Telegram подставится автоматически при открытии Mini App."}</p>
+            <div className="profileList">
+              <a href="https://t.me/appsale_store" rel="noreferrer" target="_blank">
+                Написать менеджеру
+              </a>
+              <button onClick={() => setIsCartOpen(true)} type="button">
+                Открыть корзину
+              </button>
+              <a href="https://vk.com/appsale_store" rel="noreferrer" target="_blank">
+                VK appsale store
+              </a>
+            </div>
+          </section>
+        </div>
+      ) : null}
 
       {selectedProduct ? (
         <div className="orderOverlay" role="dialog" aria-modal="true" aria-label="Заявка на товар">

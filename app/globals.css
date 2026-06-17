@@ -1229,6 +1229,31 @@ main {
   color: var(--gray);
 }
 
+.mobileTabbar {
+  display: none;
+}
+
+.profileList {
+  display: grid;
+  gap: 10px;
+}
+
+.profileList a,
+.profileList button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 50px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 0 14px;
+  background: #fff;
+  color: var(--black);
+  cursor: pointer;
+  font-weight: 620;
+  text-align: left;
+}
+
 @media (max-width: 980px) {
   .topbar {
     align-items: flex-start;
@@ -1336,6 +1361,10 @@ main {
 }
 
 @media (max-width: 560px) {
+  body {
+    padding-bottom: 78px;
+  }
+
   html,
   body {
     width: 100%;
@@ -1347,13 +1376,7 @@ main {
   }
 
   .topbar {
-    top: max(8px, env(safe-area-inset-top));
-    align-items: stretch;
-    gap: 8px;
-    width: calc(100% - 16px);
-    margin-top: 0;
-    border-radius: 24px;
-    padding: 8px;
+    display: none;
   }
 
   .brand {
@@ -1406,7 +1429,7 @@ main {
 
   .hero {
     width: 100%;
-    padding: 142px 8px 24px;
+    padding: 12px 8px 24px;
   }
 
   .heroCopy {
@@ -1633,5 +1656,62 @@ main {
 
   .contactChoice label {
     min-height: 40px;
+  }
+
+  .mobileTabbar {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 45;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 4px;
+    border-top: 1px solid rgba(17, 17, 17, 0.1);
+    padding: 8px 8px max(8px, env(safe-area-inset-bottom));
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(18px);
+  }
+
+  .mobileTabbar a,
+  .mobileTabbar button {
+    position: relative;
+    display: grid;
+    place-items: center;
+    min-height: 46px;
+    border: 0;
+    border-radius: 16px;
+    background: transparent;
+    color: var(--gray);
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 680;
+    text-align: center;
+  }
+
+  .mobileTabbar a:hover,
+  .mobileTabbar button:hover,
+  .mobileCartTab {
+    background: rgba(17, 17, 17, 0.05);
+    color: var(--black);
+  }
+
+  .mobileCartTab b {
+    position: absolute;
+    top: 3px;
+    right: 14px;
+    display: grid;
+    place-items: center;
+    min-width: 18px;
+    height: 18px;
+    border-radius: 999px;
+    background: var(--black);
+    color: #fff;
+    font-size: 10px;
+    line-height: 1;
+  }
+
+  .profilePanel {
+    align-content: start;
   }
 }
