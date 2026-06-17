@@ -1495,117 +1495,104 @@ main {
   }
 
   .productGrid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 10px;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 14px;
   }
 
   .productCard {
     min-width: 0;
-    min-height: 0;
-    border-radius: 22px;
+    border-radius: 26px;
   }
 
   .deviceVisual {
-    min-height: 146px;
+    min-height: 236px;
   }
 
   .deviceVisual img {
-    width: 78%;
-    height: 136px;
+    width: 70%;
+    height: 214px;
   }
 
   .deviceVisual.matchFirstImage img {
-    transform: scale(1.02);
+    transform: scale(1.04);
   }
 
   .productThumbs {
+    gap: 6px;
+    overflow-x: auto;
+    justify-content: flex-start;
+    padding: 10px 14px 0;
+    scrollbar-width: none;
+  }
+
+  .productThumbs::-webkit-scrollbar {
     display: none;
   }
 
+  .productThumbs button {
+    flex: 0 0 42px;
+    width: 42px;
+    height: 42px;
+    border-radius: 14px;
+  }
+
+  .productThumbs img {
+    width: 32px;
+    height: 32px;
+  }
+
   .productInfo {
-    gap: 10px;
-    padding: 12px;
+    gap: 18px;
+    padding: 18px;
   }
 
   .productInfo strong {
-    margin: 0;
-    font-size: 18px;
-    line-height: 1.08;
+    margin: 6px 0;
+    font-size: 26px;
   }
 
   .variantPanel {
-    gap: 8px;
-    border-radius: 18px;
-    padding: 10px;
-  }
-
-  .variantPanel > div {
-    gap: 6px;
-  }
-
-  .variantPanel span {
-    font-size: 11px;
+    gap: 14px;
+    border-radius: 22px;
+    padding: 14px;
   }
 
   .colorOptions {
-    gap: 6px;
+    gap: 9px;
   }
 
   .colorOptions button {
-    width: 26px;
-    height: 26px;
-    min-height: 26px;
+    width: 34px;
+    height: 34px;
+    min-height: 34px;
   }
 
   .colorOptions button i {
-    width: 22px;
-    height: 22px;
-    box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.44);
+    width: 28px;
+    height: 28px;
   }
 
   .variantOptions button {
-    min-height: 30px;
-    padding: 0 7px;
-    font-size: 11px;
+    min-height: 36px;
+    padding: 0 10px;
+    font-size: 13px;
   }
 
   .simOptions button {
-    font-size: 10px;
-    white-space: normal;
+    font-size: 12px;
   }
 
   .productInfo footer {
-    align-items: stretch;
-    flex-direction: column;
-    gap: 8px;
+    gap: 12px;
   }
 
   .productInfo b {
-    font-size: 18px;
-    text-align: center;
+    font-size: 22px;
   }
 
   .cardActions button,
   .cardQtyControl {
-    min-height: 38px;
-    width: 100%;
-    min-width: 0;
-    font-size: 13px;
-  }
-
-  .cardQtyControl {
-    gap: 8px;
-    padding: 4px;
-  }
-
-  .cardQtyControl button {
-    width: 30px;
-    height: 30px;
-  }
-
-  .cardQtyControl span {
-    min-width: 38px;
-    font-size: 13px;
+    min-height: 44px;
   }
 
   .orderOverlay {
