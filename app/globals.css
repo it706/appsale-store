@@ -414,6 +414,26 @@ main {
   margin-bottom: 26px;
 }
 
+.catalogSearch {
+  display: grid;
+  gap: 8px;
+  max-width: 520px;
+  margin-bottom: 18px;
+  color: var(--gray);
+  font-size: 13px;
+  font-weight: 720;
+}
+
+.catalogSearch input {
+  min-height: 52px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0 18px;
+  background: rgba(255, 255, 255, 0.72);
+  color: var(--black);
+  outline: 0;
+}
+
 .categoryBar button {
   min-height: 42px;
   border: 1px solid var(--line);
@@ -443,6 +463,15 @@ main {
   border: 1px solid var(--line);
   border-radius: 34px;
   background: rgba(255, 255, 255, 0.64);
+}
+
+.productVisualOpen {
+  cursor: pointer;
+}
+
+.productVisualOpen:focus-visible {
+  outline: 2px solid var(--black);
+  outline-offset: -2px;
 }
 
 .deviceVisual {
@@ -642,6 +671,19 @@ main {
   display: block;
   margin: 10px 0;
   font-size: 28px;
+  line-height: 1.02;
+  text-align: center;
+}
+
+.productTitleButton {
+  width: 100%;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: var(--black);
+  cursor: pointer;
+  font-size: 28px;
+  font-weight: 760;
   line-height: 1.02;
   text-align: center;
 }
@@ -937,6 +979,82 @@ main {
   font-size: 16px;
   font-weight: 560;
   letter-spacing: 0;
+}
+
+.cardActions .detailsButton {
+  border-color: var(--line);
+  background: rgba(255, 255, 255, 0.72);
+  color: var(--black);
+}
+
+.detailPanel {
+  width: min(620px, 100%);
+}
+
+.detailHero {
+  position: relative;
+  overflow: hidden;
+  border-radius: 24px;
+  background: #fff;
+  cursor: pointer;
+}
+
+.detailHero .deviceVisual {
+  min-height: 320px;
+}
+
+.detailHero small {
+  position: absolute;
+  top: 14px;
+  left: 50%;
+  border-radius: 999px;
+  padding: 6px 12px;
+  background: rgba(17, 17, 17, 0.44);
+  color: #fff;
+  font-weight: 720;
+  transform: translateX(-50%);
+}
+
+.detailThumbs {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 2px;
+}
+
+.detailThumbs button {
+  display: grid;
+  place-items: center;
+  flex: 0 0 54px;
+  width: 54px;
+  height: 54px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: #fff;
+  cursor: pointer;
+}
+
+.detailThumbs button.active {
+  border-color: var(--black);
+  box-shadow: 0 0 0 2px rgba(17, 17, 17, 0.08);
+}
+
+.detailThumbs img {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+}
+
+.detailOptions {
+  display: grid;
+  gap: 10px;
+}
+
+.detailOptions > span {
+  color: var(--gray);
+  font-size: 13px;
+  font-weight: 720;
 }
 
 .cardActions button.secondary {
@@ -1574,10 +1692,18 @@ main {
     font-size: 26px;
   }
 
+  .productTitleButton {
+    font-size: 26px;
+  }
+
   .variantPanel {
     gap: 14px;
     border-radius: 22px;
     padding: 14px;
+  }
+
+  .productCard .variantPanel {
+    display: none;
   }
 
   .colorOptions {
@@ -1616,6 +1742,28 @@ main {
   .cardActions button,
   .cardQtyControl {
     min-height: 44px;
+  }
+
+  .detailPanel {
+    max-height: calc(100dvh - 16px);
+    overflow: auto;
+  }
+
+  .detailHero .deviceVisual {
+    min-height: 260px;
+  }
+
+  .detailHero .deviceVisual img {
+    height: 238px;
+  }
+
+  .detailOptions .variantOptions {
+    max-width: 100%;
+  }
+
+  .detailOptions .storageOptions,
+  .detailOptions .simOptions {
+    width: 100%;
   }
 
   .orderOverlay {

@@ -477,6 +477,8 @@ function removeLastRuPhoneDigit(value: string) {
 
 export default function Home() {
   const [activeCategory, setActiveCategory] = useState("Все");
+  const [catalogQuery, setCatalogQuery] = useState("");
+  const [detailProduct, setDetailProduct] = useState<Product | null>(null);
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [productSelections, setProductSelections] = useState<Record<number, ProductSelection>>({
     ...Object.fromEntries(
@@ -589,13 +591,17 @@ export default function Home() {
   }, [cart]);
 
   const visibleProducts = useMemo(() => {
+    const query = catalogQuery.trim().toLowerCase();
+
     return products.filter((product) => {
       const categoryMatches =
         activeCategory === "Все" || (activeCategory === "Под заказ" ? product.status === "Под заказ" : product.category === activeCategory);
+      const searchMatches =
+        !query || [product.name, product.category, product.color, product.storage, product.sim].filter(Boolean).join(" ").toLowerCase().includes(query);
 
-      return categoryMatches;
+      return categoryMatches && searchMatches;
     });
-  }, [activeCategory]);
+  }, [activeCategory, catalogQuery]);
 
   const cartCount = cart.reduce((sum, item) => sum + item.qty, 0);
   const cartTotal = cart.reduce((sum, item) => sum + parsePrice(item.product.price) * item.qty, 0);
@@ -655,6 +661,10 @@ export default function Home() {
 
   function getCartQty(product: Product) {
     return cart.find((item) => item.key === getCartKey(getConfiguredProduct(product)))?.qty ?? 0;
+  }
+
+  function openProductDetails(product: Product) {
+    setDetailProduct(getConfiguredProduct(product));
   }
 
   function openOrder(product: Product) {
@@ -903,6 +913,11 @@ export default function Home() {
           </div>
         </div>
 
+        <label className="catalogSearch">
+          <span>Поиск</span>
+          <input onChange={(event) => setCatalogQuery(event.target.value)} placeholder="Например: iPhone 17, AirPods, iPad" value={catalogQuery} />
+        </label>
+
         <div className="categoryBar">
           {categories.map((category) => (
             <button className={activeCategory === category ? "active" : ""} key={category} onClick={() => setActiveCategory(category)} type="button">
@@ -914,7 +929,20 @@ export default function Home() {
         <div className="productGrid">
           {visibleProducts.map((product) => (
             <article className="productCard" key={product.id}>
-              <DeviceVisual accent={product.accent} category={product.category} imageAlt={product.name} imageFit={getProductImageFit(product)} imageSrc={getProductImage(product)} />
+              <div
+                className="productVisualOpen"
+                onClick={() => openProductDetails(product)}
+                onKeyDown={(event) => {
+                  if (event.key === "Enter" || event.key === " ") {
+                    event.preventDefault();
+                    openProductDetails(product);
+                  }
+                }}
+                role="button"
+                tabIndex={0}
+              >
+                <DeviceVisual accent={product.accent} category={product.category} imageAlt={product.name} imageFit={getProductImageFit(product)} imageSrc={getProductImage(product)} />
+              </div>
               {getProductImages(product).length > 1 ? (
                 <div className="productThumbs" aria-label={`Р’С‹Р±РѕСЂ С„РѕС‚Рѕ ${product.name}`}>
                   {getProductImages(product).map((image, index) => (
@@ -938,7 +966,9 @@ export default function Home() {
               )}
               <div className="productInfo">
                 <div>
-                  <strong>{product.name}</strong>
+                  <button className="productTitleButton" onClick={() => openProductDetails(product)} type="button">
+                    {product.name}
+                  </button>
                 </div>
                 {product.variantOptions ? (
                   <div className="variantPanel" aria-label={`Выбор комплектации ${product.name}`}>
@@ -1007,9 +1037,14 @@ export default function Home() {
                         </button>
                       </div>
                     ) : (
-                      <button onClick={() => addToCart(product)} type="button">
-                        В корзину
-                      </button>
+                      <>
+                        <button className="detailsButton" onClick={() => openProductDetails(product)} type="button">
+                          Подробнее
+                        </button>
+                        <button onClick={() => addToCart(product)} type="button">
+                          В корзину
+                        </button>
+                      </>
                     )}
                   </div>
                 </footer>
@@ -1075,6 +1110,110 @@ export default function Home() {
           <span>Профиль</span>
         </button>
       </nav>
+
+      {detailProduct
+        ? (() => {
+            const product = getConfiguredProduct(detailProduct);
+            const productImages = getProductImages(product);
+
+            return (
+              <div className="orderOverlay" role="dialog" aria-modal="true" aria-label={`Карточка ${product.name}`}>
+                <button className="overlayBackdrop" onClick={() => setDetailProduct(null)} type="button" aria-label="Закрыть" />
+                <section className="orderPanel detailPanel">
+                  <button className="closeButton" onClick={() => setDetailProduct(null)} type="button">
+                    Закрыть
+                  </button>
+                  <span>Карточка товара</span>
+                  <div
+                    className="detailHero"
+                    onClick={() =>
+                      setProductImageIndexes((current) => ({
+                        ...current,
+                        [product.id]: ((current[product.id] ?? 0) + 1) % productImages.length,
+                      }))
+                    }
+                    role="button"
+                    tabIndex={0}
+                  >
+                    <DeviceVisual accent={product.accent} category={product.category} imageAlt={product.name} imageFit={getProductImageFit(product)} imageSrc={getProductImage(product)} />
+                    {productImages.length > 1 ? <small>{(productImageIndexes[product.id] ?? 0) + 1} / {productImages.length}</small> : null}
+                  </div>
+                  {productImages.length > 1 ? (
+                    <div className="detailThumbs" aria-label={`Выбор фото ${product.name}`}>
+                      {productImages.map((image, index) => (
+                        <button
+                          className={(productImageIndexes[product.id] ?? 0) === index ? "active" : ""}
+                          key={image}
+                          onClick={() =>
+                            setProductImageIndexes((current) => ({
+                              ...current,
+                              [product.id]: index,
+                            }))
+                          }
+                          type="button"
+                        >
+                          <img src={image} alt="" />
+                        </button>
+                      ))}
+                    </div>
+                  ) : null}
+                  <h2>{product.name}</h2>
+                  <p>{getProductSpecs(product)}</p>
+                  {product.variantOptions ? (
+                    <div className="detailOptions">
+                      <span>Цвет</span>
+                      <div className="variantOptions colorOptions">
+                        {product.variantOptions.colors.map((color) => (
+                          <button
+                            className={productSelections[product.id]?.color === color ? "active" : ""}
+                            data-color={color}
+                            key={color}
+                            onClick={() => updateProductSelection(product.id, "color", color)}
+                            title={color}
+                            type="button"
+                            aria-label={color}
+                          >
+                            <i aria-hidden="true" />
+                            <span>{color}</span>
+                          </button>
+                        ))}
+                      </div>
+                      <span>Память</span>
+                      <div className="variantOptions storageOptions">
+                        {product.variantOptions.storages.map((storage) => (
+                          <button
+                            className={productSelections[product.id]?.storage === storage ? "active" : ""}
+                            key={storage}
+                            onClick={() => updateProductSelection(product.id, "storage", storage)}
+                            type="button"
+                          >
+                            {storage}
+                          </button>
+                        ))}
+                      </div>
+                      <span>SIM-карта</span>
+                      <div className="variantOptions simOptions">
+                        {product.variantOptions.sims.map((sim) => (
+                          <button
+                            className={productSelections[product.id]?.sim === sim ? "active" : ""}
+                            key={sim}
+                            onClick={() => updateProductSelection(product.id, "sim", sim)}
+                            type="button"
+                          >
+                            {sim}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  ) : null}
+                  <button onClick={() => addToCart(product)} type="button">
+                    В корзину
+                  </button>
+                </section>
+              </div>
+            );
+          })()
+        : null}
 
       {isProfileOpen ? (
         <div className="orderOverlay" role="dialog" aria-modal="true" aria-label="Профиль">
