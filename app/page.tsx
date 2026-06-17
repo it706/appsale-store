@@ -476,7 +476,6 @@ function removeLastRuPhoneDigit(value: string) {
 }
 
 export default function Home() {
-  const detailTouchStartX = useRef(0);
   const recentlyAddedTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [activeCategory, setActiveCategory] = useState("Все");
   const [catalogQuery, setCatalogQuery] = useState("");
@@ -1080,9 +1079,6 @@ export default function Home() {
                         <button className="detailsButton" onClick={() => openProductDetails(product)} type="button">
                           Подробнее
                         </button>
-                        <button onClick={() => addToCart(product)} type="button">
-                          В корзину
-                        </button>
                       </>
                     )}
                   </div>
@@ -1159,6 +1155,8 @@ export default function Home() {
             const product = getConfiguredProduct(detailProduct);
             const productImages = getProductImages(product);
             const isDetailProductAdded = recentlyAddedKey === getCartKey(product);
+            const detailCartKey = getCartKey(product);
+            const detailCartQty = cart.find((item) => item.key === detailCartKey)?.qty ?? 0;
 
             return (
               <div className="orderOverlay" role="dialog" aria-modal="true" aria-label={`Карточка ${product.name}`}>
@@ -1171,17 +1169,6 @@ export default function Home() {
                   <div
                     className="detailHero"
                     onClick={() => showProductImage(product, 1)}
-                    onTouchEnd={(event) => {
-                      const endX = event.changedTouches[0]?.clientX ?? detailTouchStartX.current;
-                      const swipeDistance = endX - detailTouchStartX.current;
-
-                      if (Math.abs(swipeDistance) > 44) {
-                        showProductImage(product, swipeDistance < 0 ? 1 : -1);
-                      }
-                    }}
-                    onTouchStart={(event) => {
-                      detailTouchStartX.current = event.touches[0]?.clientX ?? 0;
-                    }}
                     role="button"
                     tabIndex={0}
                   >
@@ -1253,9 +1240,24 @@ export default function Home() {
                     </div>
                   ) : null}
                   <div className="detailAddBar">
-                    <button className={isDetailProductAdded ? "detailAddButton added" : "detailAddButton"} onClick={() => addToCart(product)} type="button">
-                      {isDetailProductAdded ? "Добавлено" : "В корзину"}
-                    </button>
+                    {detailCartQty > 0 ? (
+                      <div className={isDetailProductAdded ? "detailQtyControl added" : "detailQtyControl"} aria-label={`Количество ${product.name} в корзине`}>
+                        <button onClick={() => updateCartQty(detailCartKey, -1)} type="button">
+                          -
+                        </button>
+                        <span>
+                          Добавлено
+                          <b>{detailCartQty} шт</b>
+                        </span>
+                        <button onClick={() => addToCart(product)} type="button">
+                          +
+                        </button>
+                      </div>
+                    ) : (
+                      <button className="detailAddButton" onClick={() => addToCart(product)} type="button">
+                        В корзину
+                      </button>
+                    )}
                   </div>
                 </section>
               </div>
