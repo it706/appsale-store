@@ -1780,7 +1780,10 @@ main {
     font-size: 18px;
   }
 
-  .catalogSection,
+  .catalogSection {
+    padding-top: 26px;
+  }
+
   .howSection {
     padding-top: 52px;
   }
