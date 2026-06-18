@@ -496,6 +496,7 @@ export default function Home() {
   const [productImageIndexes, setProductImageIndexes] = useState<Record<number, number>>({});
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [isProfileOpen, setIsProfileOpen] = useState(false);
+  const [isSupportOpen, setIsSupportOpen] = useState(false);
   const [isSending, setIsSending] = useState(false);
   const [orderStatus, setOrderStatus] = useState("");
   const [accountStatus, setAccountStatus] = useState("");
@@ -923,7 +924,7 @@ export default function Home() {
           <p className="heroLead">iPhone, AirPods, Dyson и аксессуары. Выберите устройство, оставьте заявку, и мы свяжемся с вами для уточнения деталей.</p>
           <div className="heroActions">
             <a href="#catalog">Смотреть каталог</a>
-            <a href="https://t.me/appsale_store" rel="noreferrer" target="_blank">
+            <a href="https://t.me/evgenypulkov" rel="noreferrer" target="_blank">
               Написать в Telegram
             </a>
           </div>
@@ -1140,10 +1141,10 @@ export default function Home() {
           <span>Корзина</span>
           {cartCount ? <b>{cartCount}</b> : null}
         </button>
-        <a href="https://t.me/appsale_store" rel="noreferrer" target="_blank">
+        <button onClick={() => setIsSupportOpen(true)} type="button">
           <i className="tabIcon tabIconHelp" aria-hidden="true" />
           <span>Поддержка</span>
-        </a>
+        </button>
         <button onClick={() => setIsProfileOpen(true)} type="button">
           <i className="tabIcon tabIconProfile" aria-hidden="true" />
           <span>Профиль</span>
@@ -1276,7 +1277,7 @@ export default function Home() {
             <h2>{checkoutForm.name || "Клиент appsale store"}</h2>
             <p>{checkoutForm.telegram || "Telegram подставится автоматически при открытии Mini App."}</p>
             <div className="profileList">
-              <a href="https://t.me/appsale_store" rel="noreferrer" target="_blank">
+              <a href="https://t.me/evgenypulkov" rel="noreferrer" target="_blank">
                 Написать менеджеру
               </a>
               <button onClick={() => setIsCartOpen(true)} type="button">
@@ -1285,6 +1286,29 @@ export default function Home() {
               <a href="https://vk.com/appsale_store" rel="noreferrer" target="_blank">
                 VK appsale store
               </a>
+            </div>
+          </section>
+        </div>
+      ) : null}
+
+      {isSupportOpen ? (
+        <div className="orderOverlay" role="dialog" aria-modal="true" aria-label="Поддержка">
+          <button className="overlayBackdrop" onClick={() => setIsSupportOpen(false)} type="button" aria-label="Закрыть" />
+          <section className="orderPanel supportPanel">
+            <button className="closeButton" onClick={() => setIsSupportOpen(false)} type="button">
+              Закрыть
+            </button>
+            <span>Поддержка</span>
+            <div className="supportContent">
+              <div className="supportIcon" aria-hidden="true">
+                ?
+              </div>
+              <h2>Нужна помощь?</h2>
+              <p>Поможем выбрать устройство, уточним наличие, доставку и детали заказа.</p>
+              <a className="supportButton" href="https://t.me/evgenypulkov" rel="noreferrer" target="_blank">
+                Написать в поддержку
+              </a>
+              <small>Обычно отвечаем в течение 5 минут</small>
             </div>
           </section>
         </div>

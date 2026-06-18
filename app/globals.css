@@ -1489,6 +1489,65 @@ main {
   text-align: left;
 }
 
+.supportPanel {
+  align-content: start;
+}
+
+.supportContent {
+  display: grid;
+  justify-items: center;
+  gap: 14px;
+  min-height: 440px;
+  padding: 44px 0 10px;
+  text-align: center;
+}
+
+.supportIcon {
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  border: 2px solid rgba(17, 17, 17, 0.24);
+  border-radius: 50%;
+  color: rgba(17, 17, 17, 0.5);
+  font-size: 38px;
+  font-weight: 720;
+  line-height: 1;
+}
+
+.supportContent h2 {
+  margin: 22px 0 0;
+  font-size: 34px;
+  line-height: 1;
+}
+
+.supportContent p {
+  max-width: 420px;
+  margin: 0;
+  color: var(--gray);
+  font-size: 18px;
+  line-height: 1.35;
+}
+
+.supportButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: min(100%, 430px);
+  min-height: 60px;
+  margin-top: 16px;
+  border-radius: 999px;
+  background: var(--black);
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 720;
+}
+
+.supportContent small {
+  color: var(--gray);
+  font-size: 15px;
+}
+
 @media (max-width: 980px) {
   .topbar {
     align-items: flex-start;
@@ -2127,5 +2186,19 @@ main {
 
   .profilePanel {
     align-content: start;
+  }
+
+  .supportContent {
+    min-height: calc(100dvh - 170px);
+    align-content: center;
+    padding: 20px 0 28px;
+  }
+
+  .supportContent h2 {
+    font-size: 30px;
+  }
+
+  .supportContent p {
+    font-size: 17px;
   }
 }
