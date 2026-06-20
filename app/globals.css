@@ -805,11 +805,19 @@ main {
 }
 
 .colorOptions button[data-color="Black"] i {
-  background: #202124;
+  background: #303034;
 }
 
 .colorOptions button[data-color="White"] i {
-  background: #f4f1ea;
+  background: #f5f5f0;
+}
+
+.colorOptions button[data-color="Desert"] i {
+  background: #c3a28d;
+}
+
+.colorOptions button[data-color="Natural"] i {
+  background: #aaa7a0;
 }
 
 .colorOptions button[data-color="Sage"] i {
