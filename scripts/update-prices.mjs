@@ -56,7 +56,7 @@ const catalog = {
   "iPhone 16e": {
     colors: ["Black", "White"],
     sims: ["Nano-SIM + eSIM"],
-    storages: ["128GB", "256GB", "512GB"],
+    storages: ["128GB", "256GB"],
   },
   "iPhone 16 Pro": {
     colors: ["Black", "White", "Desert", "Natural"],

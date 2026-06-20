@@ -107,7 +107,7 @@ const iphone16PlusOptions = iphone16Options;
 const iphone16eOptions = {
   colors: ["Black", "White"],
   sims: ["Nano-SIM + eSIM"],
-  storages: ["128GB", "256GB", "512GB"],
+  storages: ["128GB", "256GB"],
 };
 
 const iphone16ProOptions = {
@@ -266,6 +266,23 @@ const iphone16Images = {
     "/products/iphone-16-ultramarine-4.png",
     "/products/iphone-16-ultramarine-5.png",
     "/products/iphone-16-ultramarine-6.png",
+  ],
+};
+
+const iphone16eImages = {
+  Black: [
+    "/products/iphone-16e-black-1.png",
+    "/products/iphone-16e-black-2.png",
+    "/products/iphone-16e-black-3.png",
+    "/products/iphone-16e-black-4.png",
+    "/products/iphone-16e-black-5.png",
+  ],
+  White: [
+    "/products/iphone-16e-white-1.png",
+    "/products/iphone-16e-white-2.png",
+    "/products/iphone-16e-white-3.png",
+    "/products/iphone-16e-white-4.png",
+    "/products/iphone-16e-white-5.png",
   ],
 };
 
@@ -436,6 +453,8 @@ const products: Product[] = [
           ? iphoneAirImages
           : name === "iPhone 16" || name === "iPhone 16 Plus"
             ? iphone16Images
+            : name === "iPhone 16e"
+              ? iphone16eImages
             : name === "iPhone 16 Pro" || name === "iPhone 16 Pro Max"
               ? iphone16ProImages
             : name === "iPad 11 A16 (2025)"
