@@ -1,0 +1,13 @@
+Air 256 Black eSim - 71.000
+Air 256 White eSim - 70.000
+Air 256 Blue eSim - 70.000
+Air 256 Gold eSim - 70.000
+
+17 256 Black 1Sim - 68.000
+17 256 White 1Sim - 66.000
+17 256 Blue 1Sim - 65.500
+17 256 Sage 1Sim - 66.500
+17 256 Lavanda 1Sim - 66.500
+
+17 Pro Max 256 Silver 1Sim - 109.500
+17 Pro Max 512 Orange 1Sim - 119.000

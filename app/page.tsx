@@ -1,6 +1,7 @@
 ﻿"use client";
 
 import { type FormEvent, useEffect, useMemo, useRef, useState } from "react";
+import priceOverrides from "./data/price-overrides.json";
 
 type Brand = "Apple" | "Samsung" | "Xiaomi" | "PS" | "Dyson";
 type Product = {
@@ -34,6 +35,13 @@ type ProductSelection = {
   color: string;
   sim: string;
   storage: string;
+};
+
+type PriceOverride = {
+  finalPrice?: number;
+  price: string;
+  sourceLine?: string;
+  supplierPrice?: number;
 };
 
 type TelegramWebApp = {
@@ -379,6 +387,7 @@ const products: Product[] = [
 
 const categories = ["Все", "iPhone", "AirPods", "iPad", "Apple Watch"];
 const showcaseCategories = ["iPhone", "AirPods", "iPad", "Apple Watch"];
+const productPriceOverrides = priceOverrides as Record<string, PriceOverride>;
 
 function DeviceVisual({
   accent,
@@ -434,6 +443,14 @@ function parsePrice(price: string) {
 
 function getCartKey(product: Product) {
   return [product.id, product.color, product.storage, product.sim ?? ""].join("|");
+}
+
+function getPriceKey(product: Pick<Product, "color" | "name" | "sim" | "storage">) {
+  return [product.name, product.storage, product.color, product.sim ?? ""].join("|");
+}
+
+function getProductPrice(product: Pick<Product, "color" | "name" | "price" | "sim" | "storage">) {
+  return productPriceOverrides[getPriceKey(product)]?.price ?? product.price;
 }
 
 function getProductSpecs(product: Product) {
@@ -621,14 +638,22 @@ export default function Home() {
     const selection = productSelections[product.id];
 
     if (!selection) {
-      return product;
+      return {
+        ...product,
+        price: getProductPrice(product),
+      };
     }
 
-    return {
+    const configuredProduct = {
       ...product,
       color: selection.color,
       sim: selection.sim,
       storage: selection.storage,
+    };
+
+    return {
+      ...configuredProduct,
+      price: getProductPrice(configuredProduct),
     };
   }
 

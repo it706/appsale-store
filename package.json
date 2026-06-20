@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "prices:update": "node scripts/update-prices.mjs",
     "build": "next build",
     "start": "next start"
   },
