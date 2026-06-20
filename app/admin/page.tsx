@@ -1,0 +1,125 @@
+"use client";
+
+import { FormEvent, useCallback, useEffect, useState } from "react";
+
+type Dashboard = {
+  customers: number;
+  orders: Array<{
+    created_at: string;
+    customer_name: string;
+    delivery_method: string;
+    id: number;
+    items_json: string;
+    phone: string;
+    telegram: string;
+    total: string;
+  }>;
+  starts: number;
+};
+
+function formatDate(value: string) {
+  return new Intl.DateTimeFormat("ru-RU", { dateStyle: "medium", timeStyle: "short" }).format(new Date(value));
+}
+
+export default function AdminPage() {
+  const [dashboard, setDashboard] = useState<Dashboard | null>(null);
+  const [error, setError] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
+  const [password, setPassword] = useState("");
+
+  const loadDashboard = useCallback(async () => {
+    const response = await fetch("/api/admin/dashboard", { cache: "no-store" });
+
+    if (response.ok) {
+      setDashboard((await response.json()) as Dashboard);
+      setError("");
+    } else {
+      const data = (await response.json().catch(() => ({}))) as { message?: string };
+      setDashboard(null);
+      setError(data.message ?? "Не удалось загрузить данные.");
+    }
+
+    setIsLoading(false);
+  }, []);
+
+  useEffect(() => {
+    loadDashboard();
+  }, [loadDashboard]);
+
+  async function handleLogin(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    setIsLoading(true);
+
+    const response = await fetch("/api/admin/login", {
+      body: JSON.stringify({ password }),
+      headers: { "Content-Type": "application/json" },
+      method: "POST",
+    });
+
+    if (!response.ok) {
+      const data = (await response.json().catch(() => ({}))) as { message?: string };
+      setError(data.message ?? "Не удалось выполнить вход.");
+      setIsLoading(false);
+      return;
+    }
+
+    setPassword("");
+    await loadDashboard();
+  }
+
+  if (isLoading && !dashboard && !error) return <main className="adminPage"><p>Загрузка...</p></main>;
+
+  if (!dashboard) {
+    return (
+      <main className="adminPage adminLoginPage">
+        <form className="adminLogin" onSubmit={handleLogin}>
+          <span>appsale store</span>
+          <h1>Админка</h1>
+          <p>Клиенты, запуски Mini App и заказы.</p>
+          <input autoComplete="current-password" onChange={(event) => setPassword(event.target.value)} placeholder="Пароль" required type="password" value={password} />
+          <button disabled={isLoading} type="submit">Войти</button>
+          {error ? <small>{error}</small> : null}
+        </form>
+      </main>
+    );
+  }
+
+  return (
+    <main className="adminPage">
+      <header className="adminHeader">
+        <div>
+          <span>appsale store</span>
+          <h1>Клиенты и заказы</h1>
+        </div>
+        <button onClick={loadDashboard} type="button">Обновить</button>
+      </header>
+
+      <section className="adminMetrics">
+        <article><span>Клиенты</span><strong>{dashboard.customers}</strong></article>
+        <article><span>Запуски бота</span><strong>{dashboard.starts}</strong></article>
+        <article><span>Заказы</span><strong>{dashboard.orders.length}</strong></article>
+      </section>
+
+      <section className="adminOrders">
+        <div className="adminSectionHead"><h2>Последние заказы</h2><span>{dashboard.orders.length} в истории</span></div>
+        {dashboard.orders.length ? dashboard.orders.map((order) => {
+          const items = JSON.parse(order.items_json || "[]") as Array<{ color?: string; name?: string; qty?: number; sim?: string; storage?: string }>;
+
+          return (
+            <article className="adminOrder" key={order.id}>
+              <div>
+                <strong>{order.customer_name || "Клиент"}</strong>
+                <span>{order.phone || order.telegram || "Контакт не указан"}</span>
+              </div>
+              <div>
+                <span>{items.map((item) => `${item.name} ${item.storage ?? ""} ${item.color ?? ""} x${item.qty ?? 1}`).join(", ")}</span>
+                <small>{order.delivery_method || "Получение не выбрано"} · {formatDate(order.created_at)}</small>
+              </div>
+              <strong>{order.total || "Цена по запросу"}</strong>
+            </article>
+          );
+        }) : <p className="adminEmpty">Заказов пока нет. После первого оформления они появятся здесь.</p>}
+      </section>
+    </main>
+  );
+}

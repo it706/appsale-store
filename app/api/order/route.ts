@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { recordOrder } from "../../lib/database";
 
 type OrderPayload = {
   color?: string;
@@ -109,6 +110,20 @@ export async function POST(request: Request) {
 
   if (!response.ok) {
     return NextResponse.json({ message: "Telegram не ответил. Напишите нам напрямую." }, { status: 502 });
+  }
+
+  try {
+    await recordOrder({
+      contactMethod: payload.contactMethod,
+      deliveryMethod: payload.deliveryMethod,
+      itemsJson: JSON.stringify(payload.items ?? []),
+      name: payload.name,
+      phone: payload.phone,
+      telegram: payload.telegram,
+      total: payload.total,
+    });
+  } catch {
+    // Telegram delivery stays the source of truth if the database is temporarily unavailable.
   }
 
   return NextResponse.json({ ok: true });

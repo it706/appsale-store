@@ -355,34 +355,34 @@ const iphone15Images = {
 
 const macbookNeoImages = {
   Indigo: [
-    "/products/macbook-neo-indigo-1.png",
-    "/products/macbook-neo-indigo-2.png",
     "/products/macbook-neo-indigo-3.png",
+    "/products/macbook-neo-indigo-2.png",
     "/products/macbook-neo-indigo-4.png",
+    "/products/macbook-neo-indigo-1.png",
     "/products/macbook-neo-indigo-5.png",
     "/products/macbook-neo-indigo-6.png",
   ],
   Blush: [
-    "/products/macbook-neo-blush-1.png",
-    "/products/macbook-neo-blush-2.png",
     "/products/macbook-neo-blush-3.png",
+    "/products/macbook-neo-blush-2.png",
     "/products/macbook-neo-blush-4.png",
+    "/products/macbook-neo-blush-1.png",
     "/products/macbook-neo-blush-5.png",
     "/products/macbook-neo-blush-6.png",
   ],
   Silver: [
-    "/products/macbook-neo-silver-1.png",
-    "/products/macbook-neo-silver-2.png",
     "/products/macbook-neo-silver-3.png",
+    "/products/macbook-neo-silver-2.png",
     "/products/macbook-neo-silver-4.png",
+    "/products/macbook-neo-silver-1.png",
     "/products/macbook-neo-silver-5.png",
     "/products/macbook-neo-silver-6.png",
   ],
   Citrus: [
-    "/products/macbook-neo-citrus-1.png",
-    "/products/macbook-neo-citrus-2.png",
     "/products/macbook-neo-citrus-3.png",
+    "/products/macbook-neo-citrus-2.png",
     "/products/macbook-neo-citrus-4.png",
+    "/products/macbook-neo-citrus-1.png",
     "/products/macbook-neo-citrus-5.png",
     "/products/macbook-neo-citrus-6.png",
   ],
@@ -533,11 +533,15 @@ const products: Product[] = [
             ? "Pink"
           : name === "iPhone 16"
               ? "Ultramarine"
-              : name === "iPhone 16e" || name === "iPhone 15"
+              : name === "iPhone 16e"
                 ? "Black"
+              : name === "iPhone 15"
+                ? "Blue"
               : name === "iPhone 15 Plus"
                 ? "Pink"
-              : name === "iPhone 16 Pro" || name === "iPhone 16 Pro Max"
+              : name === "iPhone 16 Pro"
+                ? "White"
+              : name === "iPhone 16 Pro Max"
                 ? "Natural"
               : name === "iPad 11 A16 (2025)"
                 ? "Silver"

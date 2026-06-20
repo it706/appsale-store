@@ -1,6 +1,8 @@
 import { NextResponse } from "next/server";
+import { recordBotStart } from "../../lib/database";
 
 type TelegramUser = {
+  id?: number;
   first_name?: string;
   last_name?: string;
   username?: string;
@@ -103,6 +105,18 @@ export async function POST(request: Request) {
 
   if (!response.ok) {
     return NextResponse.json({ message: "Telegram did not accept the start message." }, { status: 502 });
+  }
+
+  try {
+    await recordBotStart({
+      chatId,
+      firstName: update.message?.from?.first_name,
+      lastName: update.message?.from?.last_name,
+      telegram: update.message?.from?.username ? `@${update.message.from.username}` : "",
+      userId: update.message?.from?.id,
+    });
+  } catch {
+    // A database outage must not prevent the customer from receiving the catalog.
   }
 
   return NextResponse.json({ ok: true });

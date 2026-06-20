@@ -880,6 +880,164 @@ main {
   background: #dfd85d;
 }
 
+.adminPage {
+  width: min(1120px, calc(100% - 40px));
+  min-height: 100dvh;
+  margin: 0 auto;
+  padding: 48px 0 80px;
+}
+
+.adminHeader,
+.adminSectionHead,
+.adminOrder {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.adminHeader span,
+.adminMetrics span,
+.adminSectionHead span,
+.adminOrder span,
+.adminOrder small,
+.adminLogin > span,
+.adminLogin p,
+.adminLogin small {
+  color: var(--gray);
+}
+
+.adminHeader h1,
+.adminLogin h1 {
+  margin: 6px 0 0;
+  font-size: clamp(32px, 4vw, 52px);
+}
+
+.adminHeader button,
+.adminLogin button {
+  min-height: 46px;
+  border: 1px solid var(--black);
+  border-radius: 999px;
+  padding: 0 18px;
+  background: var(--black);
+  color: #ffffff;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+}
+
+.adminMetrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin: 36px 0;
+}
+
+.adminMetrics article,
+.adminOrders,
+.adminLogin {
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.68);
+}
+
+.adminMetrics article {
+  display: grid;
+  gap: 10px;
+  padding: 22px;
+}
+
+.adminMetrics strong {
+  font-size: 32px;
+}
+
+.adminOrders {
+  overflow: hidden;
+}
+
+.adminSectionHead {
+  padding: 22px;
+  border-bottom: 1px solid var(--line);
+}
+
+.adminSectionHead h2 {
+  margin: 0;
+  font-size: 22px;
+}
+
+.adminOrder {
+  padding: 18px 22px;
+  border-bottom: 1px solid var(--line);
+}
+
+.adminOrder:last-of-type {
+  border-bottom: 0;
+}
+
+.adminOrder > div {
+  display: grid;
+  gap: 5px;
+}
+
+.adminOrder > div:nth-child(2) {
+  flex: 1;
+}
+
+.adminEmpty {
+  padding: 28px 22px;
+  margin: 0;
+  color: var(--gray);
+}
+
+.adminLoginPage {
+  display: grid;
+  place-items: center;
+}
+
+.adminLogin {
+  display: grid;
+  gap: 16px;
+  width: min(420px, 100%);
+  padding: 30px;
+}
+
+.adminLogin p,
+.adminLogin h1 {
+  margin: 0;
+}
+
+.adminLogin input {
+  min-height: 48px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 0 14px;
+  background: #ffffff;
+  color: var(--black);
+  font: inherit;
+}
+
+@media (max-width: 640px) {
+  .adminPage {
+    width: min(100% - 24px, 1120px);
+    padding: 28px 0 40px;
+  }
+
+  .adminHeader,
+  .adminOrder {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .adminMetrics {
+    grid-template-columns: 1fr;
+    margin: 24px 0;
+  }
+
+  .adminOrder > strong {
+    font-size: 20px;
+  }
+}
+
 .colorOptions button[data-color="Teal"] i {
   background: #4f9b9b;
 }
