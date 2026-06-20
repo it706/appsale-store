@@ -83,6 +83,7 @@ function parseModel(value) {
   if (/^17\b/.test(text)) return "iPhone 17";
   if (/^air\b/.test(text)) return "iPhone Air";
   if (/^16\s+plus\b/.test(text)) return "iPhone 16 Plus";
+  if (/^16\s+pr/i.test(text)) return "iPhone 16 Pro";
   if (/^16\b/.test(text)) return "iPhone 16";
   if (/^ipad\s+11\b/.test(text)) return "iPad 11 A16 (2025)";
 
@@ -199,11 +200,14 @@ function parseLine(line) {
 
   const model = parseModel(line);
   const storage = parseStorage(line);
-  const sim = parseSim(line);
+  let sim = parseSim(line);
   const color = parseColor(line, model);
   const supplierPrice = parsePrice(line);
   const allowed = catalog[model];
   const isSimpleProduct = model.includes("AirPods");
+
+  // For models with one SIM variant in the catalog, supplier lists may omit it.
+  if (!sim && allowed?.sims.length === 1) sim = allowed.sims[0];
 
   if (!model || !supplierPrice || (!isSimpleProduct && (!storage || !color || !sim))) {
     return { ignored: true, reason: "не удалось распознать модель, память, цвет, SIM или цену", line };
