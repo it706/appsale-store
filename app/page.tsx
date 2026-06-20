@@ -269,6 +269,41 @@ const iphone16Images = {
   ],
 };
 
+const iphone16ProImages = {
+  Black: [
+    "/products/iphone-16-pro-black-1.png",
+    "/products/iphone-16-pro-black-2.png",
+    "/products/iphone-16-pro-black-3.png",
+    "/products/iphone-16-pro-black-4.png",
+    "/products/iphone-16-pro-black-5.png",
+    "/products/iphone-16-pro-black-6.png",
+  ],
+  White: [
+    "/products/iphone-16-pro-white-1.png",
+    "/products/iphone-16-pro-white-2.png",
+    "/products/iphone-16-pro-white-3.png",
+    "/products/iphone-16-pro-white-4.png",
+    "/products/iphone-16-pro-white-5.png",
+    "/products/iphone-16-pro-white-6.png",
+  ],
+  Desert: [
+    "/products/iphone-16-pro-desert-1.png",
+    "/products/iphone-16-pro-desert-2.png",
+    "/products/iphone-16-pro-desert-3.png",
+    "/products/iphone-16-pro-desert-4.png",
+    "/products/iphone-16-pro-desert-5.png",
+    "/products/iphone-16-pro-desert-6.png",
+  ],
+  Natural: [
+    "/products/iphone-16-pro-natural-1.png",
+    "/products/iphone-16-pro-natural-2.png",
+    "/products/iphone-16-pro-natural-3.png",
+    "/products/iphone-16-pro-natural-4.png",
+    "/products/iphone-16-pro-natural-5.png",
+    "/products/iphone-16-pro-natural-6.png",
+  ],
+};
+
 const ipad11Images = {
   Silver: [
     "/products/ipad-11-a16-silver-1.png",
@@ -401,6 +436,8 @@ const products: Product[] = [
           ? iphoneAirImages
           : name === "iPhone 16" || name === "iPhone 16 Plus"
             ? iphone16Images
+            : name === "iPhone 16 Pro" || name === "iPhone 16 Pro Max"
+              ? iphone16ProImages
             : name === "iPad 11 A16 (2025)"
               ? ipad11Images
               : undefined,
