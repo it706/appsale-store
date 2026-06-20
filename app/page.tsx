@@ -1088,7 +1088,7 @@ export default function Home() {
                   </div>
                 ) : null}
                 <footer>
-                  <b>{product.price}</b>
+                  <b>{getConfiguredProduct(product).price}</b>
                   <div className="cardActions">
                     {getCartQty(product) > 0 ? (
                       <div className="cardQtyControl" aria-label={`Количество ${product.name} в корзине`}>
