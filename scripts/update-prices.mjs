@@ -73,6 +73,11 @@ const catalog = {
     sims: ["Nano-SIM + eSIM"],
     storages: ["128GB", "256GB", "512GB"],
   },
+  "iPhone 15 Plus": {
+    colors: ["Black", "Blue", "Green", "Pink", "Yellow"],
+    sims: ["Nano-SIM + eSIM"],
+    storages: ["128GB", "256GB", "512GB"],
+  },
   "iPad 11 A16 (2025)": {
     colors: ["Silver", "Blue", "Pink", "Yellow"],
     sims: ["Wi-Fi", "LTE"],
@@ -114,7 +119,8 @@ function parseModel(value) {
   if (/^16\s+pr/i.test(text)) return "iPhone 16 Pro";
   if (/^16e\b/.test(text)) return "iPhone 16e";
   if (/^16\b/.test(text)) return "iPhone 16";
-  if (/^15\s+(?:plus|pr)/i.test(text)) return "iPhone 15 Plus";
+  if (/^15\s+plus\b/i.test(text)) return "iPhone 15 Plus";
+  if (/^15\s+pr/i.test(text)) return "iPhone 15 Pro";
   if (/^15\b/.test(text)) return "iPhone 15";
   if (/^ipad\s+11\b/.test(text)) return "iPad 11 A16 (2025)";
 
@@ -191,7 +197,7 @@ function parseColor(value, model) {
     if (has("desert")) return "Desert";
   }
 
-  if (model === "iPhone 15") {
+  if (model === "iPhone 15" || model === "iPhone 15 Plus") {
     if (has("black")) return "Black";
     if (has("blue")) return "Blue";
     if (has("green")) return "Green";

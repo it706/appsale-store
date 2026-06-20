@@ -127,6 +127,8 @@ const iphone15Options = {
   storages: ["128GB", "256GB", "512GB"],
 };
 
+const iphone15PlusOptions = iphone15Options;
+
 const ipad11Options = {
   colors: ["Silver", "Blue", "Pink", "Yellow"],
   sims: ["Wi-Fi", "LTE"],
@@ -307,6 +309,44 @@ const iphone16eImages = {
   ],
 };
 
+const iphone15Images = {
+  Black: [
+    "/products/iphone-15-black-1.png",
+    "/products/iphone-15-black-2.png",
+    "/products/iphone-15-black-3.png",
+    "/products/iphone-15-black-4.png",
+    "/products/iphone-15-black-5.png",
+  ],
+  Blue: [
+    "/products/iphone-15-blue-1.png",
+    "/products/iphone-15-blue-2.png",
+    "/products/iphone-15-blue-3.png",
+    "/products/iphone-15-blue-4.png",
+    "/products/iphone-15-blue-5.png",
+  ],
+  Green: [
+    "/products/iphone-15-green-1.png",
+    "/products/iphone-15-green-2.png",
+    "/products/iphone-15-green-3.png",
+    "/products/iphone-15-green-4.png",
+    "/products/iphone-15-green-5.png",
+  ],
+  Pink: [
+    "/products/iphone-15-pink-1.png",
+    "/products/iphone-15-pink-2.png",
+    "/products/iphone-15-pink-3.png",
+    "/products/iphone-15-pink-4.png",
+    "/products/iphone-15-pink-5.png",
+  ],
+  Yellow: [
+    "/products/iphone-15-yellow-1.png",
+    "/products/iphone-15-yellow-2.png",
+    "/products/iphone-15-yellow-3.png",
+    "/products/iphone-15-yellow-4.png",
+    "/products/iphone-15-yellow-5.png",
+  ],
+};
+
 const iphone16ProImages = {
   Black: [
     "/products/iphone-16-pro-black-1.png",
@@ -426,6 +466,7 @@ const products: Product[] = [
   "iPhone 16 Pro",
   "iPhone 16 Pro Max",
   "iPhone 15",
+  "iPhone 15 Plus",
   "iPad 11 A16 (2025)",
   "MacBook Neo",
   "AirPods Pro 3",
@@ -453,6 +494,8 @@ const products: Product[] = [
               ? "Ultramarine"
               : name === "iPhone 16e" || name === "iPhone 15"
                 ? "Black"
+              : name === "iPhone 15 Plus"
+                ? "Pink"
               : name === "iPhone 16 Pro" || name === "iPhone 16 Pro Max"
                 ? "Natural"
               : name === "iPad 11 A16 (2025)"
@@ -476,8 +519,10 @@ const products: Product[] = [
           ? iphoneAirImages
           : name === "iPhone 16" || name === "iPhone 16 Plus"
             ? iphone16Images
-            : name === "iPhone 16e"
+          : name === "iPhone 16e"
               ? iphone16eImages
+            : name === "iPhone 15" || name === "iPhone 15 Plus"
+              ? iphone15Images
             : name === "iPhone 16 Pro" || name === "iPhone 16 Pro Max"
               ? iphone16ProImages
             : name === "iPad 11 A16 (2025)"
@@ -485,9 +530,9 @@ const products: Product[] = [
               : undefined,
   name,
   price: "цена по запросу",
-  sim: name.includes("AirPods") || name === "MacBook Neo" ? "" : name === "iPad 11 A16 (2025)" ? "Wi-Fi" : name === "iPhone 15" || name === "iPhone 16" || name === "iPhone 16 Plus" || name === "iPhone 16e" ? "Nano-SIM + eSIM" : name === "iPhone 16 Pro" || name === "iPhone 16 Pro Max" ? "Dual Nano-SIM" : "Dual eSIM",
+  sim: name.includes("AirPods") || name === "MacBook Neo" ? "" : name === "iPad 11 A16 (2025)" ? "Wi-Fi" : name === "iPhone 15" || name === "iPhone 15 Plus" || name === "iPhone 16" || name === "iPhone 16 Plus" || name === "iPhone 16e" ? "Nano-SIM + eSIM" : name === "iPhone 16 Pro" || name === "iPhone 16 Pro Max" ? "Dual Nano-SIM" : "Dual eSIM",
   status: "В наличии",
-  storage: name.includes("AirPods") || name === "MacBook Neo" ? "" : name === "iPhone 15" || name === "iPhone 16" || name === "iPhone 16 Plus" || name === "iPhone 16e" || name === "iPhone 16 Pro" || name === "iPhone 16 Pro Max" || name === "iPad 11 A16 (2025)" ? "128GB" : "256GB",
+  storage: name.includes("AirPods") || name === "MacBook Neo" ? "" : name === "iPhone 15" || name === "iPhone 15 Plus" || name === "iPhone 16" || name === "iPhone 16 Plus" || name === "iPhone 16e" || name === "iPhone 16 Pro" || name === "iPhone 16 Pro Max" || name === "iPad 11 A16 (2025)" ? "128GB" : "256GB",
   variantOptions:
     name.includes("AirPods")
       ? undefined
@@ -511,6 +556,8 @@ const products: Product[] = [
                 ? iphone16ProMaxOptions
               : name === "iPhone 15"
                 ? iphone15Options
+              : name === "iPhone 15 Plus"
+                ? iphone15PlusOptions
               : name === "iPad 11 A16 (2025)"
                 ? ipad11Options
                 : iphoneOptions,

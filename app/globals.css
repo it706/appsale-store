@@ -861,7 +861,7 @@ main {
 }
 
 .colorOptions button[data-color="Pink"] i {
-  background: #f4b8c8;
+  background: #f2c9d1;
 }
 
 .colorOptions button[data-color="Soft Pink"] i {
@@ -872,16 +872,20 @@ main {
   background: #4f9b9b;
 }
 
+.colorOptions button[data-color="Green"] i {
+  background: #c9d5c5;
+}
+
 .colorOptions button[data-color="Ultramarine"] i {
   background: #5268d8;
 }
 
 .colorOptions button[data-color="Blue"] i {
-  background: #9fb9d9;
+  background: #bfd4e1;
 }
 
 .colorOptions button[data-color="Yellow"] i {
-  background: #ead48b;
+  background: #f1dfae;
 }
 
 .colorOptions button.active {

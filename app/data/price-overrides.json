@@ -27,6 +27,48 @@
     "sourceLine": "IPad 11 128 Yellow WIFI MD4D4 - 26.100",
     "supplierPrice": 26100
   },
+  "iPhone 15 Plus|128GB|Green|Nano-SIM + eSIM": {
+    "finalPrice": 51500,
+    "markup": 3000,
+    "price": "51 500 ₽",
+    "sourceLine": "15 Plus 128 Green 🇮🇳 - 48.500",
+    "supplierPrice": 48500
+  },
+  "iPhone 15 Plus|128GB|Pink|Nano-SIM + eSIM": {
+    "finalPrice": 52000,
+    "markup": 3000,
+    "price": "52 000 ₽",
+    "sourceLine": "15 Plus 128 Pink  🇮🇳 -  48.900",
+    "supplierPrice": 48900
+  },
+  "iPhone 15 Plus|512GB|Blue|Nano-SIM + eSIM": {
+    "finalPrice": 59500,
+    "markup": 3000,
+    "price": "59 500 ₽",
+    "sourceLine": "15 Plus 512 Blue 🇯🇵 - 56.500",
+    "supplierPrice": 56500
+  },
+  "iPhone 15 Plus|512GB|Green|Nano-SIM + eSIM": {
+    "finalPrice": 60000,
+    "markup": 3000,
+    "price": "60 000 ₽",
+    "sourceLine": "15 Plus 512 Green 🇯🇵 - 56.600",
+    "supplierPrice": 56600
+  },
+  "iPhone 15 Plus|512GB|Pink|Nano-SIM + eSIM": {
+    "finalPrice": 58500,
+    "markup": 3000,
+    "price": "58 500 ₽",
+    "sourceLine": "15 Plus 512 Pink 🇯🇵 - 55.500",
+    "supplierPrice": 55500
+  },
+  "iPhone 15 Plus|512GB|Yellow|Nano-SIM + eSIM": {
+    "finalPrice": 57000,
+    "markup": 3000,
+    "price": "57 000 ₽",
+    "sourceLine": "15 Plus 512 Yellow 🇯🇵 - 54.000",
+    "supplierPrice": 54000
+  },
   "iPhone 15|128GB|Black|Nano-SIM + eSIM": {
     "finalPrice": 50000,
     "markup": 3000,
