@@ -48,6 +48,16 @@ const catalog = {
     sims: ["Nano-SIM + eSIM"],
     storages: ["128GB", "256GB", "512GB"],
   },
+  "iPhone 16 Pro": {
+    colors: ["Black", "White", "Natural Titanium", "Desert Titanium"],
+    sims: ["Dual Nano-SIM", "Nano-SIM + eSIM"],
+    storages: ["128GB", "256GB", "512GB", "1TB"],
+  },
+  "iPhone 16 Pro Max": {
+    colors: ["Black", "White", "Natural Titanium", "Desert Titanium"],
+    sims: ["Dual Nano-SIM", "Nano-SIM + eSIM"],
+    storages: ["256GB", "512GB", "1TB"],
+  },
   "iPad 11 A16 (2025)": {
     colors: ["Silver", "Blue", "Pink", "Yellow"],
     sims: ["Wi-Fi", "LTE"],
@@ -83,6 +93,7 @@ function parseModel(value) {
   if (/^17\b/.test(text)) return "iPhone 17";
   if (/^air\b/.test(text)) return "iPhone Air";
   if (/^16\s+plus\b/.test(text)) return "iPhone 16 Plus";
+  if (/^16\s+pr.*ma/i.test(text)) return "iPhone 16 Pro Max";
   if (/^16\s+pr/i.test(text)) return "iPhone 16 Pro";
   if (/^16\b/.test(text)) return "iPhone 16";
   if (/^ipad\s+11\b/.test(text)) return "iPad 11 A16 (2025)";
@@ -103,6 +114,8 @@ function parseStorage(value) {
 
 function parseSim(value) {
   const text = normalizeText(value);
+
+  if (/\b(?:2sim|2\s*sim|dual\s*sim)\b/.test(text)) return "Dual Nano-SIM";
 
   if (/\b(?:1sim|1\s*sim|nano|наносим|nano-sim)\b/.test(text)) return "Nano-SIM + eSIM";
   if (/\b(?:esim|e-sim)\b/.test(text)) return "Dual eSIM";
@@ -143,6 +156,13 @@ function parseColor(value, model) {
     if (has("pink")) return "Pink";
     if (has("teal")) return "Teal";
     if (has("ultramarine", "blue")) return "Ultramarine";
+  }
+
+  if (model === "iPhone 16 Pro" || model === "iPhone 16 Pro Max") {
+    if (has("black")) return "Black";
+    if (has("white")) return "White";
+    if (has("natural")) return "Natural Titanium";
+    if (has("desert")) return "Desert Titanium";
   }
 
   if (model === "iPad 11 A16 (2025)") {
@@ -206,8 +226,9 @@ function parseLine(line) {
   const allowed = catalog[model];
   const isSimpleProduct = model.includes("AirPods");
 
-  // For models with one SIM variant in the catalog, supplier lists may omit it.
-  if (!sim && allowed?.sims.length === 1) sim = allowed.sims[0];
+  // Supplier lines without an explicit SIM type are always Nano-SIM + eSIM.
+  if (!sim && allowed?.sims.includes("Nano-SIM + eSIM")) sim = "Nano-SIM + eSIM";
+  else if (!sim && allowed?.sims.length === 1) sim = allowed.sims[0];
 
   if (!model || !supplierPrice || (!isSimpleProduct && (!storage || !color || !sim))) {
     return { ignored: true, reason: "не удалось распознать модель, память, цвет, SIM или цену", line };

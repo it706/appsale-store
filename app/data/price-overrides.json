@@ -90,6 +90,118 @@
     "sourceLine": "16 Plus 512 Teal 🇮🇳 - 77.000",
     "supplierPrice": 77000
   },
+  "iPhone 16 Pro Max|1TB|Desert Titanium|Nano-SIM + eSIM": {
+    "finalPrice": 119000,
+    "markup": 3500,
+    "price": "119 000 ₽",
+    "sourceLine": "16 Pro Max 1Tb Desert  🇦🇪 - 115.300",
+    "supplierPrice": 115300
+  },
+  "iPhone 16 Pro Max|1TB|Natural Titanium|Nano-SIM + eSIM": {
+    "finalPrice": 118500,
+    "markup": 3500,
+    "price": "118 500 ₽",
+    "sourceLine": "16 Pro Max 1Tb Natural 🇦🇪 - 114.900",
+    "supplierPrice": 114900
+  },
+  "iPhone 16 Pro Max|1TB|White|Nano-SIM + eSIM": {
+    "finalPrice": 124500,
+    "markup": 3500,
+    "price": "124 500 ₽",
+    "sourceLine": "16 Pro Max 1Tb White 🇦🇪 - 121.000",
+    "supplierPrice": 121000
+  },
+  "iPhone 16 Pro Max|256GB|Desert Titanium|Nano-SIM + eSIM": {
+    "finalPrice": 86500,
+    "markup": 3500,
+    "price": "86 500 ₽",
+    "sourceLine": "16 Prо Maх 256 Desert 🇦🇪 - 83.000",
+    "supplierPrice": 83000
+  },
+  "iPhone 16 Pro Max|256GB|Natural Titanium|Nano-SIM + eSIM": {
+    "finalPrice": 97500,
+    "markup": 3500,
+    "price": "97 500 ₽",
+    "sourceLine": "16 Prо Maх 256 Natural 🇦🇪 - 94.000",
+    "supplierPrice": 94000
+  },
+  "iPhone 16 Pro Max|512GB|Black|Nano-SIM + eSIM": {
+    "finalPrice": 111500,
+    "markup": 3500,
+    "price": "111 500 ₽",
+    "sourceLine": "16 Prо Maх 512 Black 🇦🇪 - 108.000",
+    "supplierPrice": 108000
+  },
+  "iPhone 16 Pro Max|512GB|Desert Titanium|Nano-SIM + eSIM": {
+    "finalPrice": 104000,
+    "markup": 3500,
+    "price": "104 000 ₽",
+    "sourceLine": "16 Prо Maх 512 Desert 🇦🇪 - 100.400",
+    "supplierPrice": 100400
+  },
+  "iPhone 16 Pro Max|512GB|Natural Titanium|Nano-SIM + eSIM": {
+    "finalPrice": 111500,
+    "markup": 3500,
+    "price": "111 500 ₽",
+    "sourceLine": "16 Pro Max 512 Natural 🇦🇪 - 108.000",
+    "supplierPrice": 108000
+  },
+  "iPhone 16 Pro|128GB|Black|Dual Nano-SIM": {
+    "finalPrice": 80000,
+    "markup": 3500,
+    "price": "80 000 ₽",
+    "sourceLine": "16 Prо 128 Black 🇨🇳 2sim - 76.500",
+    "supplierPrice": 76500
+  },
+  "iPhone 16 Pro|128GB|Black|Nano-SIM + eSIM": {
+    "finalPrice": 91500,
+    "markup": 3500,
+    "price": "91 500 ₽",
+    "sourceLine": "16 Pro 128 Black 🇨🇦 - 88.000",
+    "supplierPrice": 88000
+  },
+  "iPhone 16 Pro|128GB|Desert Titanium|Dual Nano-SIM": {
+    "finalPrice": 78500,
+    "markup": 3500,
+    "price": "78 500 ₽",
+    "sourceLine": "16 Prо 128 Desert 🇨🇳 2sim - 75.000",
+    "supplierPrice": 75000
+  },
+  "iPhone 16 Pro|128GB|Natural Titanium|Dual Nano-SIM": {
+    "finalPrice": 77500,
+    "markup": 3500,
+    "price": "77 500 ₽",
+    "sourceLine": "16 Prо 128 Natural 🇨🇳 2sim - 73.800",
+    "supplierPrice": 73800
+  },
+  "iPhone 16 Pro|128GB|White|Dual Nano-SIM": {
+    "finalPrice": 72000,
+    "markup": 3500,
+    "price": "72 000 ₽",
+    "sourceLine": "16 Prо 128 White 🇨🇳 2sim - 68.400",
+    "supplierPrice": 68400
+  },
+  "iPhone 16 Pro|1TB|White|Nano-SIM + eSIM": {
+    "finalPrice": 107500,
+    "markup": 3500,
+    "price": "107 500 ₽",
+    "sourceLine": "16 Pro 1Tb White 🇦🇪 - 103.800",
+    "supplierPrice": 103800
+  },
+  "iPhone 16 Pro|256GB|White|Nano-SIM + eSIM": {
+    "finalPrice": 84000,
+    "markup": 3500,
+    "price": "84 000 ₽",
+    "sourceLine": "16 Pro 256 White 🇺🇸 - 80.100",
+    "supplierPrice": 80100
+  },
+  "iPhone 16 Pro|512GB|White|Nano-SIM + eSIM": {
+    "finalPrice": 118500,
+    "markup": 3500,
+    "price": "118 500 ₽",
+    "sourceLine": "16 Pro 512 White 🇯🇵 - 115.000",
+    "supplierPrice": 115000
+  },
   "iPhone 16|128GB|Black|Nano-SIM + eSIM": {
     "finalPrice": 54000,
     "markup": 3500,
