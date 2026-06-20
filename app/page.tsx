@@ -84,7 +84,7 @@ const iphone17Options = {
 };
 
 const iphone17eOptions = {
-  colors: ["Black", "White"],
+  colors: ["Black", "White", "Soft Pink"],
   sims: ["Dual eSIM", "Nano-SIM + eSIM"],
   storages: ["256GB", "512GB"],
 };
@@ -269,6 +269,27 @@ const iphone16Images = {
   ],
 };
 
+const iphone17eImages = {
+  Black: [
+    "/products/iphone-17e-black-1.png",
+    "/products/iphone-17e-black-2.png",
+    "/products/iphone-17e-black-3.png",
+    "/products/iphone-17e-black-4.png",
+  ],
+  White: [
+    "/products/iphone-17e-white-1.png",
+    "/products/iphone-17e-white-2.png",
+    "/products/iphone-17e-white-3.png",
+    "/products/iphone-17e-white-4.png",
+  ],
+  "Soft Pink": [
+    "/products/iphone-17e-soft-pink-1.png",
+    "/products/iphone-17e-soft-pink-2.png",
+    "/products/iphone-17e-soft-pink-3.png",
+    "/products/iphone-17e-soft-pink-4.png",
+  ],
+};
+
 const iphone16eImages = {
   Black: [
     "/products/iphone-16e-black-1.png",
@@ -449,6 +470,8 @@ const products: Product[] = [
       ? iphone17ProImages
       : name === "iPhone 17"
         ? iphone17Images
+        : name === "iPhone 17e"
+          ? iphone17eImages
         : name === "iPhone Air"
           ? iphoneAirImages
           : name === "iPhone 16" || name === "iPhone 16 Plus"

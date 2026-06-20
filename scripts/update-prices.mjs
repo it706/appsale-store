@@ -29,7 +29,7 @@ const catalog = {
     storages: ["256GB", "512GB"],
   },
   "iPhone 17e": {
-    colors: ["Black", "White"],
+    colors: ["Black", "White", "Soft Pink"],
     sims: ["Dual eSIM", "Nano-SIM + eSIM"],
     storages: ["256GB", "512GB"],
   },
@@ -173,6 +173,7 @@ function parseColor(value, model) {
   if (model === "iPhone 17e" || model === "iPhone 16e") {
     if (has("black")) return "Black";
     if (has("white")) return "White";
+    if (model === "iPhone 17e" && has("soft pink", "pink")) return "Soft Pink";
   }
 
   if (model === "iPhone 16" || model === "iPhone 16 Plus") {

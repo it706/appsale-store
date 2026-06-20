@@ -864,6 +864,10 @@ main {
   background: #f4b8c8;
 }
 
+.colorOptions button[data-color="Soft Pink"] i {
+  background: #efc8cf;
+}
+
 .colorOptions button[data-color="Teal"] i {
   background: #4f9b9b;
 }
