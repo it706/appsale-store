@@ -955,6 +955,10 @@ main {
   overflow: hidden;
 }
 
+.adminOrders + .adminOrders {
+  margin-top: 18px;
+}
+
 .adminSectionHead {
   padding: 22px;
   border-bottom: 1px solid var(--line);

@@ -136,7 +136,7 @@ export async function getAdminDashboard() {
   const sql = await ensureSchema();
   if (!sql) return null;
 
-  const [orders, customers, starts] = await Promise.all([
+  const [orders, customers, starts, botStarts] = await Promise.all([
     sql`
       SELECT id, customer_name, phone, telegram, contact_method, delivery_method, items_json, total, created_at
       FROM app_sale_orders
@@ -145,10 +145,17 @@ export async function getAdminDashboard() {
     `,
     sql`SELECT COUNT(*)::INTEGER AS count FROM app_sale_customers`,
     sql`SELECT COUNT(*)::INTEGER AS count FROM app_sale_bot_starts`,
+    sql`
+      SELECT chat_id, telegram_user_id, first_name, last_name, telegram, first_started_at, last_started_at
+      FROM app_sale_bot_starts
+      ORDER BY last_started_at DESC
+      LIMIT 50
+    `,
   ]);
 
   return {
     customers: Number(customers[0]?.count ?? 0),
+    botStarts,
     orders,
     starts: Number(starts[0]?.count ?? 0),
   };

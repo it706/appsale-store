@@ -3,6 +3,15 @@
 import { FormEvent, useCallback, useEffect, useState } from "react";
 
 type Dashboard = {
+  botStarts: Array<{
+    chat_id: string;
+    first_name: string;
+    first_started_at: string;
+    last_name: string;
+    last_started_at: string;
+    telegram: string;
+    telegram_user_id: string;
+  }>;
   customers: number;
   orders: Array<{
     created_at: string;
@@ -119,6 +128,25 @@ export default function AdminPage() {
             </article>
           );
         }) : <p className="adminEmpty">Заказов пока нет. После первого оформления они появятся здесь.</p>}
+      </section>
+
+      <section className="adminOrders">
+        <div className="adminSectionHead"><h2>Запуски бота</h2><span>{dashboard.botStarts.length} в истории</span></div>
+        {dashboard.botStarts.length ? dashboard.botStarts.map((start) => {
+          const name = [start.first_name, start.last_name].filter(Boolean).join(" ") || "Пользователь Telegram";
+
+          return (
+            <article className="adminOrder" key={start.chat_id}>
+              <div>
+                <strong>{name}</strong>
+                <span>{start.telegram || `ID: ${start.telegram_user_id || start.chat_id}`}</span>
+              </div>
+              <div>
+                <span>Последний запуск: {formatDate(start.last_started_at)}</span>
+              </div>
+            </article>
+          );
+        }) : <p className="adminEmpty">Новых запусков пока нет. Нажатие /start у бота добавит пользователя в список.</p>}
       </section>
     </main>
   );
