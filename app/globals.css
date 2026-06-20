@@ -868,6 +868,18 @@ main {
   background: #efc8cf;
 }
 
+.colorOptions button[data-color="Indigo"] i {
+  background: #4a587d;
+}
+
+.colorOptions button[data-color="Blush"] i {
+  background: #e4b6bd;
+}
+
+.colorOptions button[data-color="Citrus"] i {
+  background: #dfd85d;
+}
+
 .colorOptions button[data-color="Teal"] i {
   background: #4f9b9b;
 }

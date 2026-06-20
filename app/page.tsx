@@ -129,6 +129,12 @@ const iphone15Options = {
 
 const iphone15PlusOptions = iphone15Options;
 
+const macbookNeoOptions = {
+  colors: ["Indigo", "Blush", "Silver", "Citrus"],
+  sims: [],
+  storages: ["256GB", "512GB"],
+};
+
 const ipad11Options = {
   colors: ["Silver", "Blue", "Pink", "Yellow"],
   sims: ["Wi-Fi", "LTE"],
@@ -347,6 +353,41 @@ const iphone15Images = {
   ],
 };
 
+const macbookNeoImages = {
+  Indigo: [
+    "/products/macbook-neo-indigo-1.png",
+    "/products/macbook-neo-indigo-2.png",
+    "/products/macbook-neo-indigo-3.png",
+    "/products/macbook-neo-indigo-4.png",
+    "/products/macbook-neo-indigo-5.png",
+    "/products/macbook-neo-indigo-6.png",
+  ],
+  Blush: [
+    "/products/macbook-neo-blush-1.png",
+    "/products/macbook-neo-blush-2.png",
+    "/products/macbook-neo-blush-3.png",
+    "/products/macbook-neo-blush-4.png",
+    "/products/macbook-neo-blush-5.png",
+    "/products/macbook-neo-blush-6.png",
+  ],
+  Silver: [
+    "/products/macbook-neo-silver-1.png",
+    "/products/macbook-neo-silver-2.png",
+    "/products/macbook-neo-silver-3.png",
+    "/products/macbook-neo-silver-4.png",
+    "/products/macbook-neo-silver-5.png",
+    "/products/macbook-neo-silver-6.png",
+  ],
+  Citrus: [
+    "/products/macbook-neo-citrus-1.png",
+    "/products/macbook-neo-citrus-2.png",
+    "/products/macbook-neo-citrus-3.png",
+    "/products/macbook-neo-citrus-4.png",
+    "/products/macbook-neo-citrus-5.png",
+    "/products/macbook-neo-citrus-6.png",
+  ],
+};
+
 const iphone16ProImages = {
   Black: [
     "/products/iphone-16-pro-black-1.png",
@@ -501,7 +542,7 @@ const products: Product[] = [
               : name === "iPad 11 A16 (2025)"
                 ? "Silver"
                 : name === "MacBook Neo"
-                  ? "Silver"
+                  ? "Indigo"
                 : "Cosmic Orange",
   condition: "новый",
   description: "",
@@ -523,6 +564,8 @@ const products: Product[] = [
               ? iphone16eImages
             : name === "iPhone 15" || name === "iPhone 15 Plus"
               ? iphone15Images
+            : name === "MacBook Neo"
+              ? macbookNeoImages
             : name === "iPhone 16 Pro" || name === "iPhone 16 Pro Max"
               ? iphone16ProImages
             : name === "iPad 11 A16 (2025)"
@@ -532,7 +575,7 @@ const products: Product[] = [
   price: "цена по запросу",
   sim: name.includes("AirPods") || name === "MacBook Neo" ? "" : name === "iPad 11 A16 (2025)" ? "Wi-Fi" : name === "iPhone 15" || name === "iPhone 15 Plus" || name === "iPhone 16" || name === "iPhone 16 Plus" || name === "iPhone 16e" ? "Nano-SIM + eSIM" : name === "iPhone 16 Pro" || name === "iPhone 16 Pro Max" ? "Dual Nano-SIM" : "Dual eSIM",
   status: "В наличии",
-  storage: name.includes("AirPods") || name === "MacBook Neo" ? "" : name === "iPhone 15" || name === "iPhone 15 Plus" || name === "iPhone 16" || name === "iPhone 16 Plus" || name === "iPhone 16e" || name === "iPhone 16 Pro" || name === "iPhone 16 Pro Max" || name === "iPad 11 A16 (2025)" ? "128GB" : "256GB",
+  storage: name.includes("AirPods") ? "" : name === "MacBook Neo" ? "256GB" : name === "iPhone 15" || name === "iPhone 15 Plus" || name === "iPhone 16" || name === "iPhone 16 Plus" || name === "iPhone 16e" || name === "iPhone 16 Pro" || name === "iPhone 16 Pro Max" || name === "iPad 11 A16 (2025)" ? "128GB" : "256GB",
   variantOptions:
     name.includes("AirPods")
       ? undefined
@@ -558,6 +601,8 @@ const products: Product[] = [
                 ? iphone15Options
               : name === "iPhone 15 Plus"
                 ? iphone15PlusOptions
+              : name === "MacBook Neo"
+                ? macbookNeoOptions
               : name === "iPad 11 A16 (2025)"
                 ? ipad11Options
                 : iphoneOptions,
@@ -1248,21 +1293,23 @@ export default function Home() {
                         ))}
                       </div>
                     </div>
-                    <div>
-                      <span>SIM-карта</span>
-                      <div className="variantOptions simOptions">
-                        {product.variantOptions.sims.map((sim) => (
-                          <button
-                            className={productSelections[product.id]?.sim === sim ? "active" : ""}
-                            key={sim}
-                            onClick={() => updateProductSelection(product.id, "sim", sim)}
-                            type="button"
-                          >
-                            {sim}
-                          </button>
-                        ))}
+                    {product.variantOptions.sims.length ? (
+                      <div>
+                        <span>SIM-карта</span>
+                        <div className="variantOptions simOptions">
+                          {product.variantOptions.sims.map((sim) => (
+                            <button
+                              className={productSelections[product.id]?.sim === sim ? "active" : ""}
+                              key={sim}
+                              onClick={() => updateProductSelection(product.id, "sim", sim)}
+                              type="button"
+                            >
+                              {sim}
+                            </button>
+                          ))}
+                        </div>
                       </div>
-                    </div>
+                    ) : null}
                   </div>
                 ) : null}
                 <footer>
@@ -1428,19 +1475,23 @@ export default function Home() {
                           </button>
                         ))}
                       </div>
-                      <span>SIM-карта</span>
-                      <div className="variantOptions simOptions">
-                        {product.variantOptions.sims.map((sim) => (
-                          <button
-                            className={productSelections[product.id]?.sim === sim ? "active" : ""}
-                            key={sim}
-                            onClick={() => updateProductSelection(product.id, "sim", sim)}
-                            type="button"
-                          >
-                            {sim}
-                          </button>
-                        ))}
-                      </div>
+                      {product.variantOptions.sims.length ? (
+                        <>
+                          <span>SIM-карта</span>
+                          <div className="variantOptions simOptions">
+                            {product.variantOptions.sims.map((sim) => (
+                              <button
+                                className={productSelections[product.id]?.sim === sim ? "active" : ""}
+                                key={sim}
+                                onClick={() => updateProductSelection(product.id, "sim", sim)}
+                                type="button"
+                              >
+                                {sim}
+                              </button>
+                            ))}
+                          </div>
+                        </>
+                      ) : null}
                     </div>
                   ) : null}
                   <div className="detailAddBar">

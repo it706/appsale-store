@@ -78,6 +78,11 @@ const catalog = {
     sims: ["Nano-SIM + eSIM"],
     storages: ["128GB", "256GB", "512GB"],
   },
+  "MacBook Neo": {
+    colors: ["Indigo", "Blush", "Silver", "Citrus"],
+    sims: [],
+    storages: ["256GB", "512GB"],
+  },
   "iPad 11 A16 (2025)": {
     colors: ["Silver", "Blue", "Pink", "Yellow"],
     sims: ["Wi-Fi", "LTE"],
@@ -122,6 +127,7 @@ function parseModel(value) {
   if (/^15\s+plus\b/i.test(text)) return "iPhone 15 Plus";
   if (/^15\s+pr/i.test(text)) return "iPhone 15 Pro";
   if (/^15\b/.test(text)) return "iPhone 15";
+  if (/^macbook\s+neo\b/i.test(text)) return "MacBook Neo";
   if (/^ipad\s+11\b/.test(text)) return "iPad 11 A16 (2025)";
 
   return "";
@@ -205,6 +211,13 @@ function parseColor(value, model) {
     if (has("yellow")) return "Yellow";
   }
 
+  if (model === "MacBook Neo") {
+    if (has("indigo")) return "Indigo";
+    if (has("blush")) return "Blush";
+    if (has("silver")) return "Silver";
+    if (has("citrus")) return "Citrus";
+  }
+
   if (model === "iPad 11 A16 (2025)") {
     if (has("silver")) return "Silver";
     if (has("blue")) return "Blue";
@@ -272,7 +285,7 @@ function parseLine(line) {
   if (!sim && allowed?.sims.includes("Nano-SIM + eSIM")) sim = "Nano-SIM + eSIM";
   else if (!sim && allowed?.sims.length === 1) sim = allowed.sims[0];
 
-  if (!model || !supplierPrice || (!isSimpleProduct && (!storage || !color || !sim))) {
+  if (!model || !supplierPrice || (!isSimpleProduct && (!storage || !color || (allowed?.sims.length && !sim)))) {
     return { ignored: true, reason: "не удалось распознать модель, память, цвет, SIM или цену", line };
   }
 
