@@ -28,6 +28,11 @@ const catalog = {
     sims: ["Dual eSIM", "Nano-SIM + eSIM"],
     storages: ["256GB", "512GB"],
   },
+  "iPhone 17e": {
+    colors: ["Black", "White"],
+    sims: ["Dual eSIM", "Nano-SIM + eSIM"],
+    storages: ["256GB", "512GB"],
+  },
   "iPhone 17 Pro": {
     colors: ["Silver", "Deep Blue", "Cosmic Orange"],
     sims: ["Dual eSIM", "Nano-SIM + eSIM"],
@@ -48,15 +53,25 @@ const catalog = {
     sims: ["Nano-SIM + eSIM"],
     storages: ["128GB", "256GB", "512GB"],
   },
+  "iPhone 16e": {
+    colors: ["Black", "White"],
+    sims: ["Nano-SIM + eSIM"],
+    storages: ["128GB", "256GB", "512GB"],
+  },
   "iPhone 16 Pro": {
-    colors: ["Black", "White", "Natural Titanium", "Desert Titanium"],
+    colors: ["Black", "White", "Desert", "Natural"],
     sims: ["Dual Nano-SIM", "Nano-SIM + eSIM"],
     storages: ["128GB", "256GB", "512GB", "1TB"],
   },
   "iPhone 16 Pro Max": {
-    colors: ["Black", "White", "Natural Titanium", "Desert Titanium"],
+    colors: ["Black", "White", "Desert", "Natural"],
     sims: ["Dual Nano-SIM", "Nano-SIM + eSIM"],
     storages: ["256GB", "512GB", "1TB"],
+  },
+  "iPhone 15": {
+    colors: ["Black", "Blue", "Green", "Pink", "Yellow"],
+    sims: ["Nano-SIM + eSIM"],
+    storages: ["128GB", "256GB", "512GB"],
   },
   "iPad 11 A16 (2025)": {
     colors: ["Silver", "Blue", "Pink", "Yellow"],
@@ -72,8 +87,10 @@ const catalog = {
 const markupByModel = {
   airpods: 2000,
   ipad: 3000,
+  iphone15: 3000,
   iphone16: 3500,
   iphone17: 4000,
+  macbookNeo: 4000,
 };
 
 function normalizeText(value) {
@@ -95,7 +112,10 @@ function parseModel(value) {
   if (/^16\s+plus\b/.test(text)) return "iPhone 16 Plus";
   if (/^16\s+pr.*ma/i.test(text)) return "iPhone 16 Pro Max";
   if (/^16\s+pr/i.test(text)) return "iPhone 16 Pro";
+  if (/^16e\b/.test(text)) return "iPhone 16e";
   if (/^16\b/.test(text)) return "iPhone 16";
+  if (/^15\s+(?:plus|pr)/i.test(text)) return "iPhone 15 Plus";
+  if (/^15\b/.test(text)) return "iPhone 15";
   if (/^ipad\s+11\b/.test(text)) return "iPad 11 A16 (2025)";
 
   return "";
@@ -150,6 +170,11 @@ function parseColor(value, model) {
     if (has("lavender", "lavanda", "лаванда")) return "Lavender";
   }
 
+  if (model === "iPhone 17e" || model === "iPhone 16e") {
+    if (has("black")) return "Black";
+    if (has("white")) return "White";
+  }
+
   if (model === "iPhone 16" || model === "iPhone 16 Plus") {
     if (has("black")) return "Black";
     if (has("white")) return "White";
@@ -161,8 +186,16 @@ function parseColor(value, model) {
   if (model === "iPhone 16 Pro" || model === "iPhone 16 Pro Max") {
     if (has("black")) return "Black";
     if (has("white")) return "White";
-    if (has("natural")) return "Natural Titanium";
-    if (has("desert")) return "Desert Titanium";
+    if (has("natural")) return "Natural";
+    if (has("desert")) return "Desert";
+  }
+
+  if (model === "iPhone 15") {
+    if (has("black")) return "Black";
+    if (has("blue")) return "Blue";
+    if (has("green")) return "Green";
+    if (has("pink")) return "Pink";
+    if (has("yellow")) return "Yellow";
   }
 
   if (model === "iPad 11 A16 (2025)") {
@@ -195,8 +228,10 @@ function formatRub(value) {
 function getMarkup(model) {
   if (model.includes("AirPods")) return markupByModel.airpods;
   if (model.startsWith("iPad")) return markupByModel.ipad;
+  if (model.startsWith("iPhone 15")) return markupByModel.iphone15;
   if (model.startsWith("iPhone 16")) return markupByModel.iphone16;
   if (model.startsWith("iPhone 17") || model === "iPhone Air") return markupByModel.iphone17;
+  if (model === "MacBook Neo") return markupByModel.macbookNeo;
 
   return 0;
 }
@@ -285,7 +320,7 @@ if (!isDryRun) {
 }
 
 console.log(`${isDryRun ? "Проверка" : "Готово"}: обновлено цен ${Object.keys(sortedResult).length}.`);
-console.log("Правила: AirPods +2 000 ₽, iPad +3 000 ₽, iPhone 16 +3 500 ₽, iPhone 17 и Air +4 000 ₽.");
+console.log("Правила: AirPods +2 000 ₽, iPad +3 000 ₽, iPhone 15 +3 000 ₽, iPhone 16 +3 500 ₽, iPhone 17 и Air +4 000 ₽, MacBook Neo +4 000 ₽.");
 console.log("Округление: хвост 100-400 до 500, хвост 600-900 до 1 000.");
 for (const [key, item] of Object.entries(sortedResult)) {
   console.log(`- ${key}: ${formatRub(item.supplierPrice)} + ${formatRub(item.markup)} = ${item.price}`);

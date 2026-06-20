@@ -83,6 +83,12 @@ const iphone17Options = {
   storages: ["256GB", "512GB"],
 };
 
+const iphone17eOptions = {
+  colors: ["Black", "White"],
+  sims: ["Dual eSIM", "Nano-SIM + eSIM"],
+  storages: ["256GB", "512GB"],
+};
+
 const iphoneAirOptions = {
   ...iphoneOptions,
   colors: ["Light Gold", "Sky Blue", "Cloud White", "Space Black"],
@@ -98,10 +104,27 @@ const iphone16Options = {
 
 const iphone16PlusOptions = iphone16Options;
 
+const iphone16eOptions = {
+  colors: ["Black", "White"],
+  sims: ["Nano-SIM + eSIM"],
+  storages: ["128GB", "256GB", "512GB"],
+};
+
 const iphone16ProOptions = {
-  colors: ["Black", "White", "Natural Titanium", "Desert Titanium"],
+  colors: ["Black", "White", "Desert", "Natural"],
   sims: ["Dual Nano-SIM", "Nano-SIM + eSIM"],
   storages: ["128GB", "256GB", "512GB", "1TB"],
+};
+
+const iphone16ProMaxOptions = {
+  ...iphone16ProOptions,
+  storages: ["256GB", "512GB", "1TB"],
+};
+
+const iphone15Options = {
+  colors: ["Black", "Blue", "Green", "Pink", "Yellow"],
+  sims: ["Nano-SIM + eSIM"],
+  storages: ["128GB", "256GB", "512GB"],
 };
 
 const ipad11Options = {
@@ -322,12 +345,16 @@ const products: Product[] = [
   "iPhone 17 Pro Max",
   "iPhone 17 Pro",
   "iPhone 17",
+  "iPhone 17e",
   "iPhone Air",
   "iPhone 16",
   "iPhone 16 Plus",
+  "iPhone 16e",
   "iPhone 16 Pro",
   "iPhone 16 Pro Max",
+  "iPhone 15",
   "iPad 11 A16 (2025)",
+  "MacBook Neo",
   "AirPods Pro 3",
   "AirPods Pro 2",
   "AirPods 4 (Без шумоподавления)",
@@ -335,25 +362,30 @@ const products: Product[] = [
 ].map((name, index) => ({
   accent: index % 3 === 0 ? "orange" : index % 3 === 1 ? "blue" : "silver",
   brand: "Apple",
-  category: name.includes("AirPods") ? "AirPods" : name === "iPad 11 A16 (2025)" ? "iPad" : "iPhone",
+  category: name.includes("AirPods") ? "AirPods" : name === "iPad 11 A16 (2025)" ? "iPad" : name === "MacBook Neo" ? "Mac" : "iPhone",
   color:
     name.includes("AirPods")
       ? ""
-      : 
-    name === "iPhone 17 Pro Max"
+      : name === "iPhone 17 Pro Max"
       ? "Silver"
       : name === "iPhone 17"
         ? "Mist Blue"
+        : name === "iPhone 17e"
+          ? "Black"
         : name === "iPhone Air"
           ? "Light Gold"
           : name === "iPhone 16 Plus"
             ? "Pink"
           : name === "iPhone 16"
               ? "Ultramarine"
+              : name === "iPhone 16e" || name === "iPhone 15"
+                ? "Black"
               : name === "iPhone 16 Pro" || name === "iPhone 16 Pro Max"
-                ? "Natural Titanium"
+                ? "Natural"
               : name === "iPad 11 A16 (2025)"
                 ? "Silver"
+                : name === "MacBook Neo"
+                  ? "Silver"
                 : "Cosmic Orange",
   condition: "новый",
   description: "",
@@ -374,9 +406,9 @@ const products: Product[] = [
               : undefined,
   name,
   price: "цена по запросу",
-  sim: name.includes("AirPods") ? "" : name === "iPad 11 A16 (2025)" ? "Wi-Fi" : name === "iPhone 16" || name === "iPhone 16 Plus" ? "Nano-SIM + eSIM" : name === "iPhone 16 Pro" || name === "iPhone 16 Pro Max" ? "Dual Nano-SIM" : "Dual eSIM",
+  sim: name.includes("AirPods") || name === "MacBook Neo" ? "" : name === "iPad 11 A16 (2025)" ? "Wi-Fi" : name === "iPhone 15" || name === "iPhone 16" || name === "iPhone 16 Plus" || name === "iPhone 16e" ? "Nano-SIM + eSIM" : name === "iPhone 16 Pro" || name === "iPhone 16 Pro Max" ? "Dual Nano-SIM" : "Dual eSIM",
   status: "В наличии",
-  storage: name.includes("AirPods") ? "" : name === "iPhone 16" || name === "iPhone 16 Plus" || name === "iPhone 16 Pro" || name === "iPhone 16 Pro Max" || name === "iPad 11 A16 (2025)" ? "128GB" : "256GB",
+  storage: name.includes("AirPods") || name === "MacBook Neo" ? "" : name === "iPhone 15" || name === "iPhone 16" || name === "iPhone 16 Plus" || name === "iPhone 16e" || name === "iPhone 16 Pro" || name === "iPhone 16 Pro Max" || name === "iPad 11 A16 (2025)" ? "128GB" : "256GB",
   variantOptions:
     name.includes("AirPods")
       ? undefined
@@ -384,21 +416,29 @@ const products: Product[] = [
       ? iphoneProMaxOptions
       : name === "iPhone 17"
         ? iphone17Options
+        : name === "iPhone 17e"
+          ? iphone17eOptions
         : name === "iPhone Air"
           ? iphoneAirOptions
           : name === "iPhone 16"
             ? iphone16Options
           : name === "iPhone 16 Plus"
               ? iphone16PlusOptions
-              : name === "iPhone 16 Pro" || name === "iPhone 16 Pro Max"
+              : name === "iPhone 16e"
+                ? iphone16eOptions
+              : name === "iPhone 16 Pro"
                 ? iphone16ProOptions
+              : name === "iPhone 16 Pro Max"
+                ? iphone16ProMaxOptions
+              : name === "iPhone 15"
+                ? iphone15Options
               : name === "iPad 11 A16 (2025)"
                 ? ipad11Options
                 : iphoneOptions,
 }));
 
-const categories = ["Все", "iPhone", "AirPods", "iPad", "Apple Watch"];
-const showcaseCategories = ["iPhone", "AirPods", "iPad", "Apple Watch"];
+const categories = ["Все", "iPhone", "AirPods", "iPad", "Mac", "Apple Watch"];
+const showcaseCategories = ["iPhone", "AirPods", "iPad", "Mac", "Apple Watch"];
 const productPriceOverrides = priceOverrides as Record<string, PriceOverride>;
 
 function DeviceVisual({
@@ -414,7 +454,7 @@ function DeviceVisual({
 }) {
   return (
     <div className={`deviceVisual ${accent} ${imageFit === "matchFirst" ? "matchFirstImage" : ""}`} aria-hidden="true">
-      {category === "iPhone" || category === "iPad" || imageSrc ? (
+      {category === "iPhone" || category === "iPad" || category === "Mac" || imageSrc ? (
         <img
           src={imageSrc ?? "/appsale-product.png"}
           alt={imageAlt ?? ""}
