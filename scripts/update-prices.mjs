@@ -127,7 +127,7 @@ function parseModel(value) {
   if (/^15\s+plus\b/i.test(text)) return "iPhone 15 Plus";
   if (/^15\s+pr/i.test(text)) return "iPhone 15 Pro";
   if (/^15\b/.test(text)) return "iPhone 15";
-  if (/^macbook\s+neo\b/i.test(text)) return "MacBook Neo";
+  if (/^(?:macbook\s+)?neo\b/i.test(text)) return "MacBook Neo";
   if (/^ipad\s+11\b/.test(text)) return "iPad 11 A16 (2025)";
 
   return "";
