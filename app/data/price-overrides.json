@@ -1,10 +1,59 @@
 {
+  "AirPods 4 (Без шумоподавления)|||": {
+    "finalPrice": 11000,
+    "markup": 2000,
+    "price": "11 000 ₽",
+    "sourceLine": "Airpods 4 USB-C - 9.000",
+    "supplierPrice": 9000
+  },
   "AirPods 4 ANC (С шумоподавлением)|||": {
     "finalPrice": 16000,
     "markup": 2000,
     "price": "16 000 ₽",
     "sourceLine": "Airpods 4 ANC - 13.600",
     "supplierPrice": 13600
+  },
+  "AirPods Max 2 USB-C (2026)||Blue|": {
+    "finalPrice": 45000,
+    "markup": 2000,
+    "price": "45 000 ₽",
+    "sourceLine": "Airpods Max 2 Blue MHWM4 - 42.600",
+    "supplierPrice": 42600
+  },
+  "AirPods Max 2 USB-C (2026)||Orange|": {
+    "finalPrice": 44500,
+    "markup": 2000,
+    "price": "44 500 ₽",
+    "sourceLine": "Airpods Max 2 Orange MHWN4 - 42.500",
+    "supplierPrice": 42500
+  },
+  "AirPods Max 2 USB-C (2026)||Purple|": {
+    "finalPrice": 44500,
+    "markup": 2000,
+    "price": "44 500 ₽",
+    "sourceLine": "Airpods Max 2 Purple MHWP4 - 42.200",
+    "supplierPrice": 42200
+  },
+  "AirPods Max 2 USB-C (2026)||Starlight|": {
+    "finalPrice": 44500,
+    "markup": 2000,
+    "price": "44 500 ₽",
+    "sourceLine": "Airpods Max 2 Starlight MHWL4 - 42.500",
+    "supplierPrice": 42500
+  },
+  "AirPods Max USB-C (2024)||Midnight|": {
+    "finalPrice": 38500,
+    "markup": 2000,
+    "price": "38 500 ₽",
+    "sourceLine": "Airpods Max Midnight 2024 USB-C MWW43 - 36.100",
+    "supplierPrice": 36100
+  },
+  "AirPods Max USB-C (2024)||Purple|": {
+    "finalPrice": 39000,
+    "markup": 2000,
+    "price": "39 000 ₽",
+    "sourceLine": "Airpods Max Purple 2024 USB-CMWW83 - 37.000",
+    "supplierPrice": 37000
   },
   "AirPods Pro 2|||": {
     "finalPrice": 15500,
@@ -101,43 +150,43 @@
     "finalPrice": 65500,
     "markup": 3500,
     "price": "65 500 ₽",
-    "sourceLine": "16 Plus 128 Black 🇮🇳 - 61.800",
-    "supplierPrice": 61800
+    "sourceLine": "16 Plus 128 Black 🇮🇳 - 61.600",
+    "supplierPrice": 61600
   },
   "iPhone 16 Plus|128GB|Teal|Nano-SIM + eSIM": {
     "finalPrice": 65500,
     "markup": 3500,
     "price": "65 500 ₽",
-    "sourceLine": "16 Plus 128 Teal 🇮🇳 - 62.000",
-    "supplierPrice": 62000
+    "sourceLine": "16 Plus 128 Teal 🇮🇳 - 61.600",
+    "supplierPrice": 61600
   },
   "iPhone 16 Plus|128GB|Ultramarine|Nano-SIM + eSIM": {
     "finalPrice": 65500,
     "markup": 3500,
     "price": "65 500 ₽",
-    "sourceLine": "16 Plus 128 Ultramarine 🇮🇳 - 62.000",
-    "supplierPrice": 62000
+    "sourceLine": "16 Plus 128 Ultramarine 🇮🇳 - 61.600",
+    "supplierPrice": 61600
   },
   "iPhone 16 Plus|128GB|White|Nano-SIM + eSIM": {
     "finalPrice": 65500,
     "markup": 3500,
     "price": "65 500 ₽",
-    "sourceLine": "16 Plus 128 White 🇮🇳 - 62.000",
-    "supplierPrice": 62000
+    "sourceLine": "16 Plus 128 White 🇮🇳 - 61.600",
+    "supplierPrice": 61600
   },
   "iPhone 16 Plus|256GB|Pink|Nano-SIM + eSIM": {
-    "finalPrice": 72500,
+    "finalPrice": 71500,
     "markup": 3500,
-    "price": "72 500 ₽",
-    "sourceLine": "16 Plus 256 Pink 🇮🇳 - 68.800",
-    "supplierPrice": 68800
+    "price": "71 500 ₽",
+    "sourceLine": "16 Plus 256 Pink 🇮🇳 - 68.000",
+    "supplierPrice": 68000
   },
   "iPhone 16 Pro Max|1TB|Desert|Nano-SIM + eSIM": {
-    "finalPrice": 124500,
+    "finalPrice": 123500,
     "markup": 3500,
-    "price": "124 500 ₽",
-    "sourceLine": "16 Pro Max 1Tb Desert 🇦🇪 - 121.000",
-    "supplierPrice": 121000
+    "price": "123 500 ₽",
+    "sourceLine": "16 Pro Max 1Tb Desert 🇦🇪 - 120.000",
+    "supplierPrice": 120000
   },
   "iPhone 16 Pro Max|1TB|White|Nano-SIM + eSIM": {
     "finalPrice": 124500,
@@ -154,11 +203,11 @@
     "supplierPrice": 97900
   },
   "iPhone 16 Pro Max|512GB|Desert|Nano-SIM + eSIM": {
-    "finalPrice": 113000,
+    "finalPrice": 112000,
     "markup": 3500,
-    "price": "113 000 ₽",
-    "sourceLine": "16 Prо Maх 512 Desert 🇪🇬 - 109.500",
-    "supplierPrice": 109500
+    "price": "112 000 ₽",
+    "sourceLine": "16 Prо Maх 512 Desert 🇪🇬 - 108.200",
+    "supplierPrice": 108200
   },
   "iPhone 16 Pro Max|512GB|Natural|Nano-SIM + eSIM": {
     "finalPrice": 117000,
@@ -168,11 +217,11 @@
     "supplierPrice": 113200
   },
   "iPhone 16 Pro|128GB|Black|Dual Nano-SIM": {
-    "finalPrice": 84000,
+    "finalPrice": 83000,
     "markup": 3500,
-    "price": "84 000 ₽",
-    "sourceLine": "16 Prо 128 Black 🇨🇳 2sim - 80.200",
-    "supplierPrice": 80200
+    "price": "83 000 ₽",
+    "sourceLine": "16 Prо 128 Black 🇨🇳 2sim - 79.500",
+    "supplierPrice": 79500
   },
   "iPhone 16 Pro|128GB|Black|Nano-SIM + eSIM": {
     "finalPrice": 93500,
@@ -182,46 +231,46 @@
     "supplierPrice": 90000
   },
   "iPhone 16 Pro|128GB|Desert|Dual Nano-SIM": {
-    "finalPrice": 82000,
+    "finalPrice": 81500,
     "markup": 3500,
-    "price": "82 000 ₽",
-    "sourceLine": "16 Prо 128 Desert 🇨🇳 2sim - 78.300",
-    "supplierPrice": 78300
+    "price": "81 500 ₽",
+    "sourceLine": "16 Prо 128 Desert 🇨🇳 2sim - 77.600",
+    "supplierPrice": 77600
   },
   "iPhone 16 Pro|256GB|White|Nano-SIM + eSIM": {
-    "finalPrice": 88000,
+    "finalPrice": 87500,
     "markup": 3500,
-    "price": "88 000 ₽",
-    "sourceLine": "16 Pro 256 White 🇺🇸 - 84.300",
-    "supplierPrice": 84300
+    "price": "87 500 ₽",
+    "sourceLine": "16 Pro 256 White 🇺🇸 - 83.600",
+    "supplierPrice": 83600
   },
   "iPhone 16|128GB|Black|Nano-SIM + eSIM": {
-    "finalPrice": 59500,
+    "finalPrice": 57500,
     "markup": 3500,
-    "price": "59 500 ₽",
-    "sourceLine": "16 128 Black 🇮🇳 - 55.600",
-    "supplierPrice": 55600
+    "price": "57 500 ₽",
+    "sourceLine": "16 128 Black 🇮🇳 - 54.000",
+    "supplierPrice": 54000
   },
   "iPhone 16|128GB|White|Nano-SIM + eSIM": {
-    "finalPrice": 58000,
+    "finalPrice": 57500,
     "markup": 3500,
-    "price": "58 000 ₽",
-    "sourceLine": "16 128 White 🇮🇳 - 54.100",
-    "supplierPrice": 54100
+    "price": "57 500 ₽",
+    "sourceLine": "16 128 White 🇮🇳 - 53.800",
+    "supplierPrice": 53800
   },
   "iPhone 16|256GB|Pink|Nano-SIM + eSIM": {
-    "finalPrice": 67000,
+    "finalPrice": 66500,
     "markup": 3500,
-    "price": "67 000 ₽",
-    "sourceLine": "16 256 Pink 🇦🇪 - 63.200",
-    "supplierPrice": 63200
+    "price": "66 500 ₽",
+    "sourceLine": "16 256 Pink 🇦🇪 - 62.700",
+    "supplierPrice": 62700
   },
   "iPhone 16e|128GB|Black|Nano-SIM + eSIM": {
-    "finalPrice": 45000,
+    "finalPrice": 44500,
     "markup": 3500,
-    "price": "45 000 ₽",
-    "sourceLine": "16E 128 Black 🇺🇸 - 41.100",
-    "supplierPrice": 41100
+    "price": "44 500 ₽",
+    "sourceLine": "16E 128 Black 🇺🇸 - 40.700",
+    "supplierPrice": 40700
   },
   "iPhone 17 Pro Max|1TB|Cosmic Orange|Dual eSIM": {
     "finalPrice": 132000,
@@ -234,29 +283,29 @@
     "finalPrice": 146000,
     "markup": 4000,
     "price": "146 000 ₽",
-    "sourceLine": "17 Pro Max 1TB Blue 1Sim 🇭🇰 - 142.000",
-    "supplierPrice": 142000
+    "sourceLine": "17 Pro Max 1TB Blue 1Sim 🇭🇰 - 141.700",
+    "supplierPrice": 141700
   },
   "iPhone 17 Pro Max|256GB|Cosmic Orange|Dual eSIM": {
     "finalPrice": 95000,
     "markup": 4000,
     "price": "95 000 ₽",
-    "sourceLine": "17 Pro Max 256 Orange Esim 🇺🇸 - 90.800",
-    "supplierPrice": 90800
+    "sourceLine": "17 Pro Max 256 Orange Esim 🇺🇸 - 91.000",
+    "supplierPrice": 91000
   },
   "iPhone 17 Pro Max|256GB|Deep Blue|Dual eSIM": {
-    "finalPrice": 96000,
+    "finalPrice": 95500,
     "markup": 4000,
-    "price": "96 000 ₽",
-    "sourceLine": "17 Pro Max 256 Blue eSim 🇺🇸 - 91.900",
-    "supplierPrice": 91900
+    "price": "95 500 ₽",
+    "sourceLine": "17 Pro Max 256 Blue eSim 🇺🇸 - 91.300",
+    "supplierPrice": 91300
   },
   "iPhone 17 Pro Max|256GB|Deep Blue|Nano-SIM + eSIM": {
-    "finalPrice": 111500,
+    "finalPrice": 110000,
     "markup": 4000,
-    "price": "111 500 ₽",
-    "sourceLine": "17 Pro Max 256 Blue 1Sim 🇭🇰 - 107.100",
-    "supplierPrice": 107100
+    "price": "110 000 ₽",
+    "sourceLine": "17 Pro Max 256 Blue 1Sim 🇭🇰 - 106.000",
+    "supplierPrice": 106000
   },
   "iPhone 17 Pro Max|256GB|Silver|Dual eSIM": {
     "finalPrice": 98000,
@@ -325,64 +374,64 @@
     "finalPrice": 123500,
     "markup": 4000,
     "price": "123 500 ₽",
-    "sourceLine": "17 Pro 1TB Orange eSim 🇯🇵 - 119.500",
-    "supplierPrice": 119500
+    "sourceLine": "17 Pro 1TB Orange eSim 🇯🇵 - 119.300",
+    "supplierPrice": 119300
   },
   "iPhone 17 Pro|1TB|Deep Blue|Dual eSIM": {
-    "finalPrice": 125000,
+    "finalPrice": 124500,
     "markup": 4000,
-    "price": "125 000 ₽",
-    "sourceLine": "17 Pro 1TB Blue eSim 🇯🇵 - 121.000",
-    "supplierPrice": 121000
+    "price": "124 500 ₽",
+    "sourceLine": "17 Pro 1TB Blue eSim 🇯🇵 - 120.400",
+    "supplierPrice": 120400
   },
   "iPhone 17 Pro|1TB|Deep Blue|Nano-SIM + eSIM": {
-    "finalPrice": 134000,
+    "finalPrice": 133000,
     "markup": 4000,
-    "price": "134 000 ₽",
-    "sourceLine": "17 Pro 1TB Blue 1Sim 🇭🇰 - 129.700",
-    "supplierPrice": 129700
+    "price": "133 000 ₽",
+    "sourceLine": "17 Pro 1TB Blue 1Sim 🇭🇰 - 129.000",
+    "supplierPrice": 129000
   },
   "iPhone 17 Pro|1TB|Silver|Dual eSIM": {
-    "finalPrice": 127000,
+    "finalPrice": 126500,
     "markup": 4000,
-    "price": "127 000 ₽",
-    "sourceLine": "17 Pro 1TB Silver eSim 🇯🇵 - 122.800",
-    "supplierPrice": 122800
+    "price": "126 500 ₽",
+    "sourceLine": "17 Pro 1TB Silver eSim 🇯🇵 - 122.300",
+    "supplierPrice": 122300
   },
   "iPhone 17 Pro|1TB|Silver|Nano-SIM + eSIM": {
-    "finalPrice": 134500,
+    "finalPrice": 133500,
     "markup": 4000,
-    "price": "134 500 ₽",
-    "sourceLine": "17 Pro 1TB Silver 1Sim 🇰🇷 - 130.300",
-    "supplierPrice": 130300
+    "price": "133 500 ₽",
+    "sourceLine": "17 Pro 1TB Silver 1Sim 🇰🇷 - 129.500",
+    "supplierPrice": 129500
   },
   "iPhone 17 Pro|256GB|Cosmic Orange|Dual eSIM": {
+    "finalPrice": 89000,
+    "markup": 4000,
+    "price": "89 000 ₽",
+    "sourceLine": "17 Pro 256 Orange eSim 🇺🇸 - 84.900",
+    "supplierPrice": 84900
+  },
+  "iPhone 17 Pro|256GB|Cosmic Orange|Nano-SIM + eSIM": {
+    "finalPrice": 99000,
+    "markup": 4000,
+    "price": "99 000 ₽",
+    "sourceLine": "17 Pro 256 Orange 1Sim 🇰🇷 - 94.900",
+    "supplierPrice": 94900
+  },
+  "iPhone 17 Pro|256GB|Deep Blue|Dual eSIM": {
     "finalPrice": 89500,
     "markup": 4000,
     "price": "89 500 ₽",
-    "sourceLine": "17 Pro 256 Orange eSim 🇺🇸 - 85.300",
-    "supplierPrice": 85300
-  },
-  "iPhone 17 Pro|256GB|Cosmic Orange|Nano-SIM + eSIM": {
-    "finalPrice": 100000,
-    "markup": 4000,
-    "price": "100 000 ₽",
-    "sourceLine": "17 Pro 256 Orange 1Sim 🇰🇷 - 95.600",
-    "supplierPrice": 95600
-  },
-  "iPhone 17 Pro|256GB|Deep Blue|Dual eSIM": {
-    "finalPrice": 90000,
-    "markup": 4000,
-    "price": "90 000 ₽",
-    "sourceLine": "17 Pro 256 Blue eSim 🇺🇸 - 85.700",
-    "supplierPrice": 85700
+    "sourceLine": "17 Pro 256 Blue eSim 🇺🇸 - 85.200",
+    "supplierPrice": 85200
   },
   "iPhone 17 Pro|256GB|Silver|Nano-SIM + eSIM": {
-    "finalPrice": 101000,
+    "finalPrice": 100500,
     "markup": 4000,
-    "price": "101 000 ₽",
-    "sourceLine": "17 Pro 256 Silver 1Sim 🇰🇷 - 96.800",
-    "supplierPrice": 96800
+    "price": "100 500 ₽",
+    "sourceLine": "17 Pro 256 Silver 1Sim 🇰🇷 - 96.200",
+    "supplierPrice": 96200
   },
   "iPhone 17 Pro|512GB|Deep Blue|Nano-SIM + eSIM": {
     "finalPrice": 116000,
@@ -405,12 +454,26 @@
     "sourceLine": "17 256 Black eSim 🇯🇵 - 63.500",
     "supplierPrice": 63500
   },
+  "iPhone 17|256GB|Black|Nano-SIM + eSIM": {
+    "finalPrice": 71000,
+    "markup": 4000,
+    "price": "71 000 ₽",
+    "sourceLine": "17 256 Black 1Sim 🇮🇳 - 66.900",
+    "supplierPrice": 66900
+  },
   "iPhone 17|256GB|Lavender|Dual eSIM": {
     "finalPrice": 68000,
     "markup": 4000,
     "price": "68 000 ₽",
     "sourceLine": "17 256 Lavender eSim 🇯🇵 - 63.600",
     "supplierPrice": 63600
+  },
+  "iPhone 17|256GB|Lavender|Nano-SIM + eSIM": {
+    "finalPrice": 71000,
+    "markup": 4000,
+    "price": "71 000 ₽",
+    "sourceLine": "17 256 Lavender 1Sim  🇮🇳 - 67,000",
+    "supplierPrice": 67000
   },
   "iPhone 17|256GB|Mist Blue|Dual eSIM": {
     "finalPrice": 67500,
@@ -490,11 +553,11 @@
     "supplierPrice": 103000
   },
   "iPhone 17e|256GB|Black|Dual eSIM": {
-    "finalPrice": 53500,
+    "finalPrice": 53000,
     "markup": 4000,
-    "price": "53 500 ₽",
-    "sourceLine": "17e 256 Black eSim 🇯🇵 - 49.300",
-    "supplierPrice": 49300
+    "price": "53 000 ₽",
+    "sourceLine": "17e 256 Black eSim 🇯🇵 - 48.700",
+    "supplierPrice": 48700
   },
   "iPhone 17e|256GB|Black|Nano-SIM + eSIM": {
     "finalPrice": 60500,
@@ -503,19 +566,12 @@
     "sourceLine": "17e 256 Black 1Sim 🇮🇳 - 56.500",
     "supplierPrice": 56500
   },
-  "iPhone 17e|256GB|Soft Pink|Dual eSIM": {
-    "finalPrice": 52000,
-    "markup": 4000,
-    "price": "52 000 ₽",
-    "sourceLine": "17e 256 Pink eSim 🇯🇵 - 47.900",
-    "supplierPrice": 47900
-  },
   "iPhone 17e|256GB|Soft Pink|Nano-SIM + eSIM": {
-    "finalPrice": 59500,
+    "finalPrice": 59000,
     "markup": 4000,
-    "price": "59 500 ₽",
-    "sourceLine": "17e 256 Pink 1Sim 🇮🇳 - 55.200",
-    "supplierPrice": 55200
+    "price": "59 000 ₽",
+    "sourceLine": "17e 256 Pink 1Sim 🇮🇳 - 54.900",
+    "supplierPrice": 54900
   },
   "iPhone 17e|256GB|White|Nano-SIM + eSIM": {
     "finalPrice": 59000,
