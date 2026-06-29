@@ -1264,7 +1264,7 @@ export default function Home() {
         <div className="sectionHead">
           <div>
             <span>Каталог</span>
-            <h2>Популярные товары</h2>
+            <h2>Все товары</h2>
           </div>
         </div>
 
