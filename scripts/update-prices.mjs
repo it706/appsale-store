@@ -88,6 +88,16 @@ const catalog = {
     sims: ["Wi-Fi", "LTE"],
     storages: ["128GB", "256GB"],
   },
+  "AirPods Max USB-C (2024)": {
+    colors: ["Midnight", "Purple", "Starlight", "Blue", "Orange"],
+    sims: [""],
+    storages: [""],
+  },
+  "AirPods Max 2 USB-C (2026)": {
+    colors: ["Midnight", "Purple", "Starlight", "Blue", "Orange"],
+    sims: [""],
+    storages: [""],
+  },
   "AirPods Pro 3": { colors: [""], sims: [""], storages: [""] },
   "AirPods Pro 2": { colors: [""], sims: [""], storages: [""] },
   "AirPods 4 (Без шумоподавления)": { colors: [""], sims: [""], storages: [""] },
@@ -110,6 +120,8 @@ function normalizeText(value) {
 function parseModel(value) {
   const text = normalizeText(value);
 
+  if (/^airpods\s+max\s+2\b/.test(text) || /^air\s*pods\s+max\s+2\b/.test(text)) return "AirPods Max 2 USB-C (2026)";
+  if (/^airpods\s+max\b/.test(text) || /^air\s*pods\s+max\b/.test(text)) return "AirPods Max USB-C (2024)";
   if (/^airpods\s+pro\s+3\b/.test(text)) return "AirPods Pro 3";
   if (/^airpods\s+pro\s+2\b/.test(text)) return "AirPods Pro 2";
   if (/^airpods\s+4\s+(?:anc|с\s*шумоподавлением)\b/.test(text)) return "AirPods 4 ANC (С шумоподавлением)";
@@ -127,7 +139,7 @@ function parseModel(value) {
   if (/^15\s+plus\b/i.test(text)) return "iPhone 15 Plus";
   if (/^15\s+pr/i.test(text)) return "iPhone 15 Pro";
   if (/^15\b/.test(text)) return "iPhone 15";
-  if (/^(?:macbook\s+)?neo\b/i.test(text)) return "MacBook Neo";
+  if (/\bneo\b/i.test(text)) return "MacBook Neo";
   if (/^ipad\s+11\b/.test(text)) return "iPad 11 A16 (2025)";
 
   return "";
@@ -138,7 +150,7 @@ function parseStorage(value) {
   const tb = text.match(/\b([12])\s*tb\b/i);
   if (tb) return `${tb[1]}TB`;
 
-  const gb = text.match(/\b(128|256|512)\b/);
+  const gb = text.match(/\b(128|256|512)(?:\s*gb)?\b/i);
   if (gb) return `${gb[1]}GB`;
 
   return "";
@@ -225,6 +237,14 @@ function parseColor(value, model) {
     if (has("yellow")) return "Yellow";
   }
 
+  if (model === "AirPods Max USB-C (2024)" || model === "AirPods Max 2 USB-C (2026)") {
+    if (has("midnight", "black", "миднайт", "черн")) return "Midnight";
+    if (has("purple", "пурп", "фиолет")) return "Purple";
+    if (has("starlight", "старлайт")) return "Starlight";
+    if (has("blue", "син")) return "Blue";
+    if (has("orange", "оранж")) return "Orange";
+  }
+
   return "";
 }
 
@@ -292,7 +312,7 @@ function parseLine(line) {
   if (!allowed) return { ignored: true, reason: "модели нет в каталоге", line };
   if (!allowed.storages.includes(storage)) return { ignored: true, reason: "памяти нет в карточке товара", line };
   if (!allowed.colors.includes(color)) return { ignored: true, reason: "цвета нет в карточке товара", line };
-  if (!allowed.sims.includes(sim)) return { ignored: true, reason: "SIM-версии нет в карточке товара", line };
+  if (allowed.sims.length && !allowed.sims.includes(sim)) return { ignored: true, reason: "SIM-версии нет в карточке товара", line };
 
   const markup = getMarkup(model);
   const finalPrice = roundSellingPrice(supplierPrice + markup);

@@ -141,6 +141,12 @@ const ipad11Options = {
   storages: ["128GB", "256GB"],
 };
 
+const airPodsMaxOptions = {
+  colors: ["Midnight", "Purple", "Starlight", "Blue", "Orange"],
+  sims: [],
+  storages: [],
+};
+
 const iphone17ProImages = {
   "Cosmic Orange": [
     "/products/iphone-17-pro-cosmic-orange-1.png",
@@ -446,7 +452,39 @@ const ipad11Images = {
   ],
 };
 
+const airPodsMaxImages = {
+  Midnight: [
+    "/products/airpods-max-midnight-1.png",
+    "/products/airpods-max-midnight-2.png",
+    "/products/airpods-max-midnight-3.png",
+  ],
+  Purple: [
+    "/products/airpods-max-purple-1.png",
+    "/products/airpods-max-purple-2.png",
+    "/products/airpods-max-purple-3.png",
+  ],
+  Starlight: [
+    "/products/airpods-max-starlight-1.png",
+    "/products/airpods-max-starlight-2.png",
+    "/products/airpods-max-starlight-3.png",
+  ],
+  Blue: [
+    "/products/airpods-max-blue-1.png",
+    "/products/airpods-max-blue-2.png",
+    "/products/airpods-max-blue-3.png",
+  ],
+  Orange: [
+    "/products/airpods-max-orange-1.png",
+    "/products/airpods-max-orange-2.png",
+    "/products/airpods-max-orange-3.png",
+  ],
+};
+
 function getAirPodsImages(name: string) {
+  if (name.includes("AirPods Max")) {
+    return airPodsMaxImages;
+  }
+
   if (name.includes("AirPods Pro 3")) {
     return {
       "": [
@@ -510,6 +548,8 @@ const products: Product[] = [
   "iPhone 15 Plus",
   "iPad 11 A16 (2025)",
   "MacBook Neo",
+  "AirPods Max USB-C (2024)",
+  "AirPods Max 2 USB-C (2026)",
   "AirPods Pro 3",
   "AirPods Pro 2",
   "AirPods 4 (Без шумоподавления)",
@@ -519,7 +559,9 @@ const products: Product[] = [
   brand: "Apple",
   category: name.includes("AirPods") ? "AirPods" : name === "iPad 11 A16 (2025)" ? "iPad" : name === "MacBook Neo" ? "Mac" : "iPhone",
   color:
-    name.includes("AirPods")
+    name.includes("AirPods Max")
+      ? "Midnight"
+      : name.includes("AirPods")
       ? ""
       : name === "iPhone 17 Pro Max"
       ? "Silver"
@@ -581,7 +623,9 @@ const products: Product[] = [
   status: "В наличии",
   storage: name.includes("AirPods") ? "" : name === "MacBook Neo" ? "256GB" : name === "iPhone 15" || name === "iPhone 15 Plus" || name === "iPhone 16" || name === "iPhone 16 Plus" || name === "iPhone 16e" || name === "iPhone 16 Pro" || name === "iPhone 16 Pro Max" || name === "iPad 11 A16 (2025)" ? "128GB" : "256GB",
   variantOptions:
-    name.includes("AirPods")
+    name.includes("AirPods Max")
+      ? airPodsMaxOptions
+      : name.includes("AirPods")
       ? undefined
       : name === "iPhone 17 Pro Max"
       ? iphoneProMaxOptions
@@ -1282,21 +1326,23 @@ export default function Home() {
                         ))}
                       </div>
                     </div>
-                    <div>
-                      <span>Память</span>
-                      <div className="variantOptions storageOptions">
-                        {product.variantOptions.storages.map((storage) => (
-                          <button
-                            className={productSelections[product.id]?.storage === storage ? "active" : ""}
-                            key={storage}
-                            onClick={() => updateProductSelection(product.id, "storage", storage)}
-                            type="button"
-                          >
-                            {storage}
-                          </button>
-                        ))}
+                    {product.variantOptions.storages.length ? (
+                      <div>
+                        <span>Память</span>
+                        <div className="variantOptions storageOptions">
+                          {product.variantOptions.storages.map((storage) => (
+                            <button
+                              className={productSelections[product.id]?.storage === storage ? "active" : ""}
+                              key={storage}
+                              onClick={() => updateProductSelection(product.id, "storage", storage)}
+                              type="button"
+                            >
+                              {storage}
+                            </button>
+                          ))}
+                        </div>
                       </div>
-                    </div>
+                    ) : null}
                     {product.variantOptions.sims.length ? (
                       <div>
                         <span>SIM-карта</span>
@@ -1466,19 +1512,23 @@ export default function Home() {
                           </button>
                         ))}
                       </div>
-                      <span>Память</span>
-                      <div className="variantOptions storageOptions">
-                        {product.variantOptions.storages.map((storage) => (
-                          <button
-                            className={productSelections[product.id]?.storage === storage ? "active" : ""}
-                            key={storage}
-                            onClick={() => updateProductSelection(product.id, "storage", storage)}
-                            type="button"
-                          >
-                            {storage}
-                          </button>
-                        ))}
-                      </div>
+                      {product.variantOptions.storages.length ? (
+                        <>
+                          <span>Память</span>
+                          <div className="variantOptions storageOptions">
+                            {product.variantOptions.storages.map((storage) => (
+                              <button
+                                className={productSelections[product.id]?.storage === storage ? "active" : ""}
+                                key={storage}
+                                onClick={() => updateProductSelection(product.id, "storage", storage)}
+                                type="button"
+                              >
+                                {storage}
+                              </button>
+                            ))}
+                          </div>
+                        </>
+                      ) : null}
                       {product.variantOptions.sims.length ? (
                         <>
                           <span>SIM-карта</span>

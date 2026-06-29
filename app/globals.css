@@ -880,6 +880,22 @@ main {
   background: #dfd85d;
 }
 
+.colorOptions button[data-color="Midnight"] i {
+  background: #2f3238;
+}
+
+.colorOptions button[data-color="Purple"] i {
+  background: #b7a6d8;
+}
+
+.colorOptions button[data-color="Starlight"] i {
+  background: #f4efe5;
+}
+
+.colorOptions button[data-color="Orange"] i {
+  background: #f08a4a;
+}
+
 .adminPage {
   width: min(1120px, calc(100% - 40px));
   min-height: 100dvh;
