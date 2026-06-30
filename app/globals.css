@@ -312,6 +312,7 @@ main {
 
 .trustStrip,
 .howSection,
+.paymentSection,
 .footer {
   width: min(1180px, calc(100% - 32px));
   margin: 0 auto;
@@ -382,7 +383,8 @@ main {
 }
 
 .catalogSection,
-.howSection {
+.howSection,
+.paymentSection {
   padding: 96px 0 0;
 }
 
@@ -1428,13 +1430,22 @@ main {
   font-weight: 620;
 }
 
-.steps {
+.steps,
+.serviceGrid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 18px;
 }
 
-.steps article {
+.steps {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.serviceGrid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.steps article,
+.serviceGrid article {
   display: grid;
   gap: 14px;
   min-height: 230px;
@@ -1442,6 +1453,22 @@ main {
   border-radius: 28px;
   padding: 28px;
   background: rgba(255, 255, 255, 0.54);
+}
+
+.serviceGrid article {
+  min-height: 250px;
+  align-content: start;
+}
+
+.serviceGrid span {
+  color: var(--gray);
+  font-size: 13px;
+  font-weight: 760;
+}
+
+.serviceGrid strong {
+  font-size: 22px;
+  line-height: 1.08;
 }
 
 .footer {
@@ -1796,7 +1823,8 @@ main {
   }
 
   .trustStrip,
-  .steps {
+  .steps,
+  .serviceGrid {
     grid-template-columns: 1fr;
   }
 
@@ -1811,6 +1839,7 @@ main {
   .trustStrip,
   .catalogSection,
   .howSection,
+  .paymentSection,
   .footer {
     width: min(100% - 22px, 1180px);
   }
@@ -1972,6 +2001,7 @@ main {
   .trustStrip,
   .catalogSection,
   .howSection,
+  .paymentSection,
   .footer {
     width: calc(100% - 16px);
   }
@@ -1995,6 +2025,10 @@ main {
   }
 
   .howSection {
+    padding-top: 52px;
+  }
+
+  .paymentSection {
     padding-top: 52px;
   }
 

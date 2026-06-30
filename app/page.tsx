@@ -1431,6 +1431,38 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="paymentSection" aria-label="Оплата доставка и гарантия">
+        <div className="sectionHead">
+          <div>
+            <span>Сервис</span>
+            <h2>Оплата, доставка и гарантия.</h2>
+          </div>
+          <p>Коротко отвечаем на главные вопросы перед заказом: как получить устройство, как проходит оплата и что будет после покупки.</p>
+        </div>
+        <div className="serviceGrid">
+          <article>
+            <span>01</span>
+            <strong>Получение заказа</strong>
+            <p>Самовывоз, доставка по городу или СДЭК по России. В корзине можно выбрать удобный вариант и оставить адрес.</p>
+          </article>
+          <article>
+            <span>02</span>
+            <strong>Подтверждение наличия</strong>
+            <p>После заявки менеджер проверит актуальную цену, цвет, комплектацию и согласует детали перед оплатой.</p>
+          </article>
+          <article>
+            <span>03</span>
+            <strong>Оригинальная техника</strong>
+            <p>Работаем только с официальными устройствами. Перед выдачей можно уточнить модель, регион и комплектацию.</p>
+          </article>
+          <article>
+            <span>04</span>
+            <strong>Поддержка после покупки</strong>
+            <p>Поможем с базовыми вопросами по устройству, аксессуарам, гарантии и следующему заказу.</p>
+          </article>
+        </div>
+      </section>
+
       <footer className="footer">
         <div>
           <strong>appsale store</strong>
