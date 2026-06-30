@@ -168,6 +168,7 @@ main {
 .trustStrip p,
 .productInfo p,
 .steps p,
+.serviceGrid p,
 .footer p {
   margin: 0;
   color: var(--gray);
