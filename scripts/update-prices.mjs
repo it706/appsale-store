@@ -110,6 +110,7 @@ const markupByModel = {
   iphone15: 3000,
   iphone16: 3500,
   iphone17: 4000,
+  iphone17Pro: 5000,
   macbookNeo: 4000,
 };
 
@@ -270,6 +271,7 @@ function getMarkup(model) {
   if (model.startsWith("iPad")) return markupByModel.ipad;
   if (model.startsWith("iPhone 15")) return markupByModel.iphone15;
   if (model.startsWith("iPhone 16")) return markupByModel.iphone16;
+  if (model === "iPhone 17 Pro" || model === "iPhone 17 Pro Max") return markupByModel.iphone17Pro;
   if (model.startsWith("iPhone 17") || model === "iPhone Air") return markupByModel.iphone17;
   if (model === "MacBook Neo") return markupByModel.macbookNeo;
 
@@ -360,7 +362,7 @@ if (!isDryRun) {
 }
 
 console.log(`${isDryRun ? "Проверка" : "Готово"}: обновлено цен ${Object.keys(sortedResult).length}.`);
-console.log("Правила: AirPods +2 000 ₽, iPad +3 000 ₽, iPhone 15 +3 000 ₽, iPhone 16 +3 500 ₽, iPhone 17 и Air +4 000 ₽, MacBook Neo +4 000 ₽.");
+console.log("Правила: AirPods +2 000 ₽, iPad +3 000 ₽, iPhone 15 +3 000 ₽, iPhone 16 +3 500 ₽, iPhone 17 и Air +4 000 ₽, iPhone 17 Pro/Pro Max +5 000 ₽, MacBook Neo +4 000 ₽.");
 console.log("Округление: хвост 100-400 до 500, хвост 600-900 до 1 000.");
 for (const [key, item] of Object.entries(sortedResult)) {
   console.log(`- ${key}: ${formatRub(item.supplierPrice)} + ${formatRub(item.markup)} = ${item.price}`);
