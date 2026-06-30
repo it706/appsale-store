@@ -1441,7 +1441,7 @@ main {
 }
 
 .serviceGrid {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .steps article,
@@ -2030,6 +2030,20 @@ main {
 
   .paymentSection {
     padding-top: 52px;
+  }
+
+  .serviceGrid {
+    gap: 10px;
+  }
+
+  .serviceGrid article {
+    min-height: auto;
+    border-radius: 22px;
+    padding: 20px;
+  }
+
+  .serviceGrid strong {
+    font-size: 20px;
   }
 
   .sectionHead {
