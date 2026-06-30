@@ -1472,6 +1472,10 @@ main {
   line-height: 1.08;
 }
 
+.serviceGrid article p {
+  color: var(--gray);
+}
+
 .footer {
   display: flex;
   align-items: center;
