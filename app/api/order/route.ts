@@ -33,6 +33,16 @@ function getPhoneDigits(value?: string) {
   return value?.replace(/\D/g, "") ?? "";
 }
 
+function getTelegramProfileUrl(value?: string) {
+  const username = value?.trim().replace(/^@/, "");
+
+  if (!username || /[^a-zA-Z0-9_]/.test(username)) {
+    return "";
+  }
+
+  return `https://t.me/${username}`;
+}
+
 export async function POST(request: Request) {
   const payload = (await request.json().catch(() => null)) as OrderPayload | null;
   const phoneDigits = getPhoneDigits(payload?.phone);
@@ -102,10 +112,18 @@ export async function POST(request: Request) {
   ]
     .filter(Boolean)
     .join("\n");
+  const telegramProfileUrl = getTelegramProfileUrl(payload.telegram);
 
   const response = await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
     body: JSON.stringify({
       chat_id: chatId,
+      ...(telegramProfileUrl
+        ? {
+            reply_markup: {
+              inline_keyboard: [[{ text: "Написать клиенту", url: telegramProfileUrl }]],
+            },
+          }
+        : {}),
       text: message,
     }),
     headers: {
