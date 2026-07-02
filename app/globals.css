@@ -1486,8 +1486,8 @@ main {
 
 .reviewsGrid article {
   display: grid;
-  align-content: space-between;
-  gap: 28px;
+  align-content: start;
+  gap: 26px;
   min-height: 230px;
   border: 1px solid var(--line);
   border-radius: 28px;
