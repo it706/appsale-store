@@ -1239,7 +1239,7 @@ export default function Home() {
       <header className="topbar">
         <a className="brand" href="#top" aria-label="appsale store">
           <img className="brandLogo" src="/appsale-logo.webp" alt="" />
-          <span>ЭПСЕЙЛ СТОР</span>
+          <span>appsale store</span>
         </a>
         <nav>
           <div className="headerPrimary">
@@ -1475,7 +1475,7 @@ export default function Home() {
         <div className="sectionHead">
           <div>
             <span>Отзывы</span>
-            <h2>Станьте следующим довольным клиентом ЭПСЕЙЛ СТОР.</h2>
+            <h2>Отзывы тех, кто уже выбрал нас. Станьте следующим довольным клиентом.</h2>
           </div>
         </div>
         <div className="reviewsGrid">
@@ -1552,7 +1552,7 @@ export default function Home() {
 
       <footer className="footer">
         <div>
-          <strong>ЭПСЕЙЛ СТОР</strong>
+          <strong>appsale store</strong>
           <p>Техника Apple. Эстетика. Выбор.</p>
         </div>
         <div>
