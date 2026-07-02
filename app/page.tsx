@@ -1164,16 +1164,6 @@ export default function Home() {
       return;
     }
 
-    if (checkoutForm.deliveryMethod === "Доставка по городу" && !checkoutForm.cityAddress.trim()) {
-      setAccountStatus("Укажите адрес доставки по городу.");
-      return;
-    }
-
-    if (checkoutForm.deliveryMethod === "СДЭК по России" && (!checkoutForm.sdekCity.trim() || !checkoutForm.sdekPoint.trim())) {
-      setAccountStatus("Для СДЭК укажите город получения и адрес ПВЗ.");
-      return;
-    }
-
     if (!checkoutForm.privacyAccepted) {
       setAccountStatus("Подтвердите согласие на обработку персональных данных.");
       return;
@@ -1196,9 +1186,9 @@ export default function Home() {
           storage: `${cartCount} поз.`,
           contactMethod: checkoutForm.contactMethod,
           deliveryMethod: checkoutForm.deliveryMethod,
-          deliveryAddress: checkoutForm.deliveryMethod === "Доставка по городу" ? checkoutForm.cityAddress.trim() : "",
-          sdekCity: checkoutForm.deliveryMethod === "СДЭК по России" ? checkoutForm.sdekCity.trim() : "",
-          sdekPoint: checkoutForm.deliveryMethod === "СДЭК по России" ? checkoutForm.sdekPoint.trim() : "",
+          deliveryAddress: "",
+          sdekCity: "",
+          sdekPoint: "",
           items: cart.map((item) => ({
             color: item.product.color,
             name: item.product.name,
@@ -1540,7 +1530,7 @@ export default function Home() {
           <article>
             <span>02</span>
             <strong>Доставка</strong>
-            <p>Самовывоз, доставка по городу или СДЭК по России. В корзине можно выбрать удобный вариант и оставить адрес.</p>
+            <p>Самовывоз или доставка. В корзине можно выбрать удобный вариант, а детали согласуем перед отправкой.</p>
           </article>
           <article>
             <span>03</span>
@@ -1799,7 +1789,7 @@ export default function Home() {
             </button>
             <span>Корзина</span>
             <h2>{cart.length ? `${cartCount} товар(а)` : "Корзина пуста"}</h2>
-            <p>Заполните контакты и способ получения заказа.</p>
+            <p>Заполните контакты и выберите способ получения заказа.</p>
             <div className="cartItems">
               {cart.length > 0 ? (
                 cart.map((item) => (
@@ -1871,7 +1861,7 @@ export default function Home() {
             </fieldset>
             <fieldset className="contactChoice">
               <legend>Способ получения заказа</legend>
-              {["Самовывоз", "Доставка по городу", "СДЭК по России"].map((method) => (
+              {["Самовывоз", "Доставка"].map((method) => (
                 <label className={checkoutForm.deliveryMethod === method ? "active" : ""} key={method}>
                   <input
                     checked={checkoutForm.deliveryMethod === method}
@@ -1883,46 +1873,6 @@ export default function Home() {
                 </label>
               ))}
             </fieldset>
-            {checkoutForm.deliveryMethod === "Доставка по городу" ? (
-              <div className="deliveryFields">
-                <label>
-                  Адрес доставки
-                  <input
-                    onChange={(event) => setCheckoutForm((current) => ({ ...current, cityAddress: event.target.value }))}
-                    placeholder="Город, улица, дом, квартира"
-                    value={checkoutForm.cityAddress}
-                  />
-                </label>
-              </div>
-            ) : null}
-            {checkoutForm.deliveryMethod === "СДЭК по России" ? (
-              <div className="deliveryFields">
-                <label>
-                  Город получения
-                  <input
-                    onChange={(event) => setCheckoutForm((current) => ({ ...current, sdekCity: event.target.value }))}
-                    placeholder="Например: Санкт-Петербург"
-                    value={checkoutForm.sdekCity}
-                  />
-                </label>
-                <label>
-                  Адрес ПВЗ СДЭК
-                  <input
-                    onChange={(event) => setCheckoutForm((current) => ({ ...current, sdekPoint: event.target.value }))}
-                    placeholder="Улица и номер пункта выдачи"
-                    value={checkoutForm.sdekPoint}
-                  />
-                </label>
-              </div>
-            ) : null}
-            <label>
-              Комментарий к заказу
-              <textarea
-                onChange={(event) => setCheckoutForm((current) => ({ ...current, comment: event.target.value }))}
-                placeholder="Например: связаться после 18:00, нужен другой город доставки"
-                value={checkoutForm.comment}
-              />
-            </label>
             <label className="privacyConsent">
               <input
                 checked={checkoutForm.privacyAccepted}
