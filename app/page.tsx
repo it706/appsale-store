@@ -155,349 +155,349 @@ const airPodsMaxOptions = {
 
 const iphone17ProImages = {
   "Cosmic Orange": [
-    "/products/iphone-17-pro-cosmic-orange-1.png",
-    "/products/iphone-17-pro-cosmic-orange-2.png",
-    "/products/iphone-17-pro-cosmic-orange-3.png",
-    "/products/iphone-17-pro-cosmic-orange-4.png",
-    "/products/iphone-17-pro-cosmic-orange-5.png",
+    "/products/iphone-17-pro-cosmic-orange-1.webp",
+    "/products/iphone-17-pro-cosmic-orange-2.webp",
+    "/products/iphone-17-pro-cosmic-orange-3.webp",
+    "/products/iphone-17-pro-cosmic-orange-4.webp",
+    "/products/iphone-17-pro-cosmic-orange-5.webp",
   ],
   "Deep Blue": [
-    "/products/iphone-17-pro-deep-blue-1.png",
-    "/products/iphone-17-pro-deep-blue-2.png",
-    "/products/iphone-17-pro-deep-blue-3.png",
-    "/products/iphone-17-pro-deep-blue-4.png",
-    "/products/iphone-17-pro-deep-blue-5.png",
+    "/products/iphone-17-pro-deep-blue-1.webp",
+    "/products/iphone-17-pro-deep-blue-2.webp",
+    "/products/iphone-17-pro-deep-blue-3.webp",
+    "/products/iphone-17-pro-deep-blue-4.webp",
+    "/products/iphone-17-pro-deep-blue-5.webp",
   ],
   Silver: [
-    "/products/iphone-17-pro-silver-1.png",
-    "/products/iphone-17-pro-silver-2.png",
-    "/products/iphone-17-pro-silver-3.png",
-    "/products/iphone-17-pro-silver-4.png",
-    "/products/iphone-17-pro-silver-5.png",
+    "/products/iphone-17-pro-silver-1.webp",
+    "/products/iphone-17-pro-silver-2.webp",
+    "/products/iphone-17-pro-silver-3.webp",
+    "/products/iphone-17-pro-silver-4.webp",
+    "/products/iphone-17-pro-silver-5.webp",
   ],
 };
 
 const iphone17Images = {
   Black: [
-    "/products/iphone-17-black-1.png",
-    "/products/iphone-17-black-2.png",
-    "/products/iphone-17-black-3.png",
-    "/products/iphone-17-black-4.png",
-    "/products/iphone-17-black-5.png",
+    "/products/iphone-17-black-1.webp",
+    "/products/iphone-17-black-2.webp",
+    "/products/iphone-17-black-3.webp",
+    "/products/iphone-17-black-4.webp",
+    "/products/iphone-17-black-5.webp",
   ],
   White: [
-    "/products/iphone-17-white-1.png",
-    "/products/iphone-17-white-2.png",
-    "/products/iphone-17-white-3.png",
-    "/products/iphone-17-white-4.png",
-    "/products/iphone-17-white-5.png",
+    "/products/iphone-17-white-1.webp",
+    "/products/iphone-17-white-2.webp",
+    "/products/iphone-17-white-3.webp",
+    "/products/iphone-17-white-4.webp",
+    "/products/iphone-17-white-5.webp",
   ],
   Sage: [
-    "/products/iphone-17-sage-1.png",
-    "/products/iphone-17-sage-2.png",
-    "/products/iphone-17-sage-3.png",
-    "/products/iphone-17-sage-4.png",
-    "/products/iphone-17-sage-5.png",
+    "/products/iphone-17-sage-1.webp",
+    "/products/iphone-17-sage-2.webp",
+    "/products/iphone-17-sage-3.webp",
+    "/products/iphone-17-sage-4.webp",
+    "/products/iphone-17-sage-5.webp",
   ],
   "Mist Blue": [
-    "/products/iphone-17-mist-blue-1.png",
-    "/products/iphone-17-mist-blue-2.png",
-    "/products/iphone-17-mist-blue-3.png",
-    "/products/iphone-17-mist-blue-4.png",
-    "/products/iphone-17-mist-blue-5.png",
+    "/products/iphone-17-mist-blue-1.webp",
+    "/products/iphone-17-mist-blue-2.webp",
+    "/products/iphone-17-mist-blue-3.webp",
+    "/products/iphone-17-mist-blue-4.webp",
+    "/products/iphone-17-mist-blue-5.webp",
   ],
   Lavender: [
-    "/products/iphone-17-lavender-1.png",
-    "/products/iphone-17-lavender-2.png",
-    "/products/iphone-17-lavender-3.png",
-    "/products/iphone-17-lavender-4.png",
-    "/products/iphone-17-lavender-5.png",
+    "/products/iphone-17-lavender-1.webp",
+    "/products/iphone-17-lavender-2.webp",
+    "/products/iphone-17-lavender-3.webp",
+    "/products/iphone-17-lavender-4.webp",
+    "/products/iphone-17-lavender-5.webp",
   ],
 };
 
 const iphoneAirImages = {
   "Light Gold": [
-    "/products/iphone-air-light-gold-1.png",
-    "/products/iphone-air-light-gold-2.png",
-    "/products/iphone-air-light-gold-3.png",
-    "/products/iphone-air-light-gold-4.png",
-    "/products/iphone-air-light-gold-5.png",
+    "/products/iphone-air-light-gold-1.webp",
+    "/products/iphone-air-light-gold-2.webp",
+    "/products/iphone-air-light-gold-3.webp",
+    "/products/iphone-air-light-gold-4.webp",
+    "/products/iphone-air-light-gold-5.webp",
   ],
   "Sky Blue": [
-    "/products/iphone-air-sky-blue-1.png",
-    "/products/iphone-air-sky-blue-2.png",
-    "/products/iphone-air-sky-blue-3.png",
-    "/products/iphone-air-sky-blue-4.png",
-    "/products/iphone-air-sky-blue-5.png",
+    "/products/iphone-air-sky-blue-1.webp",
+    "/products/iphone-air-sky-blue-2.webp",
+    "/products/iphone-air-sky-blue-3.webp",
+    "/products/iphone-air-sky-blue-4.webp",
+    "/products/iphone-air-sky-blue-5.webp",
   ],
   "Cloud White": [
-    "/products/iphone-air-cloud-white-1.png",
-    "/products/iphone-air-cloud-white-2.png",
-    "/products/iphone-air-cloud-white-3.png",
-    "/products/iphone-air-cloud-white-4.png",
-    "/products/iphone-air-cloud-white-5.png",
+    "/products/iphone-air-cloud-white-1.webp",
+    "/products/iphone-air-cloud-white-2.webp",
+    "/products/iphone-air-cloud-white-3.webp",
+    "/products/iphone-air-cloud-white-4.webp",
+    "/products/iphone-air-cloud-white-5.webp",
   ],
   "Space Black": [
-    "/products/iphone-air-space-black-1.png",
-    "/products/iphone-air-space-black-2.png",
-    "/products/iphone-air-space-black-3.png",
-    "/products/iphone-air-space-black-4.png",
-    "/products/iphone-air-space-black-5.png",
+    "/products/iphone-air-space-black-1.webp",
+    "/products/iphone-air-space-black-2.webp",
+    "/products/iphone-air-space-black-3.webp",
+    "/products/iphone-air-space-black-4.webp",
+    "/products/iphone-air-space-black-5.webp",
   ],
 };
 
 const iphone16Images = {
   Black: [
-    "/products/iphone-16-black-1.png",
-    "/products/iphone-16-black-2.png",
-    "/products/iphone-16-black-3.png",
-    "/products/iphone-16-black-4.png",
-    "/products/iphone-16-black-5.png",
-    "/products/iphone-16-black-6.png",
+    "/products/iphone-16-black-1.webp",
+    "/products/iphone-16-black-2.webp",
+    "/products/iphone-16-black-3.webp",
+    "/products/iphone-16-black-4.webp",
+    "/products/iphone-16-black-5.webp",
+    "/products/iphone-16-black-6.webp",
   ],
   White: [
-    "/products/iphone-16-white-1.png",
-    "/products/iphone-16-white-2.png",
-    "/products/iphone-16-white-3.png",
-    "/products/iphone-16-white-4.png",
-    "/products/iphone-16-white-5.png",
-    "/products/iphone-16-white-6.png",
+    "/products/iphone-16-white-1.webp",
+    "/products/iphone-16-white-2.webp",
+    "/products/iphone-16-white-3.webp",
+    "/products/iphone-16-white-4.webp",
+    "/products/iphone-16-white-5.webp",
+    "/products/iphone-16-white-6.webp",
   ],
   Pink: [
-    "/products/iphone-16-pink-1.png",
-    "/products/iphone-16-pink-2.png",
-    "/products/iphone-16-pink-3.png",
-    "/products/iphone-16-pink-4.png",
-    "/products/iphone-16-pink-5.png",
-    "/products/iphone-16-pink-6.png",
+    "/products/iphone-16-pink-1.webp",
+    "/products/iphone-16-pink-2.webp",
+    "/products/iphone-16-pink-3.webp",
+    "/products/iphone-16-pink-4.webp",
+    "/products/iphone-16-pink-5.webp",
+    "/products/iphone-16-pink-6.webp",
   ],
   Teal: [
-    "/products/iphone-16-teal-1.png",
-    "/products/iphone-16-teal-2.png",
-    "/products/iphone-16-teal-3.png",
-    "/products/iphone-16-teal-4.png",
-    "/products/iphone-16-teal-5.png",
-    "/products/iphone-16-teal-6.png",
+    "/products/iphone-16-teal-1.webp",
+    "/products/iphone-16-teal-2.webp",
+    "/products/iphone-16-teal-3.webp",
+    "/products/iphone-16-teal-4.webp",
+    "/products/iphone-16-teal-5.webp",
+    "/products/iphone-16-teal-6.webp",
   ],
   Ultramarine: [
-    "/products/iphone-16-ultramarine-1.png",
-    "/products/iphone-16-ultramarine-2.png",
-    "/products/iphone-16-ultramarine-3.png",
-    "/products/iphone-16-ultramarine-4.png",
-    "/products/iphone-16-ultramarine-5.png",
-    "/products/iphone-16-ultramarine-6.png",
+    "/products/iphone-16-ultramarine-1.webp",
+    "/products/iphone-16-ultramarine-2.webp",
+    "/products/iphone-16-ultramarine-3.webp",
+    "/products/iphone-16-ultramarine-4.webp",
+    "/products/iphone-16-ultramarine-5.webp",
+    "/products/iphone-16-ultramarine-6.webp",
   ],
 };
 
 const iphone17eImages = {
   Black: [
-    "/products/iphone-17e-black-1.png",
-    "/products/iphone-17e-black-2.png",
-    "/products/iphone-17e-black-3.png",
-    "/products/iphone-17e-black-4.png",
+    "/products/iphone-17e-black-1.webp",
+    "/products/iphone-17e-black-2.webp",
+    "/products/iphone-17e-black-3.webp",
+    "/products/iphone-17e-black-4.webp",
   ],
   White: [
-    "/products/iphone-17e-white-1.png",
-    "/products/iphone-17e-white-2.png",
-    "/products/iphone-17e-white-3.png",
-    "/products/iphone-17e-white-4.png",
+    "/products/iphone-17e-white-1.webp",
+    "/products/iphone-17e-white-2.webp",
+    "/products/iphone-17e-white-3.webp",
+    "/products/iphone-17e-white-4.webp",
   ],
   "Soft Pink": [
-    "/products/iphone-17e-soft-pink-1.png",
-    "/products/iphone-17e-soft-pink-2.png",
-    "/products/iphone-17e-soft-pink-3.png",
-    "/products/iphone-17e-soft-pink-4.png",
+    "/products/iphone-17e-soft-pink-1.webp",
+    "/products/iphone-17e-soft-pink-2.webp",
+    "/products/iphone-17e-soft-pink-3.webp",
+    "/products/iphone-17e-soft-pink-4.webp",
   ],
 };
 
 const iphone16eImages = {
   Black: [
-    "/products/iphone-16e-black-1.png",
-    "/products/iphone-16e-black-2.png",
-    "/products/iphone-16e-black-3.png",
-    "/products/iphone-16e-black-4.png",
-    "/products/iphone-16e-black-5.png",
+    "/products/iphone-16e-black-1.webp",
+    "/products/iphone-16e-black-2.webp",
+    "/products/iphone-16e-black-3.webp",
+    "/products/iphone-16e-black-4.webp",
+    "/products/iphone-16e-black-5.webp",
   ],
   White: [
-    "/products/iphone-16e-white-1.png",
-    "/products/iphone-16e-white-2.png",
-    "/products/iphone-16e-white-3.png",
-    "/products/iphone-16e-white-4.png",
-    "/products/iphone-16e-white-5.png",
+    "/products/iphone-16e-white-1.webp",
+    "/products/iphone-16e-white-2.webp",
+    "/products/iphone-16e-white-3.webp",
+    "/products/iphone-16e-white-4.webp",
+    "/products/iphone-16e-white-5.webp",
   ],
 };
 
 const iphone15Images = {
   Black: [
-    "/products/iphone-15-black-1.png",
-    "/products/iphone-15-black-2.png",
-    "/products/iphone-15-black-3.png",
-    "/products/iphone-15-black-4.png",
-    "/products/iphone-15-black-5.png",
+    "/products/iphone-15-black-1.webp",
+    "/products/iphone-15-black-2.webp",
+    "/products/iphone-15-black-3.webp",
+    "/products/iphone-15-black-4.webp",
+    "/products/iphone-15-black-5.webp",
   ],
   Blue: [
-    "/products/iphone-15-blue-1.png",
-    "/products/iphone-15-blue-2.png",
-    "/products/iphone-15-blue-3.png",
-    "/products/iphone-15-blue-4.png",
-    "/products/iphone-15-blue-5.png",
+    "/products/iphone-15-blue-1.webp",
+    "/products/iphone-15-blue-2.webp",
+    "/products/iphone-15-blue-3.webp",
+    "/products/iphone-15-blue-4.webp",
+    "/products/iphone-15-blue-5.webp",
   ],
   Green: [
-    "/products/iphone-15-green-1.png",
-    "/products/iphone-15-green-2.png",
-    "/products/iphone-15-green-3.png",
-    "/products/iphone-15-green-4.png",
-    "/products/iphone-15-green-5.png",
+    "/products/iphone-15-green-1.webp",
+    "/products/iphone-15-green-2.webp",
+    "/products/iphone-15-green-3.webp",
+    "/products/iphone-15-green-4.webp",
+    "/products/iphone-15-green-5.webp",
   ],
   Pink: [
-    "/products/iphone-15-pink-1.png",
-    "/products/iphone-15-pink-2.png",
-    "/products/iphone-15-pink-3.png",
-    "/products/iphone-15-pink-4.png",
-    "/products/iphone-15-pink-5.png",
+    "/products/iphone-15-pink-1.webp",
+    "/products/iphone-15-pink-2.webp",
+    "/products/iphone-15-pink-3.webp",
+    "/products/iphone-15-pink-4.webp",
+    "/products/iphone-15-pink-5.webp",
   ],
   Yellow: [
-    "/products/iphone-15-yellow-1.png",
-    "/products/iphone-15-yellow-2.png",
-    "/products/iphone-15-yellow-3.png",
-    "/products/iphone-15-yellow-4.png",
-    "/products/iphone-15-yellow-5.png",
+    "/products/iphone-15-yellow-1.webp",
+    "/products/iphone-15-yellow-2.webp",
+    "/products/iphone-15-yellow-3.webp",
+    "/products/iphone-15-yellow-4.webp",
+    "/products/iphone-15-yellow-5.webp",
   ],
 };
 
 const macbookNeoImages = {
   Indigo: [
-    "/products/macbook-neo-indigo-3.png",
-    "/products/macbook-neo-indigo-2.png",
-    "/products/macbook-neo-indigo-4.png",
-    "/products/macbook-neo-indigo-1.png",
-    "/products/macbook-neo-indigo-5.png",
-    "/products/macbook-neo-indigo-6.png",
+    "/products/macbook-neo-indigo-3.webp",
+    "/products/macbook-neo-indigo-2.webp",
+    "/products/macbook-neo-indigo-4.webp",
+    "/products/macbook-neo-indigo-1.webp",
+    "/products/macbook-neo-indigo-5.webp",
+    "/products/macbook-neo-indigo-6.webp",
   ],
   Blush: [
-    "/products/macbook-neo-blush-3.png",
-    "/products/macbook-neo-blush-2.png",
-    "/products/macbook-neo-blush-4.png",
-    "/products/macbook-neo-blush-1.png",
-    "/products/macbook-neo-blush-5.png",
-    "/products/macbook-neo-blush-6.png",
+    "/products/macbook-neo-blush-3.webp",
+    "/products/macbook-neo-blush-2.webp",
+    "/products/macbook-neo-blush-4.webp",
+    "/products/macbook-neo-blush-1.webp",
+    "/products/macbook-neo-blush-5.webp",
+    "/products/macbook-neo-blush-6.webp",
   ],
   Silver: [
-    "/products/macbook-neo-silver-3.png",
-    "/products/macbook-neo-silver-2.png",
-    "/products/macbook-neo-silver-4.png",
-    "/products/macbook-neo-silver-1.png",
-    "/products/macbook-neo-silver-5.png",
-    "/products/macbook-neo-silver-6.png",
+    "/products/macbook-neo-silver-3.webp",
+    "/products/macbook-neo-silver-2.webp",
+    "/products/macbook-neo-silver-4.webp",
+    "/products/macbook-neo-silver-1.webp",
+    "/products/macbook-neo-silver-5.webp",
+    "/products/macbook-neo-silver-6.webp",
   ],
   Citrus: [
-    "/products/macbook-neo-citrus-3.png",
-    "/products/macbook-neo-citrus-2.png",
-    "/products/macbook-neo-citrus-4.png",
-    "/products/macbook-neo-citrus-1.png",
-    "/products/macbook-neo-citrus-5.png",
-    "/products/macbook-neo-citrus-6.png",
+    "/products/macbook-neo-citrus-3.webp",
+    "/products/macbook-neo-citrus-2.webp",
+    "/products/macbook-neo-citrus-4.webp",
+    "/products/macbook-neo-citrus-1.webp",
+    "/products/macbook-neo-citrus-5.webp",
+    "/products/macbook-neo-citrus-6.webp",
   ],
 };
 
 const iphone16ProImages = {
   Black: [
-    "/products/iphone-16-pro-black-1.png",
-    "/products/iphone-16-pro-black-2.png",
-    "/products/iphone-16-pro-black-3.png",
-    "/products/iphone-16-pro-black-4.png",
-    "/products/iphone-16-pro-black-5.png",
-    "/products/iphone-16-pro-black-6.png",
+    "/products/iphone-16-pro-black-1.webp",
+    "/products/iphone-16-pro-black-2.webp",
+    "/products/iphone-16-pro-black-3.webp",
+    "/products/iphone-16-pro-black-4.webp",
+    "/products/iphone-16-pro-black-5.webp",
+    "/products/iphone-16-pro-black-6.webp",
   ],
   White: [
-    "/products/iphone-16-pro-white-1.png",
-    "/products/iphone-16-pro-white-2.png",
-    "/products/iphone-16-pro-white-3.png",
-    "/products/iphone-16-pro-white-4.png",
-    "/products/iphone-16-pro-white-5.png",
-    "/products/iphone-16-pro-white-6.png",
+    "/products/iphone-16-pro-white-1.webp",
+    "/products/iphone-16-pro-white-2.webp",
+    "/products/iphone-16-pro-white-3.webp",
+    "/products/iphone-16-pro-white-4.webp",
+    "/products/iphone-16-pro-white-5.webp",
+    "/products/iphone-16-pro-white-6.webp",
   ],
   Desert: [
-    "/products/iphone-16-pro-desert-1.png",
-    "/products/iphone-16-pro-desert-2.png",
-    "/products/iphone-16-pro-desert-3.png",
-    "/products/iphone-16-pro-desert-4.png",
-    "/products/iphone-16-pro-desert-5.png",
-    "/products/iphone-16-pro-desert-6.png",
+    "/products/iphone-16-pro-desert-1.webp",
+    "/products/iphone-16-pro-desert-2.webp",
+    "/products/iphone-16-pro-desert-3.webp",
+    "/products/iphone-16-pro-desert-4.webp",
+    "/products/iphone-16-pro-desert-5.webp",
+    "/products/iphone-16-pro-desert-6.webp",
   ],
   Natural: [
-    "/products/iphone-16-pro-natural-1.png",
-    "/products/iphone-16-pro-natural-2.png",
-    "/products/iphone-16-pro-natural-3.png",
-    "/products/iphone-16-pro-natural-4.png",
-    "/products/iphone-16-pro-natural-5.png",
-    "/products/iphone-16-pro-natural-6.png",
+    "/products/iphone-16-pro-natural-1.webp",
+    "/products/iphone-16-pro-natural-2.webp",
+    "/products/iphone-16-pro-natural-3.webp",
+    "/products/iphone-16-pro-natural-4.webp",
+    "/products/iphone-16-pro-natural-5.webp",
+    "/products/iphone-16-pro-natural-6.webp",
   ],
 };
 
 const ipad11Images = {
   Silver: [
-    "/products/ipad-11-a16-silver-1.png",
-    "/products/ipad-11-a16-silver-2.png",
-    "/products/ipad-11-a16-silver-3.png",
+    "/products/ipad-11-a16-silver-1.webp",
+    "/products/ipad-11-a16-silver-2.webp",
+    "/products/ipad-11-a16-silver-3.webp",
   ],
   Blue: [
-    "/products/ipad-11-a16-blue-1.png",
-    "/products/ipad-11-a16-blue-2.png",
-    "/products/ipad-11-a16-blue-3.png",
+    "/products/ipad-11-a16-blue-1.webp",
+    "/products/ipad-11-a16-blue-2.webp",
+    "/products/ipad-11-a16-blue-3.webp",
   ],
   Pink: [
-    "/products/ipad-11-a16-pink-1.png",
-    "/products/ipad-11-a16-pink-2.png",
-    "/products/ipad-11-a16-pink-3.png",
+    "/products/ipad-11-a16-pink-1.webp",
+    "/products/ipad-11-a16-pink-2.webp",
+    "/products/ipad-11-a16-pink-3.webp",
   ],
   Yellow: [
-    "/products/ipad-11-a16-yellow-1.png",
-    "/products/ipad-11-a16-yellow-2.png",
-    "/products/ipad-11-a16-yellow-3.png",
+    "/products/ipad-11-a16-yellow-1.webp",
+    "/products/ipad-11-a16-yellow-2.webp",
+    "/products/ipad-11-a16-yellow-3.webp",
   ],
 };
 
 const airPodsMaxImages = {
   Midnight: [
-    "/products/airpods-max-midnight-1.png",
-    "/products/airpods-max-midnight-2.png",
-    "/products/airpods-max-midnight-3.png",
-    "/products/airpods-max-midnight-4.png",
-    "/products/airpods-max-midnight-5.png",
-    "/products/airpods-max-midnight-6.png",
+    "/products/airpods-max-midnight-1.webp",
+    "/products/airpods-max-midnight-2.webp",
+    "/products/airpods-max-midnight-3.webp",
+    "/products/airpods-max-midnight-4.webp",
+    "/products/airpods-max-midnight-5.webp",
+    "/products/airpods-max-midnight-6.webp",
   ],
   Purple: [
-    "/products/airpods-max-purple-1.png",
-    "/products/airpods-max-purple-2.png",
-    "/products/airpods-max-purple-3.png",
-    "/products/airpods-max-purple-4.png",
-    "/products/airpods-max-purple-5.png",
-    "/products/airpods-max-purple-6.png",
+    "/products/airpods-max-purple-1.webp",
+    "/products/airpods-max-purple-2.webp",
+    "/products/airpods-max-purple-3.webp",
+    "/products/airpods-max-purple-4.webp",
+    "/products/airpods-max-purple-5.webp",
+    "/products/airpods-max-purple-6.webp",
   ],
   Starlight: [
-    "/products/airpods-max-starlight-1.png",
-    "/products/airpods-max-starlight-2.png",
-    "/products/airpods-max-starlight-3.png",
-    "/products/airpods-max-starlight-4.png",
-    "/products/airpods-max-starlight-5.png",
-    "/products/airpods-max-starlight-6.png",
+    "/products/airpods-max-starlight-1.webp",
+    "/products/airpods-max-starlight-2.webp",
+    "/products/airpods-max-starlight-3.webp",
+    "/products/airpods-max-starlight-4.webp",
+    "/products/airpods-max-starlight-5.webp",
+    "/products/airpods-max-starlight-6.webp",
   ],
   Blue: [
-    "/products/airpods-max-blue-1.png",
-    "/products/airpods-max-blue-2.png",
-    "/products/airpods-max-blue-3.png",
-    "/products/airpods-max-blue-4.png",
-    "/products/airpods-max-blue-5.png",
-    "/products/airpods-max-blue-6.png",
+    "/products/airpods-max-blue-1.webp",
+    "/products/airpods-max-blue-2.webp",
+    "/products/airpods-max-blue-3.webp",
+    "/products/airpods-max-blue-4.webp",
+    "/products/airpods-max-blue-5.webp",
+    "/products/airpods-max-blue-6.webp",
   ],
   Orange: [
-    "/products/airpods-max-orange-1.png",
-    "/products/airpods-max-orange-2.png",
-    "/products/airpods-max-orange-3.png",
-    "/products/airpods-max-orange-4.png",
-    "/products/airpods-max-orange-5.png",
-    "/products/airpods-max-orange-6.png",
+    "/products/airpods-max-orange-1.webp",
+    "/products/airpods-max-orange-2.webp",
+    "/products/airpods-max-orange-3.webp",
+    "/products/airpods-max-orange-4.webp",
+    "/products/airpods-max-orange-5.webp",
+    "/products/airpods-max-orange-6.webp",
   ],
 };
 
@@ -509,10 +509,10 @@ function getAirPodsImages(name: string) {
   if (name.includes("AirPods Pro 3")) {
     return {
       "": [
-        "/products/airpods-pro-3-1.png",
-        "/products/airpods-pro-3-2.png",
-        "/products/airpods-pro-3-3.png",
-        "/products/airpods-pro-3-4.png",
+        "/products/airpods-pro-3-1.webp",
+        "/products/airpods-pro-3-2.webp",
+        "/products/airpods-pro-3-3.webp",
+        "/products/airpods-pro-3-4.webp",
       ],
     };
   }
@@ -520,12 +520,12 @@ function getAirPodsImages(name: string) {
   if (name.includes("AirPods Pro 2")) {
     return {
       "": [
-        "/products/airpods-pro-2-1.png",
-        "/products/airpods-pro-2-2.png",
-        "/products/airpods-pro-2-3.png",
-        "/products/airpods-pro-2-4.png",
-        "/products/airpods-pro-2-5.png",
-        "/products/airpods-pro-2-6.png",
+        "/products/airpods-pro-2-1.webp",
+        "/products/airpods-pro-2-2.webp",
+        "/products/airpods-pro-2-3.webp",
+        "/products/airpods-pro-2-4.webp",
+        "/products/airpods-pro-2-5.webp",
+        "/products/airpods-pro-2-6.webp",
       ],
     };
   }
@@ -533,10 +533,10 @@ function getAirPodsImages(name: string) {
   if (name.includes("ANC")) {
     return {
       "": [
-        "/products/airpods-4-anc-1.png",
-        "/products/airpods-4-anc-2.png",
-        "/products/airpods-4-anc-3.png",
-        "/products/airpods-4-anc-4.png",
+        "/products/airpods-4-anc-1.webp",
+        "/products/airpods-4-anc-2.webp",
+        "/products/airpods-4-anc-3.webp",
+        "/products/airpods-4-anc-4.webp",
       ],
     };
   }
@@ -544,9 +544,9 @@ function getAirPodsImages(name: string) {
   if (name.includes("AirPods 4")) {
     return {
       "": [
-        "/products/airpods-4-1.png",
-        "/products/airpods-4-2.png",
-        "/products/airpods-4-3.png",
+        "/products/airpods-4-1.webp",
+        "/products/airpods-4-2.webp",
+        "/products/airpods-4-3.webp",
       ],
     };
   }
@@ -696,10 +696,10 @@ function DeviceVisual({
     <div className={`deviceVisual ${accent} ${imageFit === "matchFirst" ? "matchFirstImage" : ""}`} aria-hidden="true">
       {category === "iPhone" || category === "iPad" || category === "Mac" || imageSrc ? (
         <img
-          src={imageSrc ?? "/appsale-product.png"}
+          src={imageSrc ?? "/appsale-product.webp"}
           alt={imageAlt ?? ""}
           onError={(event) => {
-            event.currentTarget.src = "/appsale-product.png";
+            event.currentTarget.src = "/appsale-product.webp";
           }}
         />
       ) : category === "AirPods" ? (
@@ -967,14 +967,14 @@ export default function Home() {
   function getProductImages(product: Product) {
     const selectedColor = productSelections[product.id]?.color ?? product.color;
 
-    return product.imagesByColor?.[selectedColor] ?? ["/appsale-product.png"];
+    return product.imagesByColor?.[selectedColor] ?? ["/appsale-product.webp"];
   }
 
   function getProductImage(product: Product) {
     const images = getProductImages(product);
     const imageIndex = productImageIndexes[product.id] ?? 0;
 
-    return images[imageIndex] ?? images[0] ?? "/appsale-product.png";
+    return images[imageIndex] ?? images[0] ?? "/appsale-product.webp";
   }
 
   function getProductImageFit(product: Product) {
@@ -1232,7 +1232,7 @@ export default function Home() {
     <main>
       <header className="topbar">
         <a className="brand" href="#top" aria-label="appsale store">
-          <img className="brandLogo" src="/appsale-logo.png" alt="" />
+          <img className="brandLogo" src="/appsale-logo.webp" alt="" />
           <span>appsale store</span>
         </a>
         <nav>
@@ -1262,7 +1262,7 @@ export default function Home() {
 
       <section className="hero" id="top">
         <div className="heroProduct" aria-label="Витрина техники appsale store">
-          <img src="/appsale-hero.png" alt="appsale store: iPhone в цветах Deep Blue, Desert Orange и Silver Titanium" />
+          <img src="/appsale-hero.webp" alt="appsale store: iPhone в цветах Deep Blue, Desert Orange и Silver Titanium" />
         </div>
         <div className="heroCopy">
           <h1>Премиальная техника в наличии и под заказ.</h1>
