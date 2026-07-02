@@ -1,34 +1,60 @@
 "use client";
 
-import { FormEvent, useCallback, useEffect, useState } from "react";
+import { type FormEvent, useCallback, useEffect, useState } from "react";
+
+type BotStart = {
+  chat_id: string;
+  first_name: string;
+  first_started_at: string;
+  last_name: string;
+  last_started_at: string;
+  telegram: string;
+  telegram_user_id: string;
+};
+
+type Order = {
+  created_at: string;
+  customer_name: string;
+  delivery_method: string;
+  id: number;
+  items_json: string;
+  order_number: string;
+  phone: string;
+  telegram: string;
+  total: string;
+};
 
 type Dashboard = {
-  botStarts: Array<{
-    chat_id: string;
-    first_name: string;
-    first_started_at: string;
-    last_name: string;
-    last_started_at: string;
-    telegram: string;
-    telegram_user_id: string;
-  }>;
+  botStarts: BotStart[];
   customers: number;
-  orders: Array<{
-    created_at: string;
-    customer_name: string;
-    delivery_method: string;
-    id: number;
-    items_json: string;
-    order_number: string;
-    phone: string;
-    telegram: string;
-    total: string;
-  }>;
+  orders: Order[];
   starts: number;
+};
+
+type OrderItem = {
+  color?: string;
+  name?: string;
+  qty?: number;
+  sim?: string;
+  storage?: string;
 };
 
 function formatDate(value: string) {
   return new Intl.DateTimeFormat("ru-RU", { dateStyle: "medium", timeStyle: "short" }).format(new Date(value));
+}
+
+function parseOrderItems(value: string) {
+  try {
+    return JSON.parse(value || "[]") as OrderItem[];
+  } catch {
+    return [];
+  }
+}
+
+function formatOrderItems(items: OrderItem[]) {
+  if (!items.length) return "Состав заказа не указан";
+
+  return items.map((item) => `${item.name ?? "Товар"} ${item.storage ?? ""} ${item.color ?? ""} x${item.qty ?? 1}`.trim()).join(", ");
 }
 
 export default function AdminPage() {
@@ -77,7 +103,13 @@ export default function AdminPage() {
     await loadDashboard();
   }
 
-  if (isLoading && !dashboard && !error) return <main className="adminPage"><p>Загрузка...</p></main>;
+  if (isLoading && !dashboard && !error) {
+    return (
+      <main className="adminPage">
+        <p>Загрузка...</p>
+      </main>
+    );
+  }
 
   if (!dashboard) {
     return (
@@ -87,7 +119,9 @@ export default function AdminPage() {
           <h1>Админка</h1>
           <p>Клиенты, запуски Mini App и заказы.</p>
           <input autoComplete="current-password" onChange={(event) => setPassword(event.target.value)} placeholder="Пароль" required type="password" value={password} />
-          <button disabled={isLoading} type="submit">Войти</button>
+          <button disabled={isLoading} type="submit">
+            Войти
+          </button>
           {error ? <small>{error}</small> : null}
         </form>
       </main>
@@ -101,54 +135,79 @@ export default function AdminPage() {
           <span>appsale store</span>
           <h1>Клиенты и заказы</h1>
         </div>
-        <button onClick={loadDashboard} type="button">Обновить</button>
+        <button onClick={loadDashboard} type="button">
+          Обновить
+        </button>
       </header>
 
       <section className="adminMetrics">
-        <article><span>Клиенты</span><strong>{dashboard.customers}</strong></article>
-        <article><span>Запуски бота</span><strong>{dashboard.starts}</strong></article>
-        <article><span>Заказы</span><strong>{dashboard.orders.length}</strong></article>
+        <article>
+          <span>Клиенты</span>
+          <strong>{dashboard.customers}</strong>
+        </article>
+        <article>
+          <span>Запуски бота</span>
+          <strong>{dashboard.starts}</strong>
+        </article>
+        <article>
+          <span>Заказы</span>
+          <strong>{dashboard.orders.length}</strong>
+        </article>
       </section>
 
       <section className="adminOrders">
-        <div className="adminSectionHead"><h2>Последние заказы</h2><span>{dashboard.orders.length} в истории</span></div>
-        {dashboard.orders.length ? dashboard.orders.map((order) => {
-          const items = JSON.parse(order.items_json || "[]") as Array<{ color?: string; name?: string; qty?: number; sim?: string; storage?: string }>;
+        <div className="adminSectionHead">
+          <h2>Последние заказы</h2>
+          <span>{dashboard.orders.length} в истории</span>
+        </div>
+        {dashboard.orders.length ? (
+          dashboard.orders.map((order) => {
+            const items = parseOrderItems(order.items_json);
 
-          return (
-            <article className="adminOrder" key={order.id}>
-              <div>
-                <strong>{order.customer_name || "Клиент"}</strong>
-                <span>{order.phone || order.telegram || "Контакт не указан"}</span>
-              </div>
-              <div>
-                <span>{items.map((item) => `${item.name} ${item.storage ?? ""} ${item.color ?? ""} x${item.qty ?? 1}`).join(", ")}</span>
-                {order.order_number ? <small>#{order.order_number}</small> : null}
-                <small>{order.delivery_method || "Получение не выбрано"} · {formatDate(order.created_at)}</small>
-              </div>
-              <strong>{order.total || "Цена по запросу"}</strong>
-            </article>
-          );
-        }) : <p className="adminEmpty">Заказов пока нет. После первого оформления они появятся здесь.</p>}
+            return (
+              <article className="adminOrder" key={order.id}>
+                <div>
+                  <strong>{order.order_number ? `#${order.order_number}` : `#${order.id}`}</strong>
+                  <span>{order.customer_name || "Клиент"}</span>
+                  <span>{order.phone || order.telegram || "Контакт не указан"}</span>
+                </div>
+                <div>
+                  <span>{formatOrderItems(items)}</span>
+                  <small>{order.delivery_method || "Получение не выбрано"} · {formatDate(order.created_at)}</small>
+                </div>
+                <strong>{order.total || "Цена по запросу"}</strong>
+              </article>
+            );
+          })
+        ) : (
+          <p className="adminEmpty">Заказов пока нет. После первого оформления они появятся здесь.</p>
+        )}
       </section>
 
       <section className="adminOrders">
-        <div className="adminSectionHead"><h2>Запуски бота</h2><span>{dashboard.botStarts.length} в истории</span></div>
-        {dashboard.botStarts.length ? dashboard.botStarts.map((start) => {
-          const name = [start.first_name, start.last_name].filter(Boolean).join(" ") || "Пользователь Telegram";
+        <div className="adminSectionHead">
+          <h2>Запуски бота</h2>
+          <span>{dashboard.botStarts.length} в истории</span>
+        </div>
+        {dashboard.botStarts.length ? (
+          dashboard.botStarts.map((start) => {
+            const name = [start.first_name, start.last_name].filter(Boolean).join(" ") || "Пользователь Telegram";
 
-          return (
-            <article className="adminOrder" key={start.chat_id}>
-              <div>
-                <strong>{name}</strong>
-                <span>{start.telegram || `ID: ${start.telegram_user_id || start.chat_id}`}</span>
-              </div>
-              <div>
-                <span>Последний запуск: {formatDate(start.last_started_at)}</span>
-              </div>
-            </article>
-          );
-        }) : <p className="adminEmpty">Новых запусков пока нет. Нажатие /start у бота добавит пользователя в список.</p>}
+            return (
+              <article className="adminOrder" key={start.chat_id}>
+                <div>
+                  <strong>{name}</strong>
+                  <span>{start.telegram || `ID: ${start.telegram_user_id || start.chat_id}`}</span>
+                </div>
+                <div>
+                  <span>Последний запуск: {formatDate(start.last_started_at)}</span>
+                </div>
+              </article>
+            );
+          })
+        ) : (
+          <p className="adminEmpty">Новых запусков пока нет. Нажатие /start у бота добавит пользователя в список.</p>
+        )}
       </section>
     </main>
   );
