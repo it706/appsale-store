@@ -147,7 +147,7 @@ main {
   grid-template-columns: 1fr;
   align-items: start;
   gap: 24px;
-  width: min(1500px, calc(100% - 32px));
+  width: min(1180px, calc(100% - 32px));
   min-height: calc(100vh - 96px);
   margin: 0 auto;
   padding: 96px 0 42px;
@@ -158,7 +158,7 @@ main {
   grid-template-columns: minmax(0, 1fr) auto;
   align-items: end;
   gap: 18px 28px;
-  width: min(1180px, calc(100% - 32px));
+  width: 100%;
   margin: 0 auto;
   min-width: 0;
 }
@@ -2014,7 +2014,7 @@ main {
 
   .heroCopy {
     grid-template-columns: 1fr;
-    width: min(100% - 32px, 1180px);
+    width: 100%;
   }
 
   .heroActions {
