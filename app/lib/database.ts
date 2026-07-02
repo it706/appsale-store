@@ -10,6 +10,7 @@ type OrderInput = CustomerInput & {
   contactMethod?: string;
   deliveryMethod?: string;
   itemsJson: string;
+  orderNumber?: string;
   total?: string;
 };
 
@@ -59,10 +60,13 @@ async function ensureSchema() {
       contact_method TEXT,
       delivery_method TEXT,
       items_json TEXT NOT NULL,
+      order_number TEXT,
       total TEXT,
       created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
     )
   `;
+
+  await sql`ALTER TABLE app_sale_orders ADD COLUMN IF NOT EXISTS order_number TEXT`;
 
   await sql`
     CREATE TABLE IF NOT EXISTS app_sale_bot_starts (
@@ -108,10 +112,10 @@ export async function recordOrder(order: OrderInput) {
   await sql`
     INSERT INTO app_sale_orders (
       customer_identity_key, customer_name, phone, telegram, contact_method,
-      delivery_method, items_json, total
+      delivery_method, items_json, order_number, total
     ) VALUES (
       ${identityKey}, ${order.name ?? ""}, ${order.phone ?? ""}, ${order.telegram ?? ""},
-      ${order.contactMethod ?? ""}, ${order.deliveryMethod ?? ""}, ${order.itemsJson}, ${order.total ?? ""}
+      ${order.contactMethod ?? ""}, ${order.deliveryMethod ?? ""}, ${order.itemsJson}, ${order.orderNumber ?? ""}, ${order.total ?? ""}
     )
   `;
 }
@@ -138,7 +142,7 @@ export async function getAdminDashboard() {
 
   const [orders, customers, starts, botStarts] = await Promise.all([
     sql`
-      SELECT id, customer_name, phone, telegram, contact_method, delivery_method, items_json, total, created_at
+      SELECT id, customer_name, phone, telegram, contact_method, delivery_method, items_json, order_number, total, created_at
       FROM app_sale_orders
       ORDER BY created_at DESC
       LIMIT 50

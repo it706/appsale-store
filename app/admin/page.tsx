@@ -19,6 +19,7 @@ type Dashboard = {
     delivery_method: string;
     id: number;
     items_json: string;
+    order_number: string;
     phone: string;
     telegram: string;
     total: string;
@@ -122,6 +123,7 @@ export default function AdminPage() {
               </div>
               <div>
                 <span>{items.map((item) => `${item.name} ${item.storage ?? ""} ${item.color ?? ""} x${item.qty ?? 1}`).join(", ")}</span>
+                {order.order_number ? <small>#{order.order_number}</small> : null}
                 <small>{order.delivery_method || "Получение не выбрано"} · {formatDate(order.created_at)}</small>
               </div>
               <strong>{order.total || "Цена по запросу"}</strong>
