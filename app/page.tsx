@@ -31,6 +31,12 @@ type CartItem = {
   qty: number;
 };
 
+type SuccessOrder = {
+  itemsCount: number;
+  number: string;
+  total: string;
+};
+
 type ProductSelection = {
   color: string;
   sim: string;
@@ -771,6 +777,19 @@ function formatRuPhone(value: string) {
   return formatted;
 }
 
+function createOrderNumber(date = new Date()) {
+  const pad = (value: number) => String(value).padStart(2, "0");
+
+  return [
+    date.getFullYear(),
+    pad(date.getMonth() + 1),
+    pad(date.getDate()),
+    pad(date.getHours()),
+    pad(date.getMinutes()),
+    pad(date.getSeconds()),
+  ].join("");
+}
+
 function removeLastRuPhoneDigit(value: string) {
   const digits = getRuPhoneDigits(value);
   const nextDigits = digits.length > 1 ? digits.slice(0, -1) : "7";
@@ -801,6 +820,7 @@ export default function Home() {
   const [isProfileOpen, setIsProfileOpen] = useState(false);
   const [isSupportOpen, setIsSupportOpen] = useState(false);
   const [isSending, setIsSending] = useState(false);
+  const [successOrder, setSuccessOrder] = useState<SuccessOrder | null>(null);
   const [orderStatus, setOrderStatus] = useState("");
   const [accountStatus, setAccountStatus] = useState("");
   const [recentlyAddedKey, setRecentlyAddedKey] = useState("");
@@ -919,6 +939,7 @@ export default function Home() {
 
   const cartCount = cart.reduce((sum, item) => sum + item.qty, 0);
   const cartTotal = cart.reduce((sum, item) => sum + parsePrice(item.product.price) * item.qty, 0);
+  const cartTotalLabel = cartTotal > 0 ? `${cartTotal.toLocaleString("ru-RU")} ₽` : "цена по запросу";
 
   function getConfiguredProduct(product: Product) {
     const selection = productSelections[product.id];
@@ -1132,6 +1153,11 @@ export default function Home() {
       return;
     }
 
+    if (!phoneDigits.startsWith("79")) {
+      setAccountStatus("Введите мобильный номер в формате +7 (9xx) xxx-xx-xx.");
+      return;
+    }
+
     if (checkoutForm.contactMethod === "Telegram" && !checkoutForm.telegram.trim()) {
       setAccountStatus("Укажите Telegram, если хотите связь через Telegram.");
       return;
@@ -1147,6 +1173,8 @@ export default function Home() {
       return;
     }
 
+    const orderNumber = createOrderNumber();
+
     setIsSending(true);
     setAccountStatus("");
 
@@ -1155,6 +1183,7 @@ export default function Home() {
         body: JSON.stringify({
           comment: checkoutForm.comment.trim(),
           name: checkoutForm.name.trim(),
+          orderNumber,
           phone: checkoutForm.phone.trim(),
           telegram: checkoutForm.telegram.trim(),
           product: "Корзина appsale store",
@@ -1172,7 +1201,7 @@ export default function Home() {
             sim: item.product.sim,
             storage: item.product.storage,
           })),
-          total: `${cartTotal} ₽`,
+          total: cartTotalLabel,
         }),
         headers: {
           "Content-Type": "application/json",
@@ -1186,7 +1215,12 @@ export default function Home() {
         return;
       }
 
-      setAccountStatus("Корзина отправлена в Telegram.");
+      setSuccessOrder({
+        itemsCount: cartCount,
+        number: orderNumber,
+        total: cartTotalLabel,
+      });
+      setAccountStatus("");
       clearCart();
       setIsCartOpen(false);
     } finally {
@@ -1732,7 +1766,7 @@ export default function Home() {
             </div>
             <div className="cartSummary">
               <span>Итого</span>
-              <strong>{cartTotal.toLocaleString("ru-RU")} ₽</strong>
+              <strong>{cartTotalLabel}</strong>
             </div>
             <label>
               Ваше имя
@@ -1837,6 +1871,44 @@ export default function Home() {
               </button>
             </div>
           </form>
+        </div>
+      ) : null}
+
+      {successOrder ? (
+        <div className="orderOverlay" role="dialog" aria-modal="true" aria-label="Заявка принята">
+          <button className="overlayBackdrop" onClick={() => setSuccessOrder(null)} type="button" aria-label="Закрыть" />
+          <section className="orderPanel successPanel">
+            <button className="closeButton" onClick={() => setSuccessOrder(null)} type="button">
+              Закрыть
+            </button>
+            <span>Заявка принята</span>
+            <h2>Заказ {successOrder.number}</h2>
+            <p>Мы получили корзину и свяжемся с вами для уточнения наличия, оплаты и получения.</p>
+            <div className="successSummary">
+              <div>
+                <span>Товаров</span>
+                <strong>{successOrder.itemsCount}</strong>
+              </div>
+              <div>
+                <span>Итого</span>
+                <strong>{successOrder.total}</strong>
+              </div>
+            </div>
+            <div className="successActions">
+              <a href="https://t.me/evgenypulkov" rel="noreferrer" target="_blank">
+                Написать менеджеру
+              </a>
+              <button
+                onClick={() => {
+                  setSuccessOrder(null);
+                  document.getElementById("catalog")?.scrollIntoView({ behavior: "smooth" });
+                }}
+                type="button"
+              >
+                Вернуться в каталог
+              </button>
+            </div>
+          </section>
         </div>
       ) : null}
     </main>

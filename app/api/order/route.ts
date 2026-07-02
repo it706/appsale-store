@@ -9,6 +9,7 @@ type OrderPayload = {
   deliveryMethod?: string;
   items?: Array<{ color?: string; name?: string; price?: string; qty?: number; sim?: string; storage?: string }>;
   name?: string;
+  orderNumber?: string;
   phone?: string;
   price?: string;
   product?: string;
@@ -52,6 +53,10 @@ export async function POST(request: Request) {
     return NextResponse.json({ message: "Для СДЭК укажите город получения и адрес ПВЗ." }, { status: 400 });
   }
 
+  if (payload.phone && !phoneDigits.startsWith("79")) {
+    return NextResponse.json({ message: "Введите мобильный номер в формате +7 (9xx) xxx-xx-xx." }, { status: 400 });
+  }
+
   const botToken = process.env.TELEGRAM_BOT_TOKEN;
   const chatId = process.env.TELEGRAM_CHAT_ID;
 
@@ -82,6 +87,7 @@ export async function POST(request: Request) {
     compactLine("Версия", payload.sim),
     compactLine("Цена", payload.price),
     compactLine("Итого", payload.total),
+    compactLine("РќРѕРјРµСЂ Р·Р°РєР°Р·Р°", payload.orderNumber),
     ...cartLines,
     "",
     compactLine("Клиент", payload.name),
