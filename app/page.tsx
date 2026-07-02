@@ -1482,42 +1482,42 @@ export default function Home() {
           <article>
             <div>
               <strong>Вероника</strong>
-              <span>iPhone</span>
+              <span>iPhone 17 Pro Max Silver</span>
             </div>
             <p>Покупкой очень довольна, спасибо большое за ответы на все вопросы и быструю отправку. Не нарадуюсь новому устройству.</p>
           </article>
           <article>
             <div>
               <strong>Надежда</strong>
-              <span>iPhone 17 Pro Max</span>
+              <span>iPhone 17 Pro Max Deep Blue</span>
             </div>
             <p>Как всегда все быстро и четко. Возник вопрос с App Store, Женя быстро помог разобраться и оперативно решил вопрос.</p>
           </article>
           <article>
             <div>
               <strong>Вадим</strong>
-              <span>iPhone 17 Pro</span>
+              <span>iPhone 17 Pro Max Cosmic Orange</span>
             </div>
             <p>Спасибо за консультацию и оперативность. Айфон топ!</p>
           </article>
           <article>
             <div>
               <strong>Ольга</strong>
-              <span>iPad Air</span>
+              <span>iPad Air 11 M3 (2025)</span>
             </div>
             <p>Уже второй Apple-девайс. Все оригинальное, все работает, с доставкой. Евгений внимательный, поможет с выбором и объяснит.</p>
           </article>
           <article>
             <div>
               <strong>Маша</strong>
-              <span>AirPods Max</span>
+              <span>AirPods Max USB-C (2024) Starlight</span>
             </div>
             <p>Спасибо огромное за поздравления и за наушники, роскошные.</p>
           </article>
           <article>
             <div>
-              <strong>Малина</strong>
-              <span>Mac</span>
+              <strong>Екатерина</strong>
+              <span>MacBook Air M4 (2025)</span>
             </div>
             <p>Не жалею ни единого потраченного рубля. Перешла с Windows, зарядку держит три дня, легкий и компактный.</p>
           </article>
