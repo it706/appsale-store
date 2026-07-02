@@ -1883,7 +1883,7 @@ export default function Home() {
             </button>
             <span>Заявка принята</span>
             <h2>Заказ {successOrder.number}</h2>
-            <p>Мы получили корзину и свяжемся с вами для уточнения наличия, оплаты и получения.</p>
+            <p>Мы получили ваш заказ и свяжемся с вами для уточнения наличия, оплаты и получения.</p>
             <div className="successSummary">
               <div>
                 <span>Товаров</span>
