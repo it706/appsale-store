@@ -1475,7 +1475,7 @@ export default function Home() {
         <div className="sectionHead">
           <div>
             <span>Отзывы</span>
-            <h2>Клиенты возвращаются за техникой снова.</h2>
+            <h2>Станьте следующим довольным клиентом эпсейл стор.</h2>
           </div>
         </div>
         <div className="reviewsGrid">
