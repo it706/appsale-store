@@ -7,7 +7,7 @@ export default function PrivacyPage() {
         appsale store
       </Link>
 
-      <section>
+      <section className="policyHero">
         <span>Документы</span>
         <h1>Политика конфиденциальности</h1>
         <p>

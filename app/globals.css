@@ -1659,9 +1659,9 @@ main {
 .policyPage {
   display: grid;
   gap: 18px;
-  width: min(100% - 36px, 920px);
+  width: min(100% - 36px, 1080px);
   margin: 0 auto;
-  padding: 56px 0;
+  padding: 42px 0 64px;
   color: var(--black);
 }
 
@@ -1676,20 +1676,24 @@ main {
 
 .policyPage section {
   display: grid;
-  gap: 12px;
+  gap: 14px;
   border: 1px solid var(--line);
-  border-radius: 28px;
-  padding: 24px;
+  border-radius: 26px;
+  padding: 28px;
   background: rgba(255, 255, 255, 0.72);
+  overflow: hidden;
 }
 
-.policyPage section:first-of-type {
-  padding: 34px;
+.policyHero {
+  padding: 36px !important;
 }
 
 .policyPage span,
 .policyPage p {
   color: var(--gray);
+  max-width: 760px;
+  font-size: 18px;
+  line-height: 1.45;
 }
 
 .policyPage h1,
@@ -1699,12 +1703,15 @@ main {
 }
 
 .policyPage h1 {
-  font-size: clamp(42px, 7vw, 86px);
-  line-height: 0.92;
+  max-width: 780px;
+  font-size: clamp(42px, 6vw, 76px);
+  line-height: 0.98;
+  overflow-wrap: anywhere;
 }
 
 .policyPage h2 {
-  font-size: 26px;
+  font-size: 30px;
+  line-height: 1.05;
 }
 
 .policyPage a {
@@ -2625,12 +2632,20 @@ main {
   }
 
   .policyPage section,
-  .policyPage section:first-of-type {
+  .policyHero {
     border-radius: 22px;
-    padding: 18px;
+    padding: 18px !important;
   }
 
   .policyPage h1 {
-    font-size: 42px;
+    font-size: 40px;
+  }
+
+  .policyPage h2 {
+    font-size: 24px;
+  }
+
+  .policyPage p {
+    font-size: 16px;
   }
 }
