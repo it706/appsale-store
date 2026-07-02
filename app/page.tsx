@@ -831,6 +831,7 @@ export default function Home() {
     deliveryMethod: "Самовывоз",
     name: "",
     phone: "+7",
+    privacyAccepted: false,
     sdekCity: "",
     sdekPoint: "",
     telegram: "",
@@ -1173,6 +1174,11 @@ export default function Home() {
       return;
     }
 
+    if (!checkoutForm.privacyAccepted) {
+      setAccountStatus("Подтвердите согласие на обработку персональных данных.");
+      return;
+    }
+
     const orderNumber = createOrderNumber();
 
     setIsSending(true);
@@ -1486,7 +1492,7 @@ export default function Home() {
           <article>
             <span>03</span>
             <strong>Гарантия</strong>
-            <p>Гарантия на заводской брак действует на все новые устройства.</p>
+            <p>Гарантия на заводской брак действует на все новые устройства. Условия обращения подтверждаем перед оплатой.</p>
           </article>
         </div>
       </section>
@@ -1863,6 +1869,20 @@ export default function Home() {
                 placeholder="Например: связаться после 18:00, нужен другой город доставки"
                 value={checkoutForm.comment}
               />
+            </label>
+            <label className="privacyConsent">
+              <input
+                checked={checkoutForm.privacyAccepted}
+                onChange={(event) => setCheckoutForm((current) => ({ ...current, privacyAccepted: event.target.checked }))}
+                type="checkbox"
+              />
+              <span>
+                Я согласен на обработку персональных данных и принимаю{" "}
+                <a href="/privacy" rel="noreferrer" target="_blank">
+                  политику конфиденциальности
+                </a>
+                .
+              </span>
             </label>
             {accountStatus ? <p className="orderStatus">{accountStatus}</p> : null}
             <div className="cartButtons">

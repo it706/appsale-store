@@ -1628,6 +1628,91 @@ main {
   background: rgba(255, 255, 255, 0.58);
 }
 
+.privacyConsent {
+  display: flex !important;
+  grid-template-columns: none;
+  align-items: flex-start;
+  gap: 10px !important;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.58);
+  color: var(--gray);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.privacyConsent input {
+  flex: 0 0 18px;
+  width: 18px;
+  height: 18px;
+  margin-top: 1px;
+  accent-color: var(--black);
+}
+
+.privacyConsent a {
+  color: var(--black);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.policyPage {
+  display: grid;
+  gap: 18px;
+  width: min(100% - 36px, 920px);
+  margin: 0 auto;
+  padding: 56px 0;
+  color: var(--black);
+}
+
+.policyBack {
+  width: fit-content;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 10px 14px;
+  color: var(--black);
+  font-weight: 760;
+}
+
+.policyPage section {
+  display: grid;
+  gap: 12px;
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  padding: 24px;
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.policyPage section:first-of-type {
+  padding: 34px;
+}
+
+.policyPage span,
+.policyPage p {
+  color: var(--gray);
+}
+
+.policyPage h1,
+.policyPage h2,
+.policyPage p {
+  margin: 0;
+}
+
+.policyPage h1 {
+  font-size: clamp(42px, 7vw, 86px);
+  line-height: 0.92;
+}
+
+.policyPage h2 {
+  font-size: 26px;
+}
+
+.policyPage a {
+  color: var(--black);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 .orderStatus {
   border-radius: 16px;
   padding: 12px 14px;
@@ -2532,5 +2617,20 @@ main {
 
   .supportContent p {
     font-size: 17px;
+  }
+
+  .policyPage {
+    width: min(100% - 22px, 920px);
+    padding: 24px 0 94px;
+  }
+
+  .policyPage section,
+  .policyPage section:first-of-type {
+    border-radius: 22px;
+    padding: 18px;
+  }
+
+  .policyPage h1 {
+    font-size: 42px;
   }
 }
