@@ -1476,6 +1476,47 @@ main {
   color: var(--gray);
 }
 
+.reviewsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.reviewsGrid article {
+  display: grid;
+  align-content: space-between;
+  gap: 28px;
+  min-height: 230px;
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  padding: 26px;
+  background: rgba(255, 255, 255, 0.64);
+}
+
+.reviewsGrid article div {
+  display: grid;
+  gap: 6px;
+}
+
+.reviewsGrid strong {
+  color: var(--black);
+  font-size: 22px;
+  line-height: 1.05;
+}
+
+.reviewsGrid span {
+  color: var(--gray);
+  font-size: 14px;
+  font-weight: 640;
+}
+
+.reviewsGrid p {
+  margin: 0;
+  color: var(--gray);
+  font-size: 18px;
+  line-height: 1.35;
+}
+
 .footer {
   display: flex;
   align-items: center;
@@ -1982,7 +2023,8 @@ main {
 
   .trustStrip,
   .steps,
-  .serviceGrid {
+  .serviceGrid,
+  .reviewsGrid {
     grid-template-columns: 1fr;
   }
 
@@ -1997,6 +2039,7 @@ main {
   .trustStrip,
   .catalogSection,
   .howSection,
+  .reviewsSection,
   .paymentSection,
   .footer {
     width: min(100% - 22px, 1180px);

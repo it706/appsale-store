@@ -1471,6 +1471,59 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="reviewsSection" aria-label="Отзывы клиентов">
+        <div className="sectionHead">
+          <div>
+            <span>Отзывы</span>
+            <h2>Клиенты возвращаются за техникой снова.</h2>
+          </div>
+        </div>
+        <div className="reviewsGrid">
+          <article>
+            <div>
+              <strong>Вероника</strong>
+              <span>iPhone</span>
+            </div>
+            <p>Покупкой очень довольна, спасибо большое за ответы на все вопросы и быструю отправку. Не нарадуюсь новому устройству.</p>
+          </article>
+          <article>
+            <div>
+              <strong>Надежда</strong>
+              <span>iPhone 17 Pro Max</span>
+            </div>
+            <p>Как всегда все быстро и четко. Возник вопрос с App Store, Женя быстро помог разобраться и оперативно решил вопрос.</p>
+          </article>
+          <article>
+            <div>
+              <strong>Вадим</strong>
+              <span>iPhone 17 Pro</span>
+            </div>
+            <p>Спасибо за консультацию и оперативность. Айфон топ!</p>
+          </article>
+          <article>
+            <div>
+              <strong>Ольга</strong>
+              <span>iPad Air</span>
+            </div>
+            <p>Уже второй Apple-девайс. Все оригинальное, все работает, с доставкой. Евгений внимательный, поможет с выбором и объяснит.</p>
+          </article>
+          <article>
+            <div>
+              <strong>Маша</strong>
+              <span>AirPods Max</span>
+            </div>
+            <p>Спасибо огромное за поздравления и за наушники, роскошные.</p>
+          </article>
+          <article>
+            <div>
+              <strong>Малина</strong>
+              <span>Mac</span>
+            </div>
+            <p>Не жалею ни единого потраченного рубля. Перешла с Windows, зарядку держит три дня, легкий и компактный.</p>
+          </article>
+        </div>
+      </section>
+
       <section className="paymentSection" aria-label="Оплата доставка и гарантия">
         <div className="sectionHead">
           <div>
