@@ -1503,6 +1503,9 @@ export default function Home() {
           <p>Техника Apple. Эстетика. Выбор.</p>
         </div>
         <div>
+          <a href="/terms" rel="noreferrer" target="_blank">
+            условия заказа
+          </a>
           <a href="https://t.me/appsale_store" rel="noreferrer" target="_blank">
             t.me/appsale_store
           </a>
@@ -1877,9 +1880,13 @@ export default function Home() {
                 type="checkbox"
               />
               <span>
-                Я согласен на обработку персональных данных и принимаю{" "}
+                Я согласен на обработку персональных данных, принимаю{" "}
                 <a href="/privacy" rel="noreferrer" target="_blank">
                   политику конфиденциальности
+                </a>
+                {" "}и{" "}
+                <a href="/terms" rel="noreferrer" target="_blank">
+                  условия заказа
                 </a>
                 .
               </span>
