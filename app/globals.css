@@ -313,6 +313,7 @@ main {
 
 .trustStrip,
 .howSection,
+.reviewsSection,
 .paymentSection,
 .footer {
   width: min(1180px, calc(100% - 32px));
@@ -385,6 +386,7 @@ main {
 
 .catalogSection,
 .howSection,
+.reviewsSection,
 .paymentSection {
   padding: 96px 0 0;
 }
