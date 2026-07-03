@@ -580,8 +580,10 @@ const products: Product[] = [
   brand: "Apple",
   category: name.includes("AirPods") ? "AirPods" : name === "iPad 11 A16 (2025)" ? "iPad" : name === "MacBook Neo" ? "Mac" : "iPhone",
   color:
-    name.includes("AirPods Max")
-      ? "Midnight"
+    name === "AirPods Max USB-C (2024)"
+      ? "Blue"
+      : name === "AirPods Max 2 USB-C (2026)"
+      ? "Purple"
       : name.includes("AirPods")
       ? ""
       : name === "iPhone 17 Pro Max"
