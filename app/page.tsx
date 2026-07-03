@@ -872,6 +872,7 @@ export default function Home() {
   const [isProfileOpen, setIsProfileOpen] = useState(false);
   const [isSupportOpen, setIsSupportOpen] = useState(false);
   const [isSending, setIsSending] = useState(false);
+  const [showBackToTop, setShowBackToTop] = useState(false);
   const [successOrder, setSuccessOrder] = useState<SuccessOrder | null>(null);
   const [orderStatus, setOrderStatus] = useState("");
   const [accountStatus, setAccountStatus] = useState("");
@@ -986,6 +987,19 @@ export default function Home() {
       if (recentlyAddedTimer.current) {
         clearTimeout(recentlyAddedTimer.current);
       }
+    };
+  }, []);
+
+  useEffect(() => {
+    const updateBackToTop = () => {
+      setShowBackToTop(window.scrollY > 560);
+    };
+
+    updateBackToTop();
+    window.addEventListener("scroll", updateBackToTop, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", updateBackToTop);
     };
   }, []);
 
@@ -1153,6 +1167,13 @@ export default function Home() {
     document.getElementById("catalog")?.scrollIntoView({
       behavior: "smooth",
       block: "start",
+    });
+  }
+
+  function scrollToTop() {
+    window.scrollTo({
+      behavior: "smooth",
+      top: 0,
     });
   }
 
@@ -1659,6 +1680,10 @@ export default function Home() {
           <span>Профиль</span>
         </button>
       </nav>
+
+      <button className={`backToTop ${showBackToTop ? "visible" : ""}`} onClick={scrollToTop} type="button" aria-label="Наверх">
+        <span aria-hidden="true">↑</span>
+      </button>
 
       {detailProduct
         ? (() => {

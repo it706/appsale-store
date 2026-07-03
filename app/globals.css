@@ -1939,6 +1939,49 @@ main {
   display: none;
 }
 
+.backToTop {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 44;
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border: 1px solid rgba(255, 255, 255, 0.48);
+  border-radius: 50%;
+  background: rgba(17, 17, 17, 0.72);
+  color: #ffffff;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(12px) scale(0.94);
+  transition: opacity 180ms ease, transform 180ms ease, background 180ms ease;
+  box-shadow: 0 16px 42px rgba(0, 0, 0, 0.18);
+  backdrop-filter: blur(16px);
+}
+
+.backToTop.visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0) scale(1);
+}
+
+.backToTop:hover {
+  background: rgba(17, 17, 17, 0.86);
+}
+
+.backToTop span {
+  font-size: 24px;
+  font-weight: 760;
+  line-height: 1;
+}
+
+body.modalOpen .backToTop {
+  opacity: 0;
+  pointer-events: none;
+}
+
 .profileList {
   display: grid;
   gap: 10px;
@@ -2559,6 +2602,17 @@ main {
     padding: 8px 8px max(8px, env(safe-area-inset-bottom));
     background: rgba(255, 255, 255, 0.96);
     backdrop-filter: blur(18px);
+  }
+
+  .backToTop {
+    right: 16px;
+    bottom: 94px;
+    width: 46px;
+    height: 46px;
+  }
+
+  .backToTop span {
+    font-size: 22px;
   }
 
   .mobileTabbar a,
