@@ -135,8 +135,10 @@ function parseModel(value) {
   if (/^airpods\s+4\b/.test(text)) return "AirPods 4 (Без шумоподавления)";
   if (/^17\s+pro\s+max\b/.test(text)) return "iPhone 17 Pro Max";
   if (/^17\s+pro\b/.test(text)) return "iPhone 17 Pro";
+  if (/^17\s+air\b/.test(text)) return "iPhone Air";
   if (/^17e\b/.test(text)) return "iPhone 17e";
   if (/^17\b/.test(text)) return "iPhone 17";
+  if (/^(?:ipad\s+)?air\s+8\b/.test(text) || /^ipad\s+air\b.*\bm4\b/.test(text)) return "iPad Air 8 M4 (2026)";
   if (/^air\b/.test(text)) return "iPhone Air";
   if (/^16\s+plus\b/.test(text)) return "iPhone 16 Plus";
   if (/^16\s+pr.*ma/i.test(text)) return "iPhone 16 Pro Max";
@@ -147,7 +149,6 @@ function parseModel(value) {
   if (/^15\s+pr/i.test(text)) return "iPhone 15 Pro";
   if (/^15\b/.test(text)) return "iPhone 15";
   if (/\bneo\b/i.test(text)) return "MacBook Neo";
-  if (/^ipad\s+air\s+8\b/.test(text) || /^ipad\s+air\b.*\bm4\b/.test(text)) return "iPad Air 8 M4 (2026)";
   if (/^ipad\s+11\b/.test(text)) return "iPad 11 A16 (2025)";
 
   return "";
@@ -273,7 +274,7 @@ function parseColor(value, model) {
 }
 
 function parsePrice(value) {
-  const match = value.match(/-\s*([\d\s.,]+)\s*$/);
+  const match = value.match(/-\s*([\d\s.,]+)(?:\D*)$/);
   if (!match) return 0;
 
   const raw = match[1].replace(/\s/g, "").replace(",", ".");
