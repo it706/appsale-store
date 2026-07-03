@@ -7,7 +7,7 @@ type OrderPayload = {
   contactMethod?: string;
   deliveryAddress?: string;
   deliveryMethod?: string;
-  items?: Array<{ color?: string; name?: string; price?: string; qty?: number; sim?: string; storage?: string }>;
+  items?: Array<{ color?: string; name?: string; price?: string; qty?: number; sim?: string; size?: string; storage?: string }>;
   name?: string;
   orderNumber?: string;
   phone?: string;
@@ -16,6 +16,7 @@ type OrderPayload = {
   sdekCity?: string;
   sdekPoint?: string;
   sim?: string;
+  size?: string;
   storage?: string;
   telegram?: string;
   total?: string;
@@ -27,6 +28,10 @@ function compactLine(label: string, value?: string) {
 
 function getItemDetails(item: NonNullable<OrderPayload["items"]>[number]) {
   return [item.storage, item.color, item.sim].filter(Boolean).join(" · ");
+}
+
+function getReadableItemDetails(item: NonNullable<OrderPayload["items"]>[number]) {
+  return [item.size, item.storage, item.color, item.sim].filter(Boolean).join(" · ");
 }
 
 function getPhoneDigits(value?: string) {
@@ -78,7 +83,7 @@ export async function POST(request: Request) {
     ? [
         "Корзина:",
         ...payload.items.map((item, index) => {
-          const details = getItemDetails(item);
+          const details = getReadableItemDetails(item);
           const detailsText = details ? ` (${details})` : "";
           const qty = item.qty ?? 1;
           const price = item.price ? ` · ${item.price}` : "";

@@ -18,9 +18,11 @@ type Product = {
   status: "В наличии" | "Под заказ" | "Бронь";
   storage: string;
   imagesByColor?: Record<string, string[]>;
+  size?: string;
   variantOptions?: {
     colors: string[];
     sims: string[];
+    sizes?: string[];
     storages: string[];
   };
 };
@@ -39,6 +41,7 @@ type SuccessOrder = {
 
 type ProductSelection = {
   color: string;
+  size: string;
   sim: string;
   storage: string;
 };
@@ -144,6 +147,13 @@ const macbookNeoOptions = {
 const ipad11Options = {
   colors: ["Silver", "Blue", "Pink", "Yellow"],
   sims: ["Wi-Fi", "LTE"],
+  storages: ["128GB", "256GB"],
+};
+
+const ipadAir8Options = {
+  colors: ["Space Gray", "Starlight", "Blue", "Purple"],
+  sims: ["Wi-Fi"],
+  sizes: ["11 дюймов", "13 дюймов"],
   storages: ["128GB", "256GB"],
 };
 
@@ -568,6 +578,7 @@ const products: Product[] = [
   "iPhone 15",
   "iPhone 15 Plus",
   "iPad 11 A16 (2025)",
+  "iPad Air 8 M4 (2026)",
   "MacBook Neo",
   "AirPods Max USB-C (2024)",
   "AirPods Max 2 USB-C (2026)",
@@ -578,7 +589,7 @@ const products: Product[] = [
 ].map((name, index) => ({
   accent: index % 3 === 0 ? "orange" : index % 3 === 1 ? "blue" : "silver",
   brand: "Apple",
-  category: name.includes("AirPods") ? "AirPods" : name === "iPad 11 A16 (2025)" ? "iPad" : name === "MacBook Neo" ? "Mac" : "iPhone",
+  category: name.includes("AirPods") ? "AirPods" : name.includes("iPad") ? "iPad" : name === "MacBook Neo" ? "Mac" : "iPhone",
   color:
     name === "AirPods Max USB-C (2024)"
       ? "Blue"
@@ -610,6 +621,8 @@ const products: Product[] = [
                 ? "Natural"
               : name === "iPad 11 A16 (2025)"
                 ? "Silver"
+                : name === "iPad Air 8 M4 (2026)"
+                  ? "Space Gray"
                 : name === "MacBook Neo"
                   ? "Indigo"
                 : "Cosmic Orange",
@@ -642,9 +655,10 @@ const products: Product[] = [
               : undefined,
   name,
   price: "цена по запросу",
-  sim: name.includes("AirPods") || name === "MacBook Neo" ? "" : name === "iPad 11 A16 (2025)" ? "Wi-Fi" : name === "iPhone 15" || name === "iPhone 15 Plus" || name === "iPhone 16" || name === "iPhone 16 Plus" || name === "iPhone 16e" ? "Nano-SIM + eSIM" : name === "iPhone 16 Pro" || name === "iPhone 16 Pro Max" ? "Dual Nano-SIM" : "Dual eSIM",
+  sim: name.includes("AirPods") || name === "MacBook Neo" ? "" : name.includes("iPad") ? "Wi-Fi" : name === "iPhone 15" || name === "iPhone 15 Plus" || name === "iPhone 16" || name === "iPhone 16 Plus" || name === "iPhone 16e" ? "Nano-SIM + eSIM" : name === "iPhone 16 Pro" || name === "iPhone 16 Pro Max" ? "Dual Nano-SIM" : "Dual eSIM",
+  size: name === "iPad Air 8 M4 (2026)" ? "11 дюймов" : "",
   status: "В наличии",
-  storage: name.includes("AirPods") ? "" : name === "MacBook Neo" ? "256GB" : name === "iPhone 15" || name === "iPhone 15 Plus" || name === "iPhone 16" || name === "iPhone 16 Plus" || name === "iPhone 16e" || name === "iPhone 16 Pro" || name === "iPhone 16 Pro Max" || name === "iPad 11 A16 (2025)" ? "128GB" : "256GB",
+  storage: name.includes("AirPods") ? "" : name === "MacBook Neo" ? "256GB" : name === "iPhone 15" || name === "iPhone 15 Plus" || name === "iPhone 16" || name === "iPhone 16 Plus" || name === "iPhone 16e" || name === "iPhone 16 Pro" || name === "iPhone 16 Pro Max" || name.includes("iPad") ? "128GB" : "256GB",
   variantOptions:
     name.includes("AirPods Max")
       ? airPodsMaxOptions
@@ -676,6 +690,8 @@ const products: Product[] = [
                 ? macbookNeoOptions
               : name === "iPad 11 A16 (2025)"
                 ? ipad11Options
+                : name === "iPad Air 8 M4 (2026)"
+                  ? ipadAir8Options
                 : iphoneOptions,
 }));
 
@@ -736,19 +752,23 @@ function parsePrice(price: string) {
 }
 
 function getCartKey(product: Product) {
-  return [product.id, product.color, product.storage, product.sim ?? ""].join("|");
+  return [product.id, product.size ?? "", product.color, product.storage, product.sim ?? ""].join("|");
 }
 
-function getPriceKey(product: Pick<Product, "color" | "name" | "sim" | "storage">) {
+function getPriceKey(product: Pick<Product, "color" | "name" | "sim" | "size" | "storage">) {
+  return [product.name, product.storage, product.color, product.sim ?? "", product.size ?? ""].join("|");
+}
+
+function getLegacyPriceKey(product: Pick<Product, "color" | "name" | "sim" | "storage">) {
   return [product.name, product.storage, product.color, product.sim ?? ""].join("|");
 }
 
-function getProductPrice(product: Pick<Product, "color" | "name" | "price" | "sim" | "storage">) {
-  return productPriceOverrides[getPriceKey(product)]?.price ?? product.price;
+function getProductPrice(product: Pick<Product, "color" | "name" | "price" | "sim" | "size" | "storage">) {
+  return productPriceOverrides[getPriceKey(product)]?.price ?? productPriceOverrides[getLegacyPriceKey(product)]?.price ?? product.price;
 }
 
 function getProductSpecs(product: Product) {
-  return [product.storage, product.color, product.sim, product.price].filter(Boolean).join(" · ");
+  return [product.size, product.storage, product.color, product.sim, product.price].filter(Boolean).join(" · ");
 }
 
 function getRuPhoneDigits(value: string) {
@@ -811,6 +831,7 @@ export default function Home() {
         product.id,
         {
           color: product.color,
+          size: product.size ?? "",
           sim: product.sim ?? "",
           storage: product.storage,
         },
@@ -878,7 +899,7 @@ export default function Home() {
     const savedCart = window.localStorage.getItem("appsale-cart");
 
     if (savedCart) {
-      const stored = JSON.parse(savedCart) as Array<{ color?: string; id: number; key?: string; qty: number; sim?: string; storage?: string }>;
+      const stored = JSON.parse(savedCart) as Array<{ color?: string; id: number; key?: string; qty: number; sim?: string; size?: string; storage?: string }>;
       const items = stored
         .map((item) => {
           const product = products.find((entry) => entry.id === item.id);
@@ -887,6 +908,7 @@ export default function Home() {
           const configuredProduct = {
             ...product,
             color: item.color ?? product.color,
+            size: item.size ?? product.size,
             sim: item.sim ?? product.sim,
             storage: item.storage ?? product.storage,
           };
@@ -912,6 +934,7 @@ export default function Home() {
           id: item.product.id,
           key: item.key,
           qty: item.qty,
+          size: item.product.size,
           sim: item.product.sim,
           storage: item.product.storage,
         })),
@@ -934,7 +957,7 @@ export default function Home() {
       const categoryMatches =
         activeCategory === "Все" || (activeCategory === "Под заказ" ? product.status === "Под заказ" : product.category === activeCategory);
       const searchMatches =
-        !query || [product.name, product.category, product.color, product.storage, product.sim].filter(Boolean).join(" ").toLowerCase().includes(query);
+        !query || [product.name, product.category, product.size, product.color, product.storage, product.sim].filter(Boolean).join(" ").toLowerCase().includes(query);
 
       return categoryMatches && searchMatches;
     });
@@ -957,6 +980,7 @@ export default function Home() {
     const configuredProduct = {
       ...product,
       color: selection.color,
+      size: selection.size,
       sim: selection.sim,
       storage: selection.storage,
     };
@@ -1014,6 +1038,7 @@ export default function Home() {
       ...current,
       [productId]: {
         color: current[productId]?.color ?? products.find((product) => product.id === productId)?.color ?? "",
+        size: current[productId]?.size ?? products.find((product) => product.id === productId)?.size ?? "",
         sim: current[productId]?.sim ?? products.find((product) => product.id === productId)?.sim ?? "",
         storage: current[productId]?.storage ?? products.find((product) => product.id === productId)?.storage ?? "",
         [field]: value,
@@ -1114,6 +1139,7 @@ export default function Home() {
           phone: form.phone.trim(),
           price: selectedProduct.price,
           product: selectedProduct.name,
+          size: selectedProduct.size,
           sim: selectedProduct.sim,
           storage: selectedProduct.storage,
           telegram: form.telegram.trim(),
@@ -1196,6 +1222,7 @@ export default function Home() {
             name: item.product.name,
             price: item.product.price,
             qty: item.qty,
+            size: item.product.size,
             sim: item.product.sim,
             storage: item.product.storage,
           })),
@@ -1385,6 +1412,23 @@ export default function Home() {
                               type="button"
                             >
                               {storage}
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+                    ) : null}
+                    {product.variantOptions.sizes?.length ? (
+                      <div>
+                        <span>Диагональ</span>
+                        <div className="variantOptions storageOptions">
+                          {product.variantOptions.sizes.map((size) => (
+                            <button
+                              className={productSelections[product.id]?.size === size ? "active" : ""}
+                              key={size}
+                              onClick={() => updateProductSelection(product.id, "size", size)}
+                              type="button"
+                            >
+                              {size}
                             </button>
                           ))}
                         </div>
@@ -1617,7 +1661,7 @@ export default function Home() {
                     </div>
                   ) : null}
                   <h2>{product.name}</h2>
-                  <p>{[product.storage, product.color, product.sim].filter(Boolean).join(" · ")}</p>
+                  <p>{[product.size, product.storage, product.color, product.sim].filter(Boolean).join(" · ")}</p>
                   <strong className="detailPrice">{product.price}</strong>
                   {product.variantOptions ? (
                     <div className="detailOptions">
@@ -1650,6 +1694,23 @@ export default function Home() {
                                 type="button"
                               >
                                 {storage}
+                              </button>
+                            ))}
+                          </div>
+                        </>
+                      ) : null}
+                      {product.variantOptions.sizes?.length ? (
+                        <>
+                          <span>Диагональ</span>
+                          <div className="variantOptions storageOptions">
+                            {product.variantOptions.sizes.map((size) => (
+                              <button
+                                className={productSelections[product.id]?.size === size ? "active" : ""}
+                                key={size}
+                                onClick={() => updateProductSelection(product.id, "size", size)}
+                                type="button"
+                              >
+                                {size}
                               </button>
                             ))}
                           </div>

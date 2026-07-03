@@ -88,6 +88,12 @@ const catalog = {
     sims: ["Wi-Fi", "LTE"],
     storages: ["128GB", "256GB"],
   },
+  "iPad Air 8 M4 (2026)": {
+    colors: ["Space Gray", "Starlight", "Blue", "Purple"],
+    sims: ["Wi-Fi"],
+    sizes: ["11 дюймов", "13 дюймов"],
+    storages: ["128GB", "256GB"],
+  },
   "AirPods Max USB-C (2024)": {
     colors: ["Midnight", "Purple", "Starlight", "Blue", "Orange"],
     sims: [""],
@@ -141,6 +147,7 @@ function parseModel(value) {
   if (/^15\s+pr/i.test(text)) return "iPhone 15 Pro";
   if (/^15\b/.test(text)) return "iPhone 15";
   if (/\bneo\b/i.test(text)) return "MacBook Neo";
+  if (/^ipad\s+air\s+8\b/.test(text) || /^ipad\s+air\b.*\bm4\b/.test(text)) return "iPad Air 8 M4 (2026)";
   if (/^ipad\s+11\b/.test(text)) return "iPad 11 A16 (2025)";
 
   return "";
@@ -166,6 +173,15 @@ function parseSim(value) {
   if (/\b(?:esim|e-sim)\b/.test(text)) return "Dual eSIM";
   if (/\bwi-?fi\b/.test(text)) return "Wi-Fi";
   if (/\blte\b/.test(text)) return "LTE";
+
+  return "";
+}
+
+function parseSize(value) {
+  const text = normalizeText(value);
+
+  if (/\b13\b/.test(text)) return "13 дюймов";
+  if (/\b11\b/.test(text)) return "11 дюймов";
 
   return "";
 }
@@ -238,6 +254,13 @@ function parseColor(value, model) {
     if (has("yellow")) return "Yellow";
   }
 
+  if (model === "iPad Air 8 M4 (2026)") {
+    if (has("space gray", "gray", "grey")) return "Space Gray";
+    if (has("starlight")) return "Starlight";
+    if (has("blue")) return "Blue";
+    if (has("purple", "pearl", "перл", "пурп", "фиолет")) return "Purple";
+  }
+
   if (model === "AirPods Max USB-C (2024)" || model === "AirPods Max 2 USB-C (2026)") {
     if (has("midnight", "black", "миднайт", "черн")) return "Midnight";
     if (has("purple", "пурп", "фиолет")) return "Purple";
@@ -287,8 +310,8 @@ function roundSellingPrice(value) {
   return value;
 }
 
-function makeKey({ model, storage, color, sim }) {
-  return [model, storage, color, sim].join("|");
+function makeKey({ model, storage, color, sim, size }) {
+  return [model, storage, color, sim, size ?? ""].join("|");
 }
 
 function parseLine(line) {
@@ -297,6 +320,7 @@ function parseLine(line) {
 
   const model = parseModel(line);
   const storage = parseStorage(line);
+  const size = parseSize(line);
   let sim = parseSim(line);
   const color = parseColor(line, model);
   const supplierPrice = parsePrice(line);
@@ -307,7 +331,7 @@ function parseLine(line) {
   if (!sim && allowed?.sims.includes("Nano-SIM + eSIM")) sim = "Nano-SIM + eSIM";
   else if (!sim && allowed?.sims.length === 1) sim = allowed.sims[0];
 
-  if (!model || !supplierPrice || (!isSimpleProduct && (!storage || !color || (allowed?.sims.length && !sim)))) {
+  if (!model || !supplierPrice || (!isSimpleProduct && (!storage || !color || (allowed?.sims.length && !sim) || (allowed?.sizes?.length && !size)))) {
     return { ignored: true, reason: "не удалось распознать модель, память, цвет, SIM или цену", line };
   }
 
@@ -322,7 +346,7 @@ function parseLine(line) {
   return {
     item: {
       finalPrice,
-      key: makeKey({ color, model, sim, storage }),
+      key: makeKey({ color, model, sim, size, storage }),
       price: formatRub(finalPrice),
       sourceLine: line.trim(),
       markup,

@@ -841,6 +841,10 @@ main {
   background: #d9d8d3;
 }
 
+.colorOptions button[data-color="Space Gray"] i {
+  background: #73706b;
+}
+
 .colorOptions button[data-color="Deep Blue"] i {
   background: #2f374f;
 }
