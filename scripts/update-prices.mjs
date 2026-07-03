@@ -320,12 +320,14 @@ function parseLine(line) {
 
   const model = parseModel(line);
   const storage = parseStorage(line);
-  const size = parseSize(line);
+  let size = parseSize(line);
   let sim = parseSim(line);
   const color = parseColor(line, model);
   const supplierPrice = parsePrice(line);
   const allowed = catalog[model];
   const isSimpleProduct = model.includes("AirPods");
+
+  if (!allowed?.sizes?.length) size = "";
 
   // Supplier lines without an explicit SIM type are always Nano-SIM + eSIM.
   if (!sim && allowed?.sims.includes("Nano-SIM + eSIM")) sim = "Nano-SIM + eSIM";
