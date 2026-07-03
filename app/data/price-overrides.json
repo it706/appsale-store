@@ -266,17 +266,10 @@
     "supplierPrice": 109600
   },
   "iPhone 16|128GB|Black|Nano-SIM + eSIM|": {
-    "finalPrice": 59000,
-    "markup": 3500,
-    "price": "59 000 ₽",
-    "sourceLine": "16 128 Black 🇮🇳 - 55.500",
-    "supplierPrice": 55500
-  },
-  "iPhone 16|128GB|Pink|Nano-SIM + eSIM|": {
     "finalPrice": 60000,
     "markup": 3500,
     "price": "60 000 ₽",
-    "sourceLine": "16 128 Pink 🇮🇳 - 56.500",
+    "sourceLine": "16 128 Black 🇮🇳 - 56.500",
     "supplierPrice": 56500
   },
   "iPhone 16|128GB|Ultramarine|Nano-SIM + eSIM|": {
