@@ -1556,7 +1556,30 @@ main {
   z-index: 50;
   display: grid;
   place-items: center;
+  overflow-y: auto;
   padding: 18px;
+  scrollbar-color: rgba(17, 17, 17, 0.28) transparent;
+  scrollbar-width: thin;
+}
+
+.orderOverlay::-webkit-scrollbar {
+  width: 10px;
+}
+
+.orderOverlay::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.orderOverlay::-webkit-scrollbar-thumb {
+  border: 3px solid transparent;
+  border-radius: 999px;
+  background: rgba(17, 17, 17, 0.28);
+  background-clip: padding-box;
+}
+
+.orderOverlay::-webkit-scrollbar-thumb:hover {
+  background: rgba(17, 17, 17, 0.42);
+  background-clip: padding-box;
 }
 
 .overlayBackdrop {
@@ -1783,8 +1806,7 @@ main {
 }
 
 .cartPanel {
-  max-height: min(90vh, 820px);
-  overflow: auto;
+  overflow: visible;
 }
 
 .successPanel {
@@ -2486,7 +2508,7 @@ main {
   }
 
   .cartPanel {
-    max-height: calc(100dvh - 16px);
+    max-height: none;
   }
 
   .orderPanel h2 {
