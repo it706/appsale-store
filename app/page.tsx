@@ -972,6 +972,16 @@ export default function Home() {
   }, [cart]);
 
   useEffect(() => {
+    const hasOpenOverlay = Boolean(detailProduct || selectedProduct || isCartOpen || isProfileOpen || isSupportOpen || successOrder);
+
+    document.body.classList.toggle("modalOpen", hasOpenOverlay);
+
+    return () => {
+      document.body.classList.remove("modalOpen");
+    };
+  }, [detailProduct, isCartOpen, isProfileOpen, isSupportOpen, selectedProduct, successOrder]);
+
+  useEffect(() => {
     return () => {
       if (recentlyAddedTimer.current) {
         clearTimeout(recentlyAddedTimer.current);

@@ -26,6 +26,10 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", "Helvetica Neue", Arial, sans-serif;
 }
 
+body.modalOpen {
+  overflow: hidden;
+}
+
 button,
 input,
 textarea {
@@ -1556,37 +1560,15 @@ main {
   z-index: 50;
   display: grid;
   place-items: center;
-  overflow-y: auto;
+  overflow: hidden;
   padding: 18px;
-  scrollbar-color: rgba(17, 17, 17, 0.28) transparent;
-  scrollbar-width: thin;
-}
-
-.orderOverlay::-webkit-scrollbar {
-  width: 10px;
-}
-
-.orderOverlay::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.orderOverlay::-webkit-scrollbar-thumb {
-  border: 3px solid transparent;
-  border-radius: 999px;
-  background: rgba(17, 17, 17, 0.28);
-  background-clip: padding-box;
-}
-
-.orderOverlay::-webkit-scrollbar-thumb:hover {
-  background: rgba(17, 17, 17, 0.42);
-  background-clip: padding-box;
 }
 
 .overlayBackdrop {
   position: absolute;
   inset: 0;
   border: 0;
-  background: rgba(17, 17, 17, 0.34);
+  background: rgba(0, 0, 0, 0.58);
 }
 
 .orderPanel {
@@ -1597,9 +1579,34 @@ main {
   width: min(520px, 100%);
   border: 1px solid rgba(255, 255, 255, 0.42);
   border-radius: 32px;
+  max-height: calc(100dvh - 36px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
   padding: 24px;
   background: #f8f8f8;
   box-shadow: 0 30px 90px rgba(0, 0, 0, 0.2);
+  scrollbar-color: rgba(17, 17, 17, 0.28) transparent;
+  scrollbar-width: thin;
+}
+
+.orderPanel::-webkit-scrollbar {
+  width: 10px;
+}
+
+.orderPanel::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.orderPanel::-webkit-scrollbar-thumb {
+  border: 3px solid transparent;
+  border-radius: 999px;
+  background: rgba(17, 17, 17, 0.28);
+  background-clip: padding-box;
+}
+
+.orderPanel::-webkit-scrollbar-thumb:hover {
+  background: rgba(17, 17, 17, 0.42);
+  background-clip: padding-box;
 }
 
 .closeButton {
@@ -1806,7 +1813,7 @@ main {
 }
 
 .cartPanel {
-  overflow: visible;
+  overflow-y: auto;
 }
 
 .successPanel {
@@ -2508,7 +2515,7 @@ main {
   }
 
   .cartPanel {
-    max-height: none;
+    max-height: calc(100dvh - 16px);
   }
 
   .orderPanel h2 {
