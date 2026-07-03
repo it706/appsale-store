@@ -649,7 +649,7 @@ const products: Product[] = [
               : name === "iPad 11 A16 (2025)"
                 ? "Silver"
                 : name === "iPad Air 8 M4 (2026)"
-                  ? "Space Gray"
+                  ? "Blue"
                 : name === "MacBook Neo"
                   ? "Indigo"
                 : "Cosmic Orange",
