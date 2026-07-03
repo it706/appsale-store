@@ -683,7 +683,7 @@ const products: Product[] = [
                 ? ipadAir8Images
               : undefined,
   name,
-  price: "проверить наличие и цену",
+  price: "уточнить цену",
   sim: name.includes("AirPods") || name === "MacBook Neo" ? "" : name.includes("iPad") ? "Wi-Fi" : name === "iPhone 15" || name === "iPhone 15 Plus" || name === "iPhone 16" || name === "iPhone 16 Plus" || name === "iPhone 16e" ? "Nano-SIM + eSIM" : name === "iPhone 16 Pro" || name === "iPhone 16 Pro Max" ? "Dual Nano-SIM" : "Dual eSIM",
   size: name === "iPad Air 8 M4 (2026)" ? "11 дюймов" : "",
   status: "В наличии",
@@ -994,7 +994,7 @@ export default function Home() {
 
   const cartCount = cart.reduce((sum, item) => sum + item.qty, 0);
   const cartTotal = cart.reduce((sum, item) => sum + parsePrice(item.product.price) * item.qty, 0);
-  const cartTotalLabel = cartTotal > 0 ? `${cartTotal.toLocaleString("ru-RU")} ₽` : "проверить наличие и цену";
+  const cartTotalLabel = cartTotal > 0 ? `${cartTotal.toLocaleString("ru-RU")} ₽` : "уточнить цену";
 
   function getConfiguredProduct(product: Product) {
     const selection = productSelections[product.id];
