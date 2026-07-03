@@ -684,10 +684,10 @@ const products: Product[] = [
               : undefined,
   name,
   price: "уточнить цену",
-  sim: name.includes("AirPods") || name === "MacBook Neo" ? "" : name.includes("iPad") ? "Wi-Fi" : name === "iPhone 15" || name === "iPhone 15 Plus" || name === "iPhone 16" || name === "iPhone 16 Plus" || name === "iPhone 16e" ? "Nano-SIM + eSIM" : name === "iPhone 16 Pro" || name === "iPhone 16 Pro Max" ? "Dual Nano-SIM" : "Dual eSIM",
+  sim: name.includes("AirPods") || name === "MacBook Neo" ? "" : name.includes("iPad") ? "Wi-Fi" : name === "iPhone 15" || name === "iPhone 15 Plus" || name === "iPhone 16" || name === "iPhone 16 Plus" || name === "iPhone 16e" || name === "iPhone 16 Pro Max" || name === "iPhone 17" || name === "iPhone 17e" ? "Nano-SIM + eSIM" : name === "iPhone 16 Pro" ? "Dual Nano-SIM" : "Dual eSIM",
   size: name === "iPad Air 8 M4 (2026)" ? "11 дюймов" : "",
   status: "В наличии",
-  storage: name.includes("AirPods") ? "" : name === "MacBook Neo" ? "256GB" : name === "iPhone 15" || name === "iPhone 15 Plus" || name === "iPhone 16" || name === "iPhone 16 Plus" || name === "iPhone 16e" || name === "iPhone 16 Pro" || name === "iPhone 16 Pro Max" || name.includes("iPad") ? "128GB" : "256GB",
+  storage: name.includes("AirPods") ? "" : name === "MacBook Neo" || name === "iPhone 16 Pro Max" ? "256GB" : name === "iPhone 15" || name === "iPhone 15 Plus" || name === "iPhone 16" || name === "iPhone 16 Plus" || name === "iPhone 16e" || name === "iPhone 16 Pro" || name.includes("iPad") ? "128GB" : "256GB",
   variantOptions:
     name.includes("AirPods Max")
       ? airPodsMaxOptions
