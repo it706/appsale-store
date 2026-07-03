@@ -468,6 +468,33 @@ const ipad11Images = {
   ],
 };
 
+const ipadAir8Images = {
+  "Space Gray": [
+    "/products/ipad-air-8-m4-space-gray-1.webp",
+    "/products/ipad-air-8-m4-space-gray-2.webp",
+    "/products/ipad-air-8-m4-space-gray-3.webp",
+    "/products/ipad-air-8-m4-space-gray-4.webp",
+  ],
+  Starlight: [
+    "/products/ipad-air-8-m4-starlight-1.webp",
+    "/products/ipad-air-8-m4-starlight-2.webp",
+    "/products/ipad-air-8-m4-starlight-3.webp",
+    "/products/ipad-air-8-m4-starlight-4.webp",
+  ],
+  Blue: [
+    "/products/ipad-air-8-m4-blue-1.webp",
+    "/products/ipad-air-8-m4-blue-2.webp",
+    "/products/ipad-air-8-m4-blue-3.webp",
+    "/products/ipad-air-8-m4-blue-4.webp",
+  ],
+  Purple: [
+    "/products/ipad-air-8-m4-purple-1.webp",
+    "/products/ipad-air-8-m4-purple-2.webp",
+    "/products/ipad-air-8-m4-purple-3.webp",
+    "/products/ipad-air-8-m4-purple-4.webp",
+  ],
+};
+
 const airPodsMaxImages = {
   Midnight: [
     "/products/airpods-max-midnight-1.webp",
@@ -652,6 +679,8 @@ const products: Product[] = [
               ? iphone16ProImages
             : name === "iPad 11 A16 (2025)"
               ? ipad11Images
+              : name === "iPad Air 8 M4 (2026)"
+                ? ipadAir8Images
               : undefined,
   name,
   price: "цена по запросу",
