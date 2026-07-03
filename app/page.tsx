@@ -850,6 +850,8 @@ function removeLastRuPhoneDigit(value: string) {
 
 export default function Home() {
   const recentlyAddedTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const isScrollLocked = useRef(false);
+  const scrollLockY = useRef(0);
   const [activeCategory, setActiveCategory] = useState("Все");
   const [catalogQuery, setCatalogQuery] = useState("");
   const [detailProduct, setDetailProduct] = useState<Product | null>(null);
@@ -977,9 +979,26 @@ export default function Home() {
 
     document.body.classList.toggle("modalOpen", hasOpenOverlay);
 
-    return () => {
-      document.body.classList.remove("modalOpen");
-    };
+    if (hasOpenOverlay && !isScrollLocked.current) {
+      scrollLockY.current = window.scrollY;
+      isScrollLocked.current = true;
+      document.body.style.position = "fixed";
+      document.body.style.top = `-${scrollLockY.current}px`;
+      document.body.style.right = "0";
+      document.body.style.left = "0";
+      document.body.style.width = "100%";
+    }
+
+    if (!hasOpenOverlay && isScrollLocked.current) {
+      const restoreY = scrollLockY.current;
+      isScrollLocked.current = false;
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.right = "";
+      document.body.style.left = "";
+      document.body.style.width = "";
+      window.scrollTo(0, restoreY);
+    }
   }, [detailProduct, isCartOpen, isProfileOpen, isSupportOpen, selectedProduct, successOrder]);
 
   useEffect(() => {
@@ -987,6 +1006,13 @@ export default function Home() {
       if (recentlyAddedTimer.current) {
         clearTimeout(recentlyAddedTimer.current);
       }
+
+      document.body.classList.remove("modalOpen");
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.right = "";
+      document.body.style.left = "";
+      document.body.style.width = "";
     };
   }, []);
 

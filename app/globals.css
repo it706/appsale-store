@@ -28,6 +28,8 @@ body {
 
 body.modalOpen {
   overflow: hidden;
+  overscroll-behavior: none;
+  touch-action: none;
 }
 
 button,
@@ -1582,6 +1584,7 @@ main {
   max-height: calc(100dvh - 36px);
   overflow-y: auto;
   overscroll-behavior: contain;
+  touch-action: pan-y;
   padding: 24px;
   background: #f8f8f8;
   box-shadow: 0 30px 90px rgba(0, 0, 0, 0.2);
