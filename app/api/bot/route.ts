@@ -21,6 +21,7 @@ type TelegramUpdate = {
 const catalogUrl = process.env.MINIAPP_URL ?? "https://appsale-store.vercel.app/";
 const managerUrl = "https://t.me/evgenypulkov";
 const channelUrl = "https://t.me/appsale_store";
+const welcomeImageUrl = new URL("/appsale-bot-welcome.webp", catalogUrl).toString();
 
 function escapeHtml(value: string) {
   return value.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
@@ -49,10 +50,12 @@ function getStartText(user?: TelegramUser) {
 }
 
 async function sendStartMessage(chatId: number, botToken: string, user?: TelegramUser) {
-  return fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+  return fetch(`https://api.telegram.org/bot${botToken}/sendPhoto`, {
     body: JSON.stringify({
+      caption: getStartText(user),
       chat_id: chatId,
       parse_mode: "HTML",
+      photo: welcomeImageUrl,
       reply_markup: {
         inline_keyboard: [
           [
@@ -77,7 +80,6 @@ async function sendStartMessage(chatId: number, botToken: string, user?: Telegra
           ],
         ],
       },
-      text: getStartText(user),
     }),
     headers: {
       "Content-Type": "application/json",
