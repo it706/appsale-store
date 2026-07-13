@@ -1,27 +1,24 @@
 {
   "AirPods 4 (Без шумоподавления)||||": {
-    "finalPrice": 10500
+    "finalPrice": 11500
   },
   "AirPods 4 ANC (С шумоподавлением)||||": {
     "finalPrice": 15000
   },
   "AirPods Max 2 USB-C (2026)||Blue||": {
-    "finalPrice": 43000
-  },
-  "AirPods Max 2 USB-C (2026)||Midnight||": {
-    "finalPrice": 43000
+    "finalPrice": 40500
   },
   "AirPods Max 2 USB-C (2026)||Orange||": {
-    "finalPrice": 43000
+    "finalPrice": 40500
   },
   "AirPods Max 2 USB-C (2026)||Purple||": {
-    "finalPrice": 43000
+    "finalPrice": 40500
   },
   "AirPods Max 2 USB-C (2026)||Starlight||": {
-    "finalPrice": 43000
+    "finalPrice": 40500
   },
   "AirPods Max USB-C (2024)||Midnight||": {
-    "finalPrice": 38000
+    "finalPrice": 37000
   },
   "AirPods Max USB-C (2024)||Purple||": {
     "finalPrice": 38000
@@ -32,14 +29,23 @@
   "AirPods Pro 3||||": {
     "finalPrice": 17500
   },
+  "Apple Watch SE 2 (2024)|S/M|Midnight||44 мм": {
+    "finalPrice": 17500
+  },
   "Apple Watch SE 3 (2025)|M/L|Midnight||40 мм": {
     "finalPrice": 21500
+  },
+  "Apple Watch SE 3 (2025)|M/L|Midnight||44 мм": {
+    "finalPrice": 23500
+  },
+  "Apple Watch SE 3 (2025)|M/L|Starlight||44 мм": {
+    "finalPrice": 25000
   },
   "Apple Watch SE 3 (2025)|S/M|Midnight||40 мм": {
     "finalPrice": 23500
   },
-  "Apple Watch Series 11|M/L|Jet Black||42 мм": {
-    "finalPrice": 29000
+  "Apple Watch SE 3 (2025)|S/M|Midnight||44 мм": {
+    "finalPrice": 23500
   },
   "Apple Watch Series 11|M/L|Rose Gold||46 мм": {
     "finalPrice": 31500
@@ -47,346 +53,337 @@
   "Apple Watch Series 11|M/L|Space Gray||46 мм": {
     "finalPrice": 31500
   },
-  "Apple Watch Series 11|S/M|Jet Black||42 мм": {
-    "finalPrice": 29000
-  },
   "Apple Watch Series 11|S/M|Jet Black||46 мм": {
     "finalPrice": 31500
   },
-  "Apple Watch Series 11|S/M|Rose Gold||46 мм": {
-    "finalPrice": 31500
-  },
-  "iPad 11 A16 (2025)|128GB|Blue|Wi-Fi|": {
-    "finalPrice": 29500
-  },
-  "iPad 11 A16 (2025)|128GB|Silver|Wi-Fi|": {
-    "finalPrice": 30000
-  },
-  "iPad 11 A16 (2025)|128GB|Yellow|Wi-Fi|": {
+  "Apple Watch Series 11|S/M|Rose Gold||42 мм": {
     "finalPrice": 29000
   },
+  "Apple Watch Series 11|S/M|Rose Gold||46 мм": {
+    "finalPrice": 32000
+  },
+  "Apple Watch Series 11|S/M|Space Gray||42 мм": {
+    "finalPrice": 29000
+  },
+  "iPad 11 A16 (2025)|128GB|Blue|Wi-Fi|": {
+    "finalPrice": 34000
+  },
+  "iPad 11 A16 (2025)|256GB|Blue|Wi-Fi|": {
+    "finalPrice": 40000
+  },
   "iPad Air 8 M4 (2026)|128GB|Blue|Wi-Fi|11 дюймов": {
-    "finalPrice": 56500
+    "finalPrice": 54500
   },
   "iPad Air 8 M4 (2026)|128GB|Purple|Wi-Fi|11 дюймов": {
-    "finalPrice": 58000
+    "finalPrice": 56000
   },
   "iPad Air 8 M4 (2026)|128GB|Space Gray|Wi-Fi|11 дюймов": {
-    "finalPrice": 57500
-  },
-  "iPad Air 8 M4 (2026)|128GB|Space Gray|Wi-Fi|13 дюймов": {
-    "finalPrice": 73000
-  },
-  "iPad Air 8 M4 (2026)|128GB|Starlight|Wi-Fi|11 дюймов": {
-    "finalPrice": 58000
-  },
-  "iPad Air 8 M4 (2026)|256GB|Blue|Wi-Fi|13 дюймов": {
-    "finalPrice": 82000
-  },
-  "iPad Air 8 M4 (2026)|256GB|Purple|Wi-Fi|13 дюймов": {
-    "finalPrice": 82000
+    "finalPrice": 54500
   },
   "iPhone 15 Plus|128GB|Green|Nano-SIM + eSIM|": {
-    "finalPrice": 51500
+    "finalPrice": 54500
   },
   "iPhone 15 Plus|128GB|Pink|Nano-SIM + eSIM|": {
-    "finalPrice": 52000
-  },
-  "iPhone 15 Plus|512GB|Blue|Nano-SIM + eSIM|": {
-    "finalPrice": 59500
-  },
-  "iPhone 15 Plus|512GB|Green|Nano-SIM + eSIM|": {
-    "finalPrice": 59500
+    "finalPrice": 54500
   },
   "iPhone 15 Plus|512GB|Yellow|Nano-SIM + eSIM|": {
-    "finalPrice": 57000
+    "finalPrice": 59500
   },
-  "iPhone 15|128GB|Black|Nano-SIM + eSIM|": {
-    "finalPrice": 49000
-  },
-  "iPhone 15|128GB|Blue|Nano-SIM + eSIM|": {
-    "finalPrice": 49500
-  },
-  "iPhone 15|256GB|Black|Nano-SIM + eSIM|": {
-    "finalPrice": 57500
+  "iPhone 15|256GB|Pink|Nano-SIM + eSIM|": {
+    "finalPrice": 61000
   },
   "iPhone 15|512GB|Yellow|Nano-SIM + eSIM|": {
-    "finalPrice": 60500
-  },
-  "iPhone 16 Plus|128GB|Black|Nano-SIM + eSIM|": {
-    "finalPrice": 61500
+    "finalPrice": 64000
   },
   "iPhone 16 Plus|128GB|Pink|Nano-SIM + eSIM|": {
-    "finalPrice": 61500
-  },
-  "iPhone 16 Plus|128GB|Teal|Nano-SIM + eSIM|": {
-    "finalPrice": 61500
+    "finalPrice": 65000
   },
   "iPhone 16 Plus|128GB|Ultramarine|Nano-SIM + eSIM|": {
-    "finalPrice": 61500
+    "finalPrice": 63500
   },
   "iPhone 16 Plus|128GB|White|Nano-SIM + eSIM|": {
-    "finalPrice": 61500
-  },
-  "iPhone 16 Plus|256GB|Pink|Nano-SIM + eSIM|": {
-    "finalPrice": 68500
+    "finalPrice": 63500
   },
   "iPhone 16 Plus|256GB|Teal|Nano-SIM + eSIM|": {
-    "finalPrice": 68500
+    "finalPrice": 73000
   },
   "iPhone 16 Plus|256GB|Ultramarine|Nano-SIM + eSIM|": {
-    "finalPrice": 68500
+    "finalPrice": 73000
+  },
+  "iPhone 16 Plus|256GB|White|Nano-SIM + eSIM|": {
+    "finalPrice": 76000
+  },
+  "iPhone 16 Plus|512GB|Black|Nano-SIM + eSIM|": {
+    "finalPrice": 84500
+  },
+  "iPhone 16 Plus|512GB|Pink|Nano-SIM + eSIM|": {
+    "finalPrice": 85500
   },
   "iPhone 16 Plus|512GB|Teal|Nano-SIM + eSIM|": {
-    "finalPrice": 80500
+    "finalPrice": 84000
+  },
+  "iPhone 16 Plus|512GB|Ultramarine|Nano-SIM + eSIM|": {
+    "finalPrice": 84500
+  },
+  "iPhone 16 Plus|512GB|White|Nano-SIM + eSIM|": {
+    "finalPrice": 84500
   },
   "iPhone 16 Pro Max|1TB|Desert|Nano-SIM + eSIM|": {
     "finalPrice": 119000
   },
   "iPhone 16 Pro Max|1TB|Natural|Nano-SIM + eSIM|": {
-    "finalPrice": 118500
-  },
-  "iPhone 16 Pro Max|1TB|White|Nano-SIM + eSIM|": {
-    "finalPrice": 124500
+    "finalPrice": 119000
   },
   "iPhone 16 Pro Max|256GB|Desert|Nano-SIM + eSIM|": {
-    "finalPrice": 86500
-  },
-  "iPhone 16 Pro Max|256GB|Natural|Nano-SIM + eSIM|": {
-    "finalPrice": 97500
+    "finalPrice": 90000
   },
   "iPhone 16 Pro Max|512GB|Black|Nano-SIM + eSIM|": {
-    "finalPrice": 111500
-  },
-  "iPhone 16 Pro Max|512GB|Desert|Nano-SIM + eSIM|": {
-    "finalPrice": 104000
-  },
-  "iPhone 16 Pro Max|512GB|Natural|Nano-SIM + eSIM|": {
-    "finalPrice": 111500
-  },
-  "iPhone 16 Pro|128GB|Black|Dual Nano-SIM|": {
-    "finalPrice": 80000
-  },
-  "iPhone 16 Pro|128GB|Black|Nano-SIM + eSIM|": {
-    "finalPrice": 91500
-  },
-  "iPhone 16 Pro|128GB|Desert|Dual Nano-SIM|": {
-    "finalPrice": 78500
-  },
-  "iPhone 16 Pro|128GB|Natural|Dual Nano-SIM|": {
-    "finalPrice": 77500
-  },
-  "iPhone 16 Pro|128GB|White|Dual Nano-SIM|": {
-    "finalPrice": 72000
-  },
-  "iPhone 16 Pro|256GB|White|Nano-SIM + eSIM|": {
-    "finalPrice": 84000
-  },
-  "iPhone 16 Pro|512GB|White|Nano-SIM + eSIM|": {
-    "finalPrice": 118500
-  },
-  "iPhone 16|128GB|Black|Nano-SIM + eSIM|": {
-    "finalPrice": 53500
-  },
-  "iPhone 16|128GB|Pink|Nano-SIM + eSIM|": {
-    "finalPrice": 54500
-  },
-  "iPhone 16|128GB|Teal|Nano-SIM + eSIM|": {
-    "finalPrice": 52000
-  },
-  "iPhone 16|128GB|Ultramarine|Nano-SIM + eSIM|": {
-    "finalPrice": 52500
-  },
-  "iPhone 16|128GB|White|Nano-SIM + eSIM|": {
-    "finalPrice": 53500
-  },
-  "iPhone 16|256GB|Pink|Nano-SIM + eSIM|": {
-    "finalPrice": 61500
-  },
-  "iPhone 16|512GB|Ultramarine|Nano-SIM + eSIM|": {
-    "finalPrice": 86500
-  },
-  "iPhone 16|512GB|White|Nano-SIM + eSIM|": {
-    "finalPrice": 87500
-  },
-  "iPhone 17 Pro Max|1TB|Cosmic Orange|Dual eSIM|": {
-    "finalPrice": 128500
-  },
-  "iPhone 17 Pro Max|1TB|Cosmic Orange|Nano-SIM + eSIM|": {
-    "finalPrice": 139000
-  },
-  "iPhone 17 Pro Max|1TB|Deep Blue|Dual eSIM|": {
-    "finalPrice": 126000
-  },
-  "iPhone 17 Pro Max|1TB|Silver|Dual eSIM|": {
-    "finalPrice": 126500
-  },
-  "iPhone 17 Pro Max|256GB|Cosmic Orange|Dual eSIM|": {
-    "finalPrice": 88000
-  },
-  "iPhone 17 Pro Max|256GB|Cosmic Orange|Nano-SIM + eSIM|": {
     "finalPrice": 102000
   },
-  "iPhone 17 Pro Max|256GB|Deep Blue|Dual eSIM|": {
+  "iPhone 16 Pro Max|512GB|Natural|Nano-SIM + eSIM|": {
+    "finalPrice": 116000
+  },
+  "iPhone 16 Pro|128GB|Black|Dual Nano-SIM|": {
+    "finalPrice": 82000
+  },
+  "iPhone 16 Pro|128GB|Black|Nano-SIM + eSIM|": {
     "finalPrice": 90500
   },
-  "iPhone 17 Pro Max|256GB|Deep Blue|Nano-SIM + eSIM|": {
-    "finalPrice": 103500
+  "iPhone 16 Pro|128GB|Desert|Dual Nano-SIM|": {
+    "finalPrice": 81500
   },
-  "iPhone 17 Pro Max|256GB|Silver|Dual eSIM|": {
-    "finalPrice": 92000
-  },
-  "iPhone 17 Pro Max|256GB|Silver|Nano-SIM + eSIM|": {
-    "finalPrice": 104500
-  },
-  "iPhone 17 Pro Max|2TB|Cosmic Orange|Dual eSIM|": {
-    "finalPrice": 140500
-  },
-  "iPhone 17 Pro Max|2TB|Cosmic Orange|Nano-SIM + eSIM|": {
-    "finalPrice": 162500
-  },
-  "iPhone 17 Pro Max|2TB|Deep Blue|Dual eSIM|": {
-    "finalPrice": 149500
-  },
-  "iPhone 17 Pro Max|2TB|Silver|Dual eSIM|": {
-    "finalPrice": 155000
-  },
-  "iPhone 17 Pro Max|2TB|Silver|Nano-SIM + eSIM|": {
-    "finalPrice": 164500
-  },
-  "iPhone 17 Pro Max|512GB|Cosmic Orange|Dual eSIM|": {
-    "finalPrice": 109000
-  },
-  "iPhone 17 Pro Max|512GB|Deep Blue|Dual eSIM|": {
-    "finalPrice": 109500
-  },
-  "iPhone 17 Pro Max|512GB|Silver|Dual eSIM|": {
-    "finalPrice": 111000
-  },
-  "iPhone 17 Pro|1TB|Cosmic Orange|Dual eSIM|": {
-    "finalPrice": 121000
-  },
-  "iPhone 17 Pro|1TB|Cosmic Orange|Nano-SIM + eSIM|": {
-    "finalPrice": 130000
-  },
-  "iPhone 17 Pro|1TB|Deep Blue|Dual eSIM|": {
-    "finalPrice": 121000
-  },
-  "iPhone 17 Pro|1TB|Deep Blue|Nano-SIM + eSIM|": {
-    "finalPrice": 130500
-  },
-  "iPhone 17 Pro|1TB|Silver|Nano-SIM + eSIM|": {
-    "finalPrice": 129500
-  },
-  "iPhone 17 Pro|256GB|Cosmic Orange|Dual eSIM|": {
-    "finalPrice": 85000
-  },
-  "iPhone 17 Pro|256GB|Cosmic Orange|Nano-SIM + eSIM|": {
-    "finalPrice": 93500
-  },
-  "iPhone 17 Pro|256GB|Deep Blue|Dual eSIM|": {
-    "finalPrice": 86500
-  },
-  "iPhone 17 Pro|256GB|Deep Blue|Nano-SIM + eSIM|": {
-    "finalPrice": 95500
-  },
-  "iPhone 17 Pro|256GB|Silver|Dual eSIM|": {
-    "finalPrice": 87500
-  },
-  "iPhone 17 Pro|256GB|Silver|Nano-SIM + eSIM|": {
-    "finalPrice": 95000
-  },
-  "iPhone 17 Pro|512GB|Cosmic Orange|Dual eSIM|": {
-    "finalPrice": 102500
-  },
-  "iPhone 17 Pro|512GB|Cosmic Orange|Nano-SIM + eSIM|": {
-    "finalPrice": 109000
-  },
-  "iPhone 17 Pro|512GB|Deep Blue|Dual eSIM|": {
-    "finalPrice": 102500
-  },
-  "iPhone 17 Pro|512GB|Deep Blue|Nano-SIM + eSIM|": {
-    "finalPrice": 110000
-  },
-  "iPhone 17 Pro|512GB|Silver|Dual eSIM|": {
-    "finalPrice": 103000
-  },
-  "iPhone 17 Pro|512GB|Silver|Nano-SIM + eSIM|": {
-    "finalPrice": 109500
-  },
-  "iPhone 17|256GB|Black|Dual eSIM|": {
-    "finalPrice": 64500
-  },
-  "iPhone 17|256GB|Black|Nano-SIM + eSIM|": {
-    "finalPrice": 66500
-  },
-  "iPhone 17|256GB|Lavender|Dual eSIM|": {
-    "finalPrice": 66000
-  },
-  "iPhone 17|256GB|Lavender|Nano-SIM + eSIM|": {
-    "finalPrice": 66500
-  },
-  "iPhone 17|256GB|Mist Blue|Nano-SIM + eSIM|": {
-    "finalPrice": 66000
-  },
-  "iPhone 17|256GB|Sage|Dual eSIM|": {
-    "finalPrice": 65000
-  },
-  "iPhone 17|256GB|Sage|Nano-SIM + eSIM|": {
-    "finalPrice": 66500
-  },
-  "iPhone 17|256GB|White|Dual eSIM|": {
-    "finalPrice": 66000
-  },
-  "iPhone 17|256GB|White|Nano-SIM + eSIM|": {
-    "finalPrice": 66000
-  },
-  "iPhone 17|512GB|Black|Dual eSIM|": {
+  "iPhone 16 Pro|128GB|Natural|Dual Nano-SIM|": {
     "finalPrice": 80000
   },
-  "iPhone 17|512GB|Lavender|Dual eSIM|": {
-    "finalPrice": 88500
+  "iPhone 16 Pro|128GB|White|Dual Nano-SIM|": {
+    "finalPrice": 73000
   },
-  "iPhone 17|512GB|White|Nano-SIM + eSIM|": {
-    "finalPrice": 96500
+  "iPhone 16 Pro|1TB|White|Nano-SIM + eSIM|": {
+    "finalPrice": 111500
   },
-  "iPhone 17e|256GB|Black|Nano-SIM + eSIM|": {
-    "finalPrice": 59500
+  "iPhone 16 Pro|512GB|Natural|Nano-SIM + eSIM|": {
+    "finalPrice": 110500
   },
-  "iPhone 17e|256GB|White|Dual eSIM|": {
-    "finalPrice": 48000
+  "iPhone 16|128GB|Black|Nano-SIM + eSIM|": {
+    "finalPrice": 58500
   },
-  "iPhone 17e|512GB|Black|Dual eSIM|": {
-    "finalPrice": 60000
+  "iPhone 16|128GB|Teal|Nano-SIM + eSIM|": {
+    "finalPrice": 56500
   },
-  "iPhone 17e|512GB|White|Dual eSIM|": {
-    "finalPrice": 60000
+  "iPhone 16|128GB|Ultramarine|Nano-SIM + eSIM|": {
+    "finalPrice": 57000
   },
-  "iPhone Air|1TB|Cloud White|Dual eSIM|": {
-    "finalPrice": 89500
+  "iPhone 16|128GB|White|Nano-SIM + eSIM|": {
+    "finalPrice": 57500
   },
-  "iPhone Air|256GB|Cloud White|Dual eSIM|": {
-    "finalPrice": 71000
+  "iPhone 16|256GB|Black|Nano-SIM + eSIM|": {
+    "finalPrice": 69500
   },
-  "iPhone Air|256GB|Light Gold|Dual eSIM|": {
-    "finalPrice": 71000
+  "iPhone 16|256GB|Pink|Nano-SIM + eSIM|": {
+    "finalPrice": 66000
   },
-  "iPhone Air|256GB|Sky Blue|Dual eSIM|": {
+  "iPhone 16|256GB|Teal|Nano-SIM + eSIM|": {
+    "finalPrice": 70500
+  },
+  "iPhone 16|256GB|Ultramarine|Nano-SIM + eSIM|": {
     "finalPrice": 69000
   },
+  "iPhone 16|256GB|White|Nano-SIM + eSIM|": {
+    "finalPrice": 69500
+  },
+  "iPhone 16|512GB|Black|Nano-SIM + eSIM|": {
+    "finalPrice": 73000
+  },
+  "iPhone 16|512GB|Pink|Nano-SIM + eSIM|": {
+    "finalPrice": 79500
+  },
+  "iPhone 16|512GB|Teal|Nano-SIM + eSIM|": {
+    "finalPrice": 83500
+  },
+  "iPhone 16|512GB|Ultramarine|Nano-SIM + eSIM|": {
+    "finalPrice": 73000
+  },
+  "iPhone 16|512GB|White|Nano-SIM + eSIM|": {
+    "finalPrice": 76500
+  },
+  "iPhone 16e|128GB|Black|Nano-SIM + eSIM|": {
+    "finalPrice": 47000
+  },
+  "iPhone 16e|128GB|White|Nano-SIM + eSIM|": {
+    "finalPrice": 50500
+  },
+  "iPhone 17 Pro Max|1TB|Cosmic Orange|Dual eSIM|": {
+    "finalPrice": 127000
+  },
+  "iPhone 17 Pro Max|1TB|Cosmic Orange|Nano-SIM + eSIM|": {
+    "finalPrice": 141500
+  },
+  "iPhone 17 Pro Max|1TB|Deep Blue|Dual eSIM|": {
+    "finalPrice": 127500
+  },
+  "iPhone 17 Pro Max|1TB|Deep Blue|Nano-SIM + eSIM|": {
+    "finalPrice": 140000
+  },
+  "iPhone 17 Pro Max|256GB|Cosmic Orange|Dual eSIM|": {
+    "finalPrice": 94500
+  },
+  "iPhone 17 Pro Max|256GB|Cosmic Orange|Nano-SIM + eSIM|": {
+    "finalPrice": 106000
+  },
+  "iPhone 17 Pro Max|256GB|Deep Blue|Dual eSIM|": {
+    "finalPrice": 95000
+  },
+  "iPhone 17 Pro Max|256GB|Deep Blue|Nano-SIM + eSIM|": {
+    "finalPrice": 106500
+  },
+  "iPhone 17 Pro Max|2TB|Cosmic Orange|Dual eSIM|": {
+    "finalPrice": 142500
+  },
+  "iPhone 17 Pro Max|2TB|Cosmic Orange|Nano-SIM + eSIM|": {
+    "finalPrice": 164500
+  },
+  "iPhone 17 Pro Max|2TB|Deep Blue|Dual eSIM|": {
+    "finalPrice": 143500
+  },
+  "iPhone 17 Pro Max|2TB|Deep Blue|Nano-SIM + eSIM|": {
+    "finalPrice": 167500
+  },
+  "iPhone 17 Pro Max|2TB|Silver|Dual eSIM|": {
+    "finalPrice": 154500
+  },
+  "iPhone 17 Pro Max|2TB|Silver|Nano-SIM + eSIM|": {
+    "finalPrice": 168000
+  },
+  "iPhone 17 Pro Max|512GB|Cosmic Orange|Dual eSIM|": {
+    "finalPrice": 112000
+  },
+  "iPhone 17 Pro Max|512GB|Cosmic Orange|Nano-SIM + eSIM|": {
+    "finalPrice": 123500
+  },
+  "iPhone 17 Pro Max|512GB|Deep Blue|Dual eSIM|": {
+    "finalPrice": 111500
+  },
+  "iPhone 17 Pro Max|512GB|Deep Blue|Nano-SIM + eSIM|": {
+    "finalPrice": 122000
+  },
+  "iPhone 17 Pro|1TB|Cosmic Orange|Dual eSIM|": {
+    "finalPrice": 120000
+  },
+  "iPhone 17 Pro|1TB|Cosmic Orange|Nano-SIM + eSIM|": {
+    "finalPrice": 125000
+  },
+  "iPhone 17 Pro|1TB|Deep Blue|Dual eSIM|": {
+    "finalPrice": 120500
+  },
+  "iPhone 17 Pro|1TB|Deep Blue|Nano-SIM + eSIM|": {
+    "finalPrice": 126500
+  },
+  "iPhone 17 Pro|256GB|Cosmic Orange|Dual eSIM|": {
+    "finalPrice": 87000
+  },
+  "iPhone 17 Pro|256GB|Cosmic Orange|Nano-SIM + eSIM|": {
+    "finalPrice": 96500
+  },
+  "iPhone 17 Pro|256GB|Deep Blue|Dual eSIM|": {
+    "finalPrice": 87500
+  },
+  "iPhone 17 Pro|256GB|Deep Blue|Nano-SIM + eSIM|": {
+    "finalPrice": 96000
+  },
+  "iPhone 17 Pro|256GB|Silver|Dual eSIM|": {
+    "finalPrice": 93500
+  },
+  "iPhone 17 Pro|256GB|Silver|Nano-SIM + eSIM|": {
+    "finalPrice": 96500
+  },
+  "iPhone 17 Pro|512GB|Cosmic Orange|Dual eSIM|": {
+    "finalPrice": 104500
+  },
+  "iPhone 17 Pro|512GB|Cosmic Orange|Nano-SIM + eSIM|": {
+    "finalPrice": 113000
+  },
+  "iPhone 17 Pro|512GB|Silver|Dual eSIM|": {
+    "finalPrice": 104500
+  },
+  "iPhone 17|256GB|Black|Nano-SIM + eSIM|": {
+    "finalPrice": 69500
+  },
+  "iPhone 17|256GB|Mist Blue|Dual eSIM|": {
+    "finalPrice": 67000
+  },
+  "iPhone 17|256GB|Mist Blue|Nano-SIM + eSIM|": {
+    "finalPrice": 69000
+  },
+  "iPhone 17|256GB|Sage|Nano-SIM + eSIM|": {
+    "finalPrice": 69500
+  },
+  "iPhone 17|256GB|White|Nano-SIM + eSIM|": {
+    "finalPrice": 69500
+  },
+  "iPhone 17|512GB|Black|Nano-SIM + eSIM|": {
+    "finalPrice": 88500
+  },
+  "iPhone 17|512GB|Lavender|Nano-SIM + eSIM|": {
+    "finalPrice": 92500
+  },
+  "iPhone 17|512GB|Mist Blue|Nano-SIM + eSIM|": {
+    "finalPrice": 90500
+  },
+  "iPhone 17|512GB|Sage|Dual eSIM|": {
+    "finalPrice": 86000
+  },
+  "iPhone 17|512GB|Sage|Nano-SIM + eSIM|": {
+    "finalPrice": 91000
+  },
+  "iPhone 17|512GB|White|Nano-SIM + eSIM|": {
+    "finalPrice": 89000
+  },
+  "iPhone 17e|256GB|Black|Nano-SIM + eSIM|": {
+    "finalPrice": 54500
+  },
+  "iPhone 17e|256GB|Soft Pink|Nano-SIM + eSIM|": {
+    "finalPrice": 54500
+  },
+  "iPhone 17e|256GB|White|Nano-SIM + eSIM|": {
+    "finalPrice": 54500
+  },
+  "iPhone 17e|512GB|Black|Dual eSIM|": {
+    "finalPrice": 62500
+  },
+  "iPhone 17e|512GB|Soft Pink|Dual eSIM|": {
+    "finalPrice": 66000
+  },
+  "iPhone Air|256GB|Cloud White|Dual eSIM|": {
+    "finalPrice": 72000
+  },
+  "iPhone Air|256GB|Light Gold|Dual eSIM|": {
+    "finalPrice": 70500
+  },
+  "iPhone Air|256GB|Sky Blue|Dual eSIM|": {
+    "finalPrice": 71500
+  },
   "iPhone Air|256GB|Space Black|Dual eSIM|": {
-    "finalPrice": 71000
+    "finalPrice": 71500
   },
   "iPhone Air|512GB|Light Gold|Dual eSIM|": {
-    "finalPrice": 75000
+    "finalPrice": 78500
+  },
+  "iPhone Air|512GB|Sky Blue|Dual eSIM|": {
+    "finalPrice": 77500
+  },
+  "iPhone Air|512GB|Space Black|Dual eSIM|": {
+    "finalPrice": 82000
   },
   "MacBook Neo|256GB|Citrus||": {
-    "finalPrice": 52500
+    "finalPrice": 59000
   },
   "MacBook Neo|256GB|Indigo||": {
-    "finalPrice": 52500
+    "finalPrice": 58000
   },
-  "MacBook Neo|256GB|Silver||": {
-    "finalPrice": 53000
+  "MacBook Neo|512GB|Indigo||": {
+    "finalPrice": 67000
+  },
+  "MacBook Neo|512GB|Silver||": {
+    "finalPrice": 68500
   }
 }
