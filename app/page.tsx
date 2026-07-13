@@ -748,6 +748,7 @@ const products: Product[] = [
 
 const categories = ["Все", "iPhone", "AirPods", "iPad", "Mac", "Apple Watch"];
 const showcaseCategories = ["iPhone", "AirPods", "iPad", "Mac", "Apple Watch"];
+const catalogCategoryOrder = new Map(showcaseCategories.map((category, index) => [category, index]));
 const productPriceOverrides = priceOverrides as Record<string, PriceOverride>;
 
 function DeviceVisual({
@@ -800,6 +801,10 @@ function parsePrice(price: string) {
   const digits = price.replace(/\D/g, "");
 
   return Number(digits || "0");
+}
+
+function getCatalogCategoryRank(category: string) {
+  return catalogCategoryOrder.get(category) ?? showcaseCategories.length;
 }
 
 function getCartKey(product: Product) {
@@ -1104,13 +1109,21 @@ export default function Home() {
   const visibleProducts = useMemo(() => {
     const query = catalogQuery.trim().toLowerCase();
 
-    return products.filter((product) => {
+    const filteredProducts = products.filter((product) => {
       const categoryMatches =
         activeCategory === "Все" || (activeCategory === "Под заказ" ? product.status === "Под заказ" : product.category === activeCategory);
       const searchMatches =
         !query || [product.name, product.category, product.size, product.color, product.storage, product.sim].filter(Boolean).join(" ").toLowerCase().includes(query);
 
       return categoryMatches && searchMatches;
+    });
+
+    if (activeCategory !== "Все") return filteredProducts;
+
+    return [...filteredProducts].sort((first, second) => {
+      const categoryDifference = getCatalogCategoryRank(first.category) - getCatalogCategoryRank(second.category);
+
+      return categoryDifference || first.id - second.id;
     });
   }, [activeCategory, catalogQuery]);
 
