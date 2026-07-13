@@ -865,6 +865,30 @@ function getNearestPricedSelection(product: Product, selection: ProductSelection
     .sort((first, second) => second.score - first.score)[0].candidate;
 }
 
+function getCheapestPricedSelection(product: Product, fallbackSelection: ProductSelection) {
+  const pricedSelections = Object.entries(productPriceOverrides)
+    .filter(([key]) => key.startsWith(`${product.name}|`))
+    .flatMap(([key, override]) => {
+      if (typeof override.finalPrice !== "number") return [];
+
+      const [, storage, color, sim = "", size = ""] = key.split("|");
+
+      return [{
+        selection: { color, sim, size, storage },
+        price: override.finalPrice,
+        score:
+          Number(color === fallbackSelection.color) +
+          Number(size === fallbackSelection.size) +
+          Number(sim === fallbackSelection.sim) +
+          Number(storage === fallbackSelection.storage),
+      }];
+    });
+
+  if (!pricedSelections.length) return fallbackSelection;
+
+  return pricedSelections.sort((first, second) => first.price - second.price || second.score - first.score)[0].selection;
+}
+
 function getInitialProductSelection(product: Product) {
   const defaultSelection = {
     color: product.color,
@@ -873,7 +897,9 @@ function getInitialProductSelection(product: Product) {
     storage: product.storage,
   };
 
-  return getNearestPricedSelection(product, defaultSelection, "color");
+  if (hasPricedSelection(product, defaultSelection)) return defaultSelection;
+
+  return getCheapestPricedSelection(product, defaultSelection);
 }
 
 function getInitialProductSelections() {
