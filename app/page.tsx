@@ -796,6 +796,40 @@ function getProductPrice(product: Pick<Product, "color" | "name" | "price" | "si
   return productPriceOverrides[getPriceKey(product)]?.price ?? productPriceOverrides[getLegacyPriceKey(product)]?.price ?? product.price;
 }
 
+function getPricedSelections(product: Product) {
+  return Object.keys(productPriceOverrides)
+    .filter((key) => key.startsWith(`${product.name}|`))
+    .map((key) => {
+      const [, storage, color, sim = "", size = ""] = key.split("|");
+
+      return { color, sim, size, storage };
+    });
+}
+
+function hasPricedSelection(product: Product, selection: ProductSelection) {
+  return Boolean(productPriceOverrides[getPriceKey({ ...product, ...selection })] ?? productPriceOverrides[getLegacyPriceKey({ ...product, ...selection })]);
+}
+
+function getNearestPricedSelection(product: Product, selection: ProductSelection, lockedField: keyof ProductSelection) {
+  const pricedSelections = getPricedSelections(product);
+
+  if (!pricedSelections.length || hasPricedSelection(product, selection)) return selection;
+
+  const candidatesWithLockedField = pricedSelections.filter((candidate) => candidate[lockedField] === selection[lockedField]);
+  const candidates = candidatesWithLockedField.length ? candidatesWithLockedField : pricedSelections;
+
+  return candidates
+    .map((candidate) => ({
+      candidate,
+      score:
+        Number(candidate.color === selection.color) +
+        Number(candidate.size === selection.size) +
+        Number(candidate.sim === selection.sim) +
+        Number(candidate.storage === selection.storage),
+    }))
+    .sort((first, second) => second.score - first.score)[0].candidate;
+}
+
 function getProductSpecs(product: Product) {
   return [product.size, product.storage, product.color, product.sim, product.price].filter(Boolean).join(" · ");
 }
@@ -1113,16 +1147,24 @@ export default function Home() {
   }
 
   function updateProductSelection(productId: number, field: keyof ProductSelection, value: string) {
-    setProductSelections((current) => ({
-      ...current,
-      [productId]: {
-        color: current[productId]?.color ?? products.find((product) => product.id === productId)?.color ?? "",
-        size: current[productId]?.size ?? products.find((product) => product.id === productId)?.size ?? "",
-        sim: current[productId]?.sim ?? products.find((product) => product.id === productId)?.sim ?? "",
-        storage: current[productId]?.storage ?? products.find((product) => product.id === productId)?.storage ?? "",
+    const product = products.find((entry) => entry.id === productId);
+
+    if (!product) return;
+
+    setProductSelections((current) => {
+      const nextSelection = {
+        color: current[productId]?.color ?? product.color ?? "",
+        size: current[productId]?.size ?? product.size ?? "",
+        sim: current[productId]?.sim ?? product.sim ?? "",
+        storage: current[productId]?.storage ?? product.storage ?? "",
         [field]: value,
-      },
-    }));
+      };
+
+      return {
+        ...current,
+        [productId]: getNearestPricedSelection(product, nextSelection, field),
+      };
+    });
 
     if (field === "color") {
       setProductImageIndexes((current) => ({
