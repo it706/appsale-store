@@ -334,7 +334,7 @@ function parsePrice(value) {
 }
 
 function formatRub(value) {
-  return `${new Intl.NumberFormat("ru-RU").format(value)} ₽`;
+  return `${new Intl.NumberFormat("ru-RU").format(value)} ?`;
 }
 
 function getMarkup(model) {
@@ -404,7 +404,6 @@ function parseLine(line) {
     item: {
       finalPrice,
       key: makeKey({ color, model, sim, size, storage }),
-      price: formatRub(finalPrice),
       sourceLine: line.trim(),
       markup,
       supplierPrice,
@@ -428,25 +427,26 @@ for (const line of source.split(/\r?\n/)) {
   if (parsed.item) {
     result[parsed.item.key] = {
       finalPrice: parsed.item.finalPrice,
-      markup: parsed.item.markup,
-      price: parsed.item.price,
-      sourceLine: parsed.item.sourceLine,
-      supplierPrice: parsed.item.supplierPrice,
     };
   }
 }
 
 const sortedResult = Object.fromEntries(Object.entries(result).sort(([a], [b]) => a.localeCompare(b, "ru")));
+const publicJson = JSON.stringify(sortedResult, null, 2);
+
+if (/supplierPrice|sourceLine|markup/.test(publicJson)) {
+  throw new Error("Публичный файл цен не должен содержать закупку, наценку или строки поставщика.");
+}
 
 if (!isDryRun) {
-  writeFileSync(outputPath, `${JSON.stringify(sortedResult, null, 2)}\n`, "utf8");
+  writeFileSync(outputPath, `${publicJson}\n`, "utf8");
 }
 
 console.log(`${isDryRun ? "Проверка" : "Готово"}: обновлено цен ${Object.keys(sortedResult).length}.`);
 console.log("Правила: AirPods +2 000 ₽, iPad +3 000 ₽, Apple Watch SE +2 500 ₽, Apple Watch Series 11 +3 000 ₽, iPhone 15 +3 000 ₽, iPhone 16 +3 500 ₽, iPhone 17 и Air +4 000 ₽, iPhone 17 Pro/Pro Max +4 000 ₽, MacBook Neo +4 000 ₽.");
 console.log("Округление: хвост 100-400 до 500, хвост 600-900 до 1 000.");
 for (const [key, item] of Object.entries(sortedResult)) {
-  console.log(`- ${key}: ${formatRub(item.supplierPrice)} + ${formatRub(item.markup)} = ${item.price}`);
+  console.log(`- ${key}: ${formatRub(item.finalPrice)}`);
 }
 if (isDryRun) console.log("Файл цен не изменен: включен режим --dry-run.");
 

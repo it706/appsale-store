@@ -48,9 +48,7 @@ type ProductSelection = {
 
 type PriceOverride = {
   finalPrice?: number;
-  price: string;
-  sourceLine?: string;
-  supplierPrice?: number;
+  price?: string;
 };
 
 type TelegramWebApp = {
@@ -817,7 +815,15 @@ function getLegacyPriceKey(product: Pick<Product, "color" | "name" | "sim" | "st
 }
 
 function getProductPrice(product: Pick<Product, "color" | "name" | "price" | "sim" | "size" | "storage">) {
-  return productPriceOverrides[getPriceKey(product)]?.price ?? productPriceOverrides[getLegacyPriceKey(product)]?.price ?? product.price;
+  const override = productPriceOverrides[getPriceKey(product)] ?? productPriceOverrides[getLegacyPriceKey(product)];
+
+  if (typeof override?.finalPrice === "number") return formatDisplayPrice(override.finalPrice);
+
+  return product.price;
+}
+
+function formatDisplayPrice(value: number) {
+  return `${new Intl.NumberFormat("ru-RU").format(value)} ₽`;
 }
 
 function getPricedSelections(product: Product) {

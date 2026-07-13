@@ -1,7 +1,9 @@
 .next
 node_modules
 .env.local
+.env*.local
 *.log
 
 .vercel
 supplier-prices.txt
+price-breakdown*.txt
