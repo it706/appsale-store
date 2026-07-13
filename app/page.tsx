@@ -865,6 +865,21 @@ function getNearestPricedSelection(product: Product, selection: ProductSelection
     .sort((first, second) => second.score - first.score)[0].candidate;
 }
 
+function getInitialProductSelection(product: Product) {
+  const defaultSelection = {
+    color: product.color,
+    size: product.size ?? "",
+    sim: product.sim ?? "",
+    storage: product.storage,
+  };
+
+  return getNearestPricedSelection(product, defaultSelection, "color");
+}
+
+function getInitialProductSelections() {
+  return Object.fromEntries(products.map((product) => [product.id, getInitialProductSelection(product)]));
+}
+
 function getProductSpecs(product: Product) {
   return [product.size, product.storage, product.color, product.sim, product.price].filter(Boolean).join(" · ");
 }
@@ -933,19 +948,7 @@ export default function Home() {
   const [catalogQuery, setCatalogQuery] = useState("");
   const [detailProduct, setDetailProduct] = useState<Product | null>(null);
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
-  const [productSelections, setProductSelections] = useState<Record<number, ProductSelection>>({
-    ...Object.fromEntries(
-      products.map((product) => [
-        product.id,
-        {
-          color: product.color,
-          size: product.size ?? "",
-          sim: product.sim ?? "",
-          storage: product.storage,
-        },
-      ]),
-    ),
-  });
+  const [productSelections, setProductSelections] = useState<Record<number, ProductSelection>>(() => getInitialProductSelections());
   const [productImageIndexes, setProductImageIndexes] = useState<Record<number, number>>({});
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [isProfileOpen, setIsProfileOpen] = useState(false);
