@@ -167,14 +167,14 @@ const appleWatchSeOptions = {
   colors: ["Midnight", "Starlight", "Silver"],
   sims: [],
   sizes: ["40 мм", "44 мм"],
-  storages: ["S/M", "M/L"],
+  storages: ["S/M", "M/L", "SL Sport Loop"],
 };
 
 const appleWatchSeries11Options = {
   colors: ["Jet Black", "Space Gray", "Rose Gold", "Silver"],
   sims: [],
   sizes: ["42 мм", "46 мм"],
-  storages: ["S/M", "M/L"],
+  storages: ["S/M", "M/L", "SL Sport Loop"],
 };
 
 
