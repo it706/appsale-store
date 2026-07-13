@@ -112,19 +112,19 @@ const catalog = {
     colors: ["Midnight", "Starlight", "Silver"],
     sims: [],
     sizes: ["40 мм", "44 мм"],
-    storages: ["S/M", "M/L", "SL Sport Loop"],
+    storages: ["S/M", "M/L", "Sport Loop"],
   },
   "Apple Watch SE 3 (2025)": {
     colors: ["Midnight", "Starlight", "Silver"],
     sims: [],
     sizes: ["40 мм", "44 мм"],
-    storages: ["S/M", "M/L", "SL Sport Loop"],
+    storages: ["S/M", "M/L", "Sport Loop"],
   },
   "Apple Watch Series 11": {
     colors: ["Jet Black", "Space Gray", "Rose Gold", "Silver"],
     sims: [],
     sizes: ["42 мм", "46 мм"],
-    storages: ["S/M", "M/L", "SL Sport Loop"],
+    storages: ["S/M", "M/L", "Sport Loop"],
   },
 };
 
@@ -218,7 +218,7 @@ function parseBand(value, model) {
   const text = normalizeText(value);
 
   if (!model.includes("Apple Watch")) return "";
-  if (/\bs\/?l\b/.test(text) && text.includes("sport loop")) return "SL Sport Loop";
+  if (/\bs\/?l\b/.test(text) && text.includes("sport loop")) return "Sport Loop";
 
   if (/\bs\/m\b/.test(text)) return "S/M";
   if (/\bm\/l\b/.test(text)) return "M/L";
