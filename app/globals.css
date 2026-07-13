@@ -899,6 +899,14 @@ main {
   background: #2f3238;
 }
 
+.colorOptions button[data-color="Jet Black"] i {
+  background: #101010;
+}
+
+.colorOptions button[data-color="Rose Gold"] i {
+  background: #d8a89a;
+}
+
 .colorOptions button[data-color="Purple"] i {
   background: #b7a6d8;
 }

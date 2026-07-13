@@ -163,6 +163,21 @@ const airPodsMaxOptions = {
   storages: [],
 };
 
+const appleWatchSeOptions = {
+  colors: ["Midnight", "Starlight", "Silver"],
+  sims: [],
+  sizes: ["40 мм", "44 мм"],
+  storages: ["S/M", "M/L"],
+};
+
+const appleWatchSeries11Options = {
+  colors: ["Jet Black", "Space Gray", "Rose Gold", "Silver"],
+  sims: [],
+  sizes: ["42 мм", "46 мм"],
+  storages: ["S/M", "M/L"],
+};
+
+
 const iphone17ProImages = {
   "Cosmic Orange": [
     "/products/iphone-17-pro-cosmic-orange-1.webp",
@@ -613,10 +628,13 @@ const products: Product[] = [
   "AirPods Pro 2",
   "AirPods 4 (Без шумоподавления)",
   "AirPods 4 ANC (С шумоподавлением)",
+  "Apple Watch SE 2 (2024)",
+  "Apple Watch SE 3 (2025)",
+  "Apple Watch Series 11",
 ].map((name, index) => ({
   accent: index % 3 === 0 ? "orange" : index % 3 === 1 ? "blue" : "silver",
   brand: "Apple",
-  category: name.includes("AirPods") ? "AirPods" : name.includes("iPad") ? "iPad" : name === "MacBook Neo" ? "Mac" : "iPhone",
+  category: name.includes("AirPods") ? "AirPods" : name.includes("iPad") ? "iPad" : name === "MacBook Neo" ? "Mac" : name.includes("Apple Watch") ? "Apple Watch" : "iPhone",
   color:
     name === "AirPods Max USB-C (2024)"
       ? "Blue"
@@ -652,7 +670,10 @@ const products: Product[] = [
                   ? "Blue"
                 : name === "MacBook Neo"
                   ? "Indigo"
-                : "Cosmic Orange",
+                : name === "Apple Watch SE 2 (2024)" || name === "Apple Watch SE 3 (2025)"
+                  ? "Midnight"
+                : name === "Apple Watch Series 11"
+                  ? "Jet Black"                : "Cosmic Orange",
   condition: "новый",
   description: "",
   id: index + 1,
@@ -684,10 +705,10 @@ const products: Product[] = [
               : undefined,
   name,
   price: "уточнить цену",
-  sim: name.includes("AirPods") || name === "MacBook Neo" ? "" : name.includes("iPad") ? "Wi-Fi" : name === "iPhone 15" || name === "iPhone 15 Plus" || name === "iPhone 16" || name === "iPhone 16 Plus" || name === "iPhone 16e" || name === "iPhone 16 Pro Max" || name === "iPhone 17" || name === "iPhone 17e" ? "Nano-SIM + eSIM" : name === "iPhone 16 Pro" ? "Dual Nano-SIM" : "Dual eSIM",
-  size: name === "iPad Air 8 M4 (2026)" ? "11 дюймов" : "",
+  sim: name.includes("AirPods") || name === "MacBook Neo" || name.includes("Apple Watch") ? "" : name.includes("iPad") ? "Wi-Fi" : name === "iPhone 15" || name === "iPhone 15 Plus" || name === "iPhone 16" || name === "iPhone 16 Plus" || name === "iPhone 16e" || name === "iPhone 16 Pro Max" || name === "iPhone 17" || name === "iPhone 17e" ? "Nano-SIM + eSIM" : name === "iPhone 16 Pro" ? "Dual Nano-SIM" : "Dual eSIM",
+  size: name === "iPad Air 8 M4 (2026)" ? "11 дюймов" : name.includes("Apple Watch SE") ? "40 мм" : name === "Apple Watch Series 11" ? "42 мм" : "",
   status: "В наличии",
-  storage: name.includes("AirPods") ? "" : name === "MacBook Neo" || name === "iPhone 16 Pro Max" ? "256GB" : name === "iPhone 15" || name === "iPhone 15 Plus" || name === "iPhone 16" || name === "iPhone 16 Plus" || name === "iPhone 16e" || name === "iPhone 16 Pro" || name.includes("iPad") ? "128GB" : "256GB",
+  storage: name.includes("AirPods") ? "" : name.includes("Apple Watch") ? "S/M" : name === "MacBook Neo" || name === "iPhone 16 Pro Max" ? "256GB" : name === "iPhone 15" || name === "iPhone 15 Plus" || name === "iPhone 16" || name === "iPhone 16 Plus" || name === "iPhone 16e" || name === "iPhone 16 Pro" || name.includes("iPad") ? "128GB" : "256GB",
   variantOptions:
     name.includes("AirPods Max")
       ? airPodsMaxOptions
@@ -719,9 +740,12 @@ const products: Product[] = [
                 ? macbookNeoOptions
               : name === "iPad 11 A16 (2025)"
                 ? ipad11Options
-                : name === "iPad Air 8 M4 (2026)"
-                  ? ipadAir8Options
-                : iphoneOptions,
+              : name === "iPad Air 8 M4 (2026)"
+                ? ipadAir8Options
+              : name === "Apple Watch SE 2 (2024)" || name === "Apple Watch SE 3 (2025)"
+                ? appleWatchSeOptions
+              : name === "Apple Watch Series 11"
+                ? appleWatchSeries11Options                : iphoneOptions,
 }));
 
 const categories = ["Все", "iPhone", "AirPods", "iPad", "Mac", "Apple Watch"];
@@ -832,6 +856,14 @@ function getNearestPricedSelection(product: Product, selection: ProductSelection
 
 function getProductSpecs(product: Product) {
   return [product.size, product.storage, product.color, product.sim, product.price].filter(Boolean).join(" · ");
+}
+
+function getStorageOptionLabel(product: Product) {
+  return product.category === "Apple Watch" ? "Ремешок" : "Память";
+}
+
+function getSizeOptionLabel(product: Product) {
+  return product.category === "Apple Watch" ? "Корпус" : "Диагональ";
 }
 
 function getRuPhoneDigits(value: string) {
@@ -1530,7 +1562,7 @@ export default function Home() {
                     </div>
                     {product.variantOptions.storages.length ? (
                       <div>
-                        <span>Память</span>
+                        <span>{getStorageOptionLabel(product)}</span>
                         <div className="variantOptions storageOptions">
                           {product.variantOptions.storages.map((storage) => (
                             <button
@@ -1547,7 +1579,7 @@ export default function Home() {
                     ) : null}
                     {product.variantOptions.sizes?.length ? (
                       <div>
-                        <span>Диагональ</span>
+                        <span>{getSizeOptionLabel(product)}</span>
                         <div className="variantOptions storageOptions">
                           {product.variantOptions.sizes.map((size) => (
                             <button
@@ -1816,7 +1848,7 @@ export default function Home() {
                       </div>
                       {product.variantOptions.storages.length ? (
                         <>
-                          <span>Память</span>
+                          <span>{getStorageOptionLabel(product)}</span>
                           <div className="variantOptions storageOptions">
                             {product.variantOptions.storages.map((storage) => (
                               <button
@@ -1833,7 +1865,7 @@ export default function Home() {
                       ) : null}
                       {product.variantOptions.sizes?.length ? (
                         <>
-                          <span>Диагональ</span>
+                          <span>{getSizeOptionLabel(product)}</span>
                           <div className="variantOptions storageOptions">
                             {product.variantOptions.sizes.map((size) => (
                               <button

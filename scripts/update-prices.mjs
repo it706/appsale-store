@@ -108,10 +108,29 @@ const catalog = {
   "AirPods Pro 2": { colors: [""], sims: [""], storages: [""] },
   "AirPods 4 (Без шумоподавления)": { colors: [""], sims: [""], storages: [""] },
   "AirPods 4 ANC (С шумоподавлением)": { colors: [""], sims: [""], storages: [""] },
+  "Apple Watch SE 2 (2024)": {
+    colors: ["Midnight", "Starlight", "Silver"],
+    sims: [],
+    sizes: ["40 мм", "44 мм"],
+    storages: ["S/M", "M/L"],
+  },
+  "Apple Watch SE 3 (2025)": {
+    colors: ["Midnight", "Starlight", "Silver"],
+    sims: [],
+    sizes: ["40 мм", "44 мм"],
+    storages: ["S/M", "M/L"],
+  },
+  "Apple Watch Series 11": {
+    colors: ["Jet Black", "Space Gray", "Rose Gold", "Silver"],
+    sims: [],
+    sizes: ["42 мм", "46 мм"],
+    storages: ["S/M", "M/L"],
+  },
 };
 
 const markupByModel = {
   airpods: 2000,
+  appleWatch: 3000,
   ipad: 3000,
   iphone15: 3000,
   iphone16: 3500,
@@ -133,6 +152,9 @@ function parseModel(value) {
   if (/^airpods\s+pro\s+2\b/.test(text)) return "AirPods Pro 2";
   if (/^airpods\s+4\s+(?:anc|с\s*шумоподавлением)\b/.test(text)) return "AirPods 4 ANC (С шумоподавлением)";
   if (/^airpods\s+4\b/.test(text)) return "AirPods 4 (Без шумоподавления)";
+  if (/^(?:apple\s*watch\s*)?s11\b/.test(text) || /^series\s*11\b/.test(text)) return "Apple Watch Series 11";
+  if (/^(?:apple\s*watch\s*)?se2\b/.test(text) || (/^(?:apple\s*watch\s*)?se\b/.test(text) && /\b2024\b/.test(text))) return "Apple Watch SE 2 (2024)";
+  if (/^(?:apple\s*watch\s*)?se3\b/.test(text) || /^apple\s*watch\s*se\b/.test(text) || /^(?:apple\s*watch\s*)?se\b/.test(text)) return "Apple Watch SE 3 (2025)";
   if (/^17\s+pro\s+max\b/.test(text)) return "iPhone 17 Pro Max";
   if (/^17\s+pro\b/.test(text)) return "iPhone 17 Pro";
   if (/^17\s+air\b/.test(text)) return "iPhone Air";
@@ -178,11 +200,26 @@ function parseSim(value) {
   return "";
 }
 
-function parseSize(value) {
+function parseSize(value, model = "") {
   const text = normalizeText(value);
+
+  if (model.includes("Apple Watch")) {
+    const watchSize = text.match(/\b(40|42|44|46|49)\b/);
+    return watchSize ? `${watchSize[1]} мм` : "";
+  }
 
   if (/\b13\b/.test(text)) return "13 дюймов";
   if (/\b11\b/.test(text)) return "11 дюймов";
+
+  return "";
+}
+function parseBand(value, model) {
+  const text = normalizeText(value);
+
+  if (!model.includes("Apple Watch")) return "";
+
+  if (/\bs\/m\b/.test(text)) return "S/M";
+  if (/\bm\/l\b/.test(text)) return "M/L";
 
   return "";
 }
@@ -270,6 +307,14 @@ function parseColor(value, model) {
     if (has("orange", "оранж")) return "Orange";
   }
 
+  if (model.includes("Apple Watch")) {
+    if (has("jet black")) return "Jet Black";
+    if (has("space gray")) return "Space Gray";
+    if (has("rose gold")) return "Rose Gold";
+    if (has("starlight")) return "Starlight";
+    if (has("silver")) return "Silver";
+    if (has("midnight", "stone gray")) return "Midnight";
+  }
   return "";
 }
 
@@ -292,6 +337,7 @@ function formatRub(value) {
 
 function getMarkup(model) {
   if (model.includes("AirPods")) return markupByModel.airpods;
+  if (model.includes("Apple Watch")) return markupByModel.appleWatch;
   if (model.startsWith("iPad")) return markupByModel.ipad;
   if (model.startsWith("iPhone 15")) return markupByModel.iphone15;
   if (model.startsWith("iPhone 16")) return markupByModel.iphone16;
@@ -320,13 +366,18 @@ function parseLine(line) {
   if (/актив|asis/i.test(line)) return { ignored: true, reason: "актив/Asis не совпадает с новым каталогом", line };
 
   const model = parseModel(line);
-  const storage = parseStorage(line);
-  let size = parseSize(line);
+  let storage = parseStorage(line);
+  let size = parseSize(line, model);
   let sim = parseSim(line);
   const color = parseColor(line, model);
   const supplierPrice = parsePrice(line);
   const allowed = catalog[model];
   const isSimpleProduct = model.includes("AirPods");
+
+  if (model.includes("Apple Watch")) {
+    storage = parseBand(line, model);
+    sim = "";
+  }
 
   if (!allowed?.sizes?.length) size = "";
 
@@ -389,7 +440,7 @@ if (!isDryRun) {
 }
 
 console.log(`${isDryRun ? "Проверка" : "Готово"}: обновлено цен ${Object.keys(sortedResult).length}.`);
-console.log("Правила: AirPods +2 000 ₽, iPad +3 000 ₽, iPhone 15 +3 000 ₽, iPhone 16 +3 500 ₽, iPhone 17 и Air +4 000 ₽, iPhone 17 Pro/Pro Max +5 000 ₽, MacBook Neo +4 000 ₽.");
+console.log("Правила: AirPods +2 000 ₽, iPad +3 000 ₽, Apple Watch +3 000 ₽, iPhone 15 +3 000 ₽, iPhone 16 +3 500 ₽, iPhone 17 и Air +4 000 ₽, iPhone 17 Pro/Pro Max +5 000 ₽, MacBook Neo +4 000 ₽.");
 console.log("Округление: хвост 100-400 до 500, хвост 600-900 до 1 000.");
 for (const [key, item] of Object.entries(sortedResult)) {
   console.log(`- ${key}: ${formatRub(item.supplierPrice)} + ${formatRub(item.markup)} = ${item.price}`);
