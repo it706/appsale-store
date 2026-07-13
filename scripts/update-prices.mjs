@@ -130,12 +130,13 @@ const catalog = {
 
 const markupByModel = {
   airpods: 2000,
-  appleWatch: 3000,
+  appleWatchSe: 2500,
+  appleWatchSeries11: 3000,
   ipad: 3000,
   iphone15: 3000,
   iphone16: 3500,
   iphone17: 4000,
-  iphone17Pro: 5000,
+  iphone17Pro: 4000,
   macbookNeo: 4000,
 };
 
@@ -338,7 +339,8 @@ function formatRub(value) {
 
 function getMarkup(model) {
   if (model.includes("AirPods")) return markupByModel.airpods;
-  if (model.includes("Apple Watch")) return markupByModel.appleWatch;
+  if (model.includes("Apple Watch SE")) return markupByModel.appleWatchSe;
+  if (model === "Apple Watch Series 11") return markupByModel.appleWatchSeries11;
   if (model.startsWith("iPad")) return markupByModel.ipad;
   if (model.startsWith("iPhone 15")) return markupByModel.iphone15;
   if (model.startsWith("iPhone 16")) return markupByModel.iphone16;
@@ -441,7 +443,7 @@ if (!isDryRun) {
 }
 
 console.log(`${isDryRun ? "Проверка" : "Готово"}: обновлено цен ${Object.keys(sortedResult).length}.`);
-console.log("Правила: AirPods +2 000 ₽, iPad +3 000 ₽, Apple Watch +3 000 ₽, iPhone 15 +3 000 ₽, iPhone 16 +3 500 ₽, iPhone 17 и Air +4 000 ₽, iPhone 17 Pro/Pro Max +5 000 ₽, MacBook Neo +4 000 ₽.");
+console.log("Правила: AirPods +2 000 ₽, iPad +3 000 ₽, Apple Watch SE +2 500 ₽, Apple Watch Series 11 +3 000 ₽, iPhone 15 +3 000 ₽, iPhone 16 +3 500 ₽, iPhone 17 и Air +4 000 ₽, iPhone 17 Pro/Pro Max +4 000 ₽, MacBook Neo +4 000 ₽.");
 console.log("Округление: хвост 100-400 до 500, хвост 600-900 до 1 000.");
 for (const [key, item] of Object.entries(sortedResult)) {
   console.log(`- ${key}: ${formatRub(item.supplierPrice)} + ${formatRub(item.markup)} = ${item.price}`);
