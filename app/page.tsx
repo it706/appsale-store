@@ -161,7 +161,14 @@ const airPodsMaxOptions = {
   storages: [],
 };
 
-const appleWatchSeOptions = {
+const appleWatchSe2Options = {
+  colors: ["Midnight"],
+  sims: [],
+  sizes: ["40 мм", "44 мм"],
+  storages: ["S/M", "M/L", "Sport Loop"],
+};
+
+const appleWatchSe3Options = {
   colors: ["Midnight", "Starlight", "Silver"],
   sims: [],
   sizes: ["40 мм", "44 мм"],
@@ -740,8 +747,10 @@ const products: Product[] = [
                 ? ipad11Options
               : name === "iPad Air 8 M4 (2026)"
                 ? ipadAir8Options
-              : name === "Apple Watch SE 2 (2024)" || name === "Apple Watch SE 3 (2025)"
-                ? appleWatchSeOptions
+              : name === "Apple Watch SE 2 (2024)"
+                ? appleWatchSe2Options
+              : name === "Apple Watch SE 3 (2025)"
+                ? appleWatchSe3Options
               : name === "Apple Watch Series 11"
                 ? appleWatchSeries11Options                : iphoneOptions,
 }));
