@@ -627,7 +627,6 @@ function getAppleWatchImages(name: string): Record<string, string[]> | undefined
       Midnight: [
         "/products/apple-watch-se-3-midnight-1.webp",
         "/products/apple-watch-se-3-midnight-2.webp",
-        "/products/apple-watch-se-3-midnight-3.webp",
       ],
       Starlight: [
         "/products/apple-watch-se-3-starlight-1.webp",
