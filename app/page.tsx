@@ -611,6 +611,55 @@ function getAirPodsImages(name: string) {
   return undefined;
 }
 
+function getAppleWatchImages(name: string): Record<string, string[]> | undefined {
+  if (name === "Apple Watch SE 2 (2024)") {
+    return {
+      Midnight: [
+        "/products/apple-watch-se-2-midnight-1.webp",
+        "/products/apple-watch-se-2-midnight-2.webp",
+        "/products/apple-watch-se-2-midnight-3.webp",
+      ],
+    };
+  }
+
+  if (name === "Apple Watch SE 3 (2025)") {
+    return {
+      Midnight: [
+        "/products/apple-watch-se-3-midnight-1.webp",
+        "/products/apple-watch-se-3-midnight-2.webp",
+        "/products/apple-watch-se-3-midnight-3.webp",
+      ],
+      Starlight: [
+        "/products/apple-watch-se-3-starlight-1.webp",
+        "/products/apple-watch-se-3-starlight-2.webp",
+      ],
+    };
+  }
+
+  if (name === "Apple Watch Series 11") {
+    return {
+      "Jet Black": [
+        "/products/apple-watch-series-11-jet-black-1.webp",
+        "/products/apple-watch-series-11-jet-black-2.webp",
+      ],
+      "Space Gray": [
+        "/products/apple-watch-series-11-space-gray-1.webp",
+        "/products/apple-watch-series-11-space-gray-2.webp",
+      ],
+      "Rose Gold": [
+        "/products/apple-watch-series-11-rose-gold-1.webp",
+        "/products/apple-watch-series-11-rose-gold-2.webp",
+      ],
+      Silver: [
+        "/products/apple-watch-series-11-silver-1.webp",
+        "/products/apple-watch-series-11-silver-2.webp",
+      ],
+    };
+  }
+
+  return undefined;
+}
+
 const products: Product[] = [
   "iPhone 17 Pro Max",
   "iPhone 17 Pro",
@@ -707,6 +756,8 @@ const products: Product[] = [
               ? ipad11Images
               : name === "iPad Air 8 M4 (2026)"
                 ? ipadAir8Images
+              : name.includes("Apple Watch")
+                ? getAppleWatchImages(name)
               : undefined,
   name,
   price: "уточнить цену",
