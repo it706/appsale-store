@@ -169,7 +169,7 @@ const appleWatchSe2Options = {
 };
 
 const appleWatchSe3Options = {
-  colors: ["Midnight", "Starlight", "Silver"],
+  colors: ["Midnight", "Starlight"],
   sims: [],
   sizes: ["40 мм", "44 мм"],
   storages: ["S/M", "M/L", "Sport Loop"],
