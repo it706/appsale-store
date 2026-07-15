@@ -1608,6 +1608,23 @@ export default function Home() {
                         ))}
                       </div>
                     </div>
+                    {product.category === "Apple Watch" && product.variantOptions.sizes?.length ? (
+                      <div>
+                        <span>{getSizeOptionLabel(product)}</span>
+                        <div className="variantOptions storageOptions">
+                          {product.variantOptions.sizes.map((size) => (
+                            <button
+                              className={productSelections[product.id]?.size === size ? "active" : ""}
+                              key={size}
+                              onClick={() => updateProductSelection(product.id, "size", size)}
+                              type="button"
+                            >
+                              {size}
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+                    ) : null}
                     {product.variantOptions.storages.length ? (
                       <div>
                         <span>{getStorageOptionLabel(product)}</span>
@@ -1625,7 +1642,7 @@ export default function Home() {
                         </div>
                       </div>
                     ) : null}
-                    {product.variantOptions.sizes?.length ? (
+                    {product.category !== "Apple Watch" && product.variantOptions.sizes?.length ? (
                       <div>
                         <span>{getSizeOptionLabel(product)}</span>
                         <div className="variantOptions storageOptions">
@@ -1894,6 +1911,23 @@ export default function Home() {
                           </button>
                         ))}
                       </div>
+                      {product.category === "Apple Watch" && product.variantOptions.sizes?.length ? (
+                        <>
+                          <span>{getSizeOptionLabel(product)}</span>
+                          <div className="variantOptions storageOptions">
+                            {product.variantOptions.sizes.map((size) => (
+                              <button
+                                className={productSelections[product.id]?.size === size ? "active" : ""}
+                                key={size}
+                                onClick={() => updateProductSelection(product.id, "size", size)}
+                                type="button"
+                              >
+                                {size}
+                              </button>
+                            ))}
+                          </div>
+                        </>
+                      ) : null}
                       {product.variantOptions.storages.length ? (
                         <>
                           <span>{getStorageOptionLabel(product)}</span>
@@ -1911,7 +1945,7 @@ export default function Home() {
                           </div>
                         </>
                       ) : null}
-                      {product.variantOptions.sizes?.length ? (
+                      {product.category !== "Apple Watch" && product.variantOptions.sizes?.length ? (
                         <>
                           <span>{getSizeOptionLabel(product)}</span>
                           <div className="variantOptions storageOptions">
