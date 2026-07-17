@@ -373,24 +373,17 @@ main {
 }
 
 .trustIcon {
-  position: relative;
+  display: grid;
   grid-row: span 2;
+  place-items: center;
   width: 34px;
   height: 34px;
   border: 1.5px solid var(--black);
   border-radius: 50%;
-}
-
-.trustIcon::after {
-  position: absolute;
-  left: 10px;
-  top: 13px;
-  width: 11px;
-  height: 6px;
-  border-left: 1.8px solid var(--black);
-  border-bottom: 1.8px solid var(--black);
-  content: "";
-  transform: rotate(-45deg);
+  color: var(--black);
+  font-size: 22px;
+  font-weight: 520;
+  line-height: 1;
 }
 
 .catalogSection,
