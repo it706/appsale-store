@@ -1570,15 +1570,19 @@ export default function Home() {
 
       <section className="trustStrip" aria-label="Преимущества">
         <div>
+          <span aria-hidden="true">✓</span>
           <p>Только оригинальная техника Apple.</p>
         </div>
         <div>
+          <span aria-hidden="true">✓</span>
           <p>Честные цены и прозрачные условия покупки.</p>
         </div>
         <div>
+          <span aria-hidden="true">✓</span>
           <p>Поможем подобрать устройство, которое подойдет именно вам.</p>
         </div>
         <div>
+          <span aria-hidden="true">✓</span>
           <p>Поддержка до и после покупки — всегда на связи, если понадобится помощь.</p>
         </div>
       </section>
