@@ -1570,20 +1570,19 @@ export default function Home() {
 
       <section className="trustStrip" aria-label="Преимущества">
         <div>
-          <span aria-hidden="true">✓</span>
-          <p>Только оригинальная техника Apple.</p>
+          <span className="trustIcon checkIcon" />
+          <strong>Оригинальная техника</strong>
+          <p>Только официальные устройства</p>
         </div>
         <div>
-          <span aria-hidden="true">✓</span>
-          <p>Честные цены и прозрачные условия покупки.</p>
+          <span className="trustIcon checkIcon" />
+          <strong>Поможем с выбором</strong>
+          <p>Подберем устройство под ваши задачи</p>
         </div>
         <div>
-          <span aria-hidden="true">✓</span>
-          <p>Поможем подобрать устройство, которое подойдет именно вам.</p>
-        </div>
-        <div>
-          <span aria-hidden="true">✓</span>
-          <p>Поддержка до и после покупки — всегда на связи, если понадобится помощь.</p>
+          <span className="trustIcon checkIcon" />
+          <strong>Быстрая доставка</strong>
+          <p>По всей России</p>
         </div>
       </section>
 
@@ -1788,6 +1787,29 @@ export default function Home() {
             <span>03</span>
             <strong>Подтвердите детали</strong>
             <p>Согласуем наличие, способ получения, бронь и удобный формат оплаты.</p>
+          </article>
+        </div>
+      </section>
+
+      <section className="whySection" aria-label="Почему выбирают нас">
+        <div className="sectionHead">
+          <div>
+            <span>Преимущества</span>
+            <h2>Почему выбирают нас.</h2>
+          </div>
+        </div>
+        <div className="whyGrid">
+          <article>
+            <p>Только оригинальная техника Apple.</p>
+          </article>
+          <article>
+            <p>Честные цены и прозрачные условия покупки.</p>
+          </article>
+          <article>
+            <p>Поможем подобрать устройство, которое подойдет именно вам.</p>
+          </article>
+          <article>
+            <p>Поддержка до и после покупки — всегда на связи, если понадобится помощь.</p>
           </article>
         </div>
       </section>
