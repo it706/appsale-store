@@ -1911,12 +1911,12 @@ export default function Home() {
           <span>Каталог</span>
         </button>
         <button className="mobileCartTab" onClick={() => setIsCartOpen(true)} type="button">
-          <i className="tabIcon tabIconCart" aria-hidden="true" />
+          <i className="tabIcon tabIconCart" aria-hidden="true">🛒</i>
           <span>Корзина</span>
           {cartCount ? <b>{cartCount}</b> : null}
         </button>
         <button onClick={() => setIsSupportOpen(true)} type="button">
-          <i className="tabIcon tabIconHelp" aria-hidden="true" />
+          <i className="tabIcon tabIconHelp" aria-hidden="true">❔</i>
           <span>Поддержка</span>
         </button>
         <button onClick={() => setIsProfileOpen(true)} type="button">

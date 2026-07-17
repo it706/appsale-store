@@ -2681,10 +2681,14 @@ body.modalOpen .backToTop {
 
   .tabIcon {
     position: relative;
-    display: block;
+    display: grid;
+    place-items: center;
     width: 22px;
     height: 22px;
     color: currentColor;
+    font-size: 22px;
+    font-style: normal;
+    line-height: 1;
   }
 
   .tabIconCatalog {
@@ -2695,45 +2699,8 @@ body.modalOpen .backToTop {
       linear-gradient(currentColor 0 0) 12px 12px / 8px 8px no-repeat;
   }
 
-  .tabIconCart::before {
-    position: absolute;
-    left: 4px;
-    top: 7px;
-    width: 14px;
-    height: 9px;
-    border: 2px solid currentColor;
-    border-top: 0;
-    border-radius: 0 0 5px 5px;
-    content: "";
-  }
-
-  .tabIconCart::after {
-    position: absolute;
-    left: 5px;
-    top: 4px;
-    width: 15px;
-    height: 15px;
-    background:
-      linear-gradient(currentColor 0 0) 0 0 / 7px 2px no-repeat,
-      radial-gradient(circle, currentColor 0 2px, transparent 2.2px) 1px 13px / 5px 3px no-repeat,
-      radial-gradient(circle, currentColor 0 2px, transparent 2.2px) 10px 13px / 5px 3px no-repeat;
-    content: "";
-  }
-
   .tabIconHelp {
-    border: 1.8px solid currentColor;
-    border-radius: 50%;
-  }
-
-  .tabIconHelp::before {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    content: "?";
-    font-size: 15px;
-    font-weight: 780;
-    line-height: 1;
-    transform: translate(-50%, -52%);
+    font-size: 23px;
   }
 
   .tabIconProfile {
