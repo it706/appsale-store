@@ -1571,7 +1571,7 @@ export default function Home() {
       <section className="trustStrip" aria-label="Преимущества">
         <div>
           <span className="trustIcon checkIcon">✓</span>
-          <strong>Только оригинальная техника Apple</strong>
+          <strong>Только оригинальная техника</strong>
         </div>
         <div>
           <span className="trustIcon checkIcon">✓</span>
