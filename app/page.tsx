@@ -1571,18 +1571,15 @@ export default function Home() {
       <section className="trustStrip" aria-label="Преимущества">
         <div>
           <span className="trustIcon checkIcon" />
-          <strong>Оригинальная техника</strong>
-          <p>Только официальные устройства</p>
+          <strong>Только оригинальная техника Apple.</strong>
         </div>
         <div>
           <span className="trustIcon checkIcon" />
-          <strong>Поможем с выбором</strong>
-          <p>Подберем устройство под ваши задачи</p>
+          <strong>Поможем подобрать устройство, которое подойдет именно вам.</strong>
         </div>
         <div>
           <span className="trustIcon checkIcon" />
-          <strong>Быстрая доставка</strong>
-          <p>По всей России</p>
+          <strong>Поддержка до и после покупки — мы всегда на связи, если понадобится помощь.</strong>
         </div>
       </section>
 
