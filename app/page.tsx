@@ -1791,6 +1791,33 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="whySection" aria-label="Почему выбирают нас">
+        <div className="sectionHead">
+          <div>
+            <span>Преимущества</span>
+            <h2>Почему выбирают нас.</h2>
+          </div>
+        </div>
+        <div className="whyGrid">
+          <article>
+            <span aria-hidden="true">✓</span>
+            <p>Только оригинальная техника Apple.</p>
+          </article>
+          <article>
+            <span aria-hidden="true">✓</span>
+            <p>Честные цены и прозрачные условия покупки.</p>
+          </article>
+          <article>
+            <span aria-hidden="true">✓</span>
+            <p>Поможем подобрать устройство, которое подойдет именно вам.</p>
+          </article>
+          <article>
+            <span aria-hidden="true">✓</span>
+            <p>Поддержка до и после покупки — всегда на связи, если понадобится помощь.</p>
+          </article>
+        </div>
+      </section>
+
       <section className="reviewsSection" aria-label="Отзывы клиентов">
         <div className="sectionHead">
           <div>
