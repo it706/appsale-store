@@ -367,6 +367,10 @@ main {
   line-height: 1.08;
 }
 
+.trustStrip strong {
+  color: var(--gray);
+}
+
 .trustStrip p {
   grid-column: 2;
   margin: 0;
