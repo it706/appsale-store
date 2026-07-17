@@ -319,7 +319,6 @@ main {
 
 .trustStrip,
 .howSection,
-.whySection,
 .reviewsSection,
 .paymentSection,
 .footer {
@@ -334,7 +333,7 @@ main {
 
 .trustStrip {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 1px;
   overflow: hidden;
   border: 1px solid var(--line);
@@ -345,7 +344,8 @@ main {
 .trustStrip div {
   display: grid;
   grid-template-columns: 44px minmax(0, 1fr);
-  gap: 7px 16px;
+  align-items: start;
+  gap: 16px;
   min-height: 142px;
   padding: 28px;
   background: rgba(255, 255, 255, 0.56);
@@ -360,7 +360,6 @@ main {
   font-weight: 760;
 }
 
-.trustStrip strong,
 .steps strong {
   font-size: 22px;
   line-height: 1.08;
@@ -368,6 +367,10 @@ main {
 
 .trustStrip p {
   grid-column: 2;
+  margin: 0;
+  color: var(--gray);
+  font-size: 17px;
+  line-height: 1.35;
 }
 
 .trustIcon {
@@ -393,7 +396,6 @@ main {
 
 .catalogSection,
 .howSection,
-.whySection,
 .reviewsSection,
 .paymentSection {
   padding: 96px 0 0;
@@ -1454,7 +1456,6 @@ main {
 }
 
 .steps,
-.whyGrid,
 .serviceGrid {
   display: grid;
   gap: 18px;
@@ -1468,12 +1469,7 @@ main {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
-.whyGrid {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-}
-
 .steps article,
-.whyGrid article,
 .serviceGrid article {
   display: grid;
   gap: 14px;
@@ -1482,20 +1478,6 @@ main {
   border-radius: 28px;
   padding: 28px;
   background: rgba(255, 255, 255, 0.54);
-}
-
-.whyGrid article {
-  min-height: 150px;
-  align-content: start;
-  border-radius: 24px;
-  padding: 24px;
-}
-
-.whyGrid p {
-  margin: 0;
-  color: var(--gray);
-  font-size: 18px;
-  line-height: 1.35;
 }
 
 .serviceGrid article {
@@ -2134,7 +2116,6 @@ body.modalOpen .backToTop {
 
   .trustStrip,
   .steps,
-  .whyGrid,
   .serviceGrid,
   .reviewsGrid {
     grid-template-columns: 1fr;
@@ -2151,7 +2132,6 @@ body.modalOpen .backToTop {
   .trustStrip,
   .catalogSection,
   .howSection,
-  .whySection,
   .reviewsSection,
   .paymentSection,
   .footer {
@@ -2315,7 +2295,6 @@ body.modalOpen .backToTop {
   .trustStrip,
   .catalogSection,
   .howSection,
-  .whySection,
   .paymentSection,
   .footer {
     width: calc(100% - 16px);
@@ -2331,10 +2310,6 @@ body.modalOpen .backToTop {
     padding: 18px;
   }
 
-  .trustStrip strong {
-    font-size: 18px;
-  }
-
   .catalogSection {
     padding-top: 26px;
   }
@@ -2343,25 +2318,11 @@ body.modalOpen .backToTop {
     padding-top: 52px;
   }
 
-  .whySection {
-    padding-top: 52px;
-  }
-
   .paymentSection {
     padding-top: 52px;
   }
 
-  .whyGrid {
-    gap: 10px;
-  }
-
-  .whyGrid article {
-    min-height: auto;
-    border-radius: 22px;
-    padding: 20px;
-  }
-
-  .whyGrid p {
+  .trustStrip p {
     font-size: 17px;
   }
 
