@@ -1800,19 +1800,15 @@ export default function Home() {
         </div>
         <div className="whyGrid">
           <article>
-            <span aria-hidden="true">✓</span>
             <p>Только оригинальная техника Apple.</p>
           </article>
           <article>
-            <span aria-hidden="true">✓</span>
             <p>Честные цены и прозрачные условия покупки.</p>
           </article>
           <article>
-            <span aria-hidden="true">✓</span>
             <p>Поможем подобрать устройство, которое подойдет именно вам.</p>
           </article>
           <article>
-            <span aria-hidden="true">✓</span>
             <p>Поддержка до и после покупки — всегда на связи, если понадобится помощь.</p>
           </article>
         </div>
